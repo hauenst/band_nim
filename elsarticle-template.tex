@@ -1,6 +1,21 @@
 \documentclass[review]{elsarticle}
 
 \usepackage{lineno,hyperref}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage{color}
+%\usepackage{hepparticles} % particle names
+%\usepackage{hepnames} % shortcuts for lots of particle names
+\usepackage[alsoload=hep]{siunitx}
+\sisetup{ per-mode=symbol}
+
+
+\graphicspath{{figures/}}
 \modulolinenumbers[5]
 
 \journal{}
@@ -34,19 +49,74 @@ We present a bunch of stuff about BAND and how awesome it is.
 \linenumbers
 
 \section{Introduction}
+\begin{itemize}
+\item Quick physics background about tagged DIS measurements and EMC/SRC
+\end{itemize}
+
+The CLAS12 (Cebaf Large Angle Spectrometer)[ADD REF] in Jefferson
+
+Gap in CLAS, notwendig eines neuen detectors, Easy detection and high efficiency , so plastic scinittaltors
+TDC and ADCs
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Design Studies}
-
+Do we need this chapter?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Properties and performances of BAND}
+\section{Description of the Detector}
+\subsection{Overview}
+%\begin{figure}[thb]
+%\centering
+%\includegraphics[width=0.48\textwidth]{BandInContext1.png}
+%\includegraphics[width=0.48\textwidth]{BandInContext2.png}
+% \caption{The BAND detector is shown with its surroundings: CLAS12 target, beam line and SVT cart. (Left) Beam is coming from top left. (Right) Beam is coming from bottom left. }
+%  \label{fig:bandcontext}
+%\end{figure}
+The Backward Angle Neutron Detector (BAND) is placed at the top of the SVT cart upstream of the CLAS12 target. The detector in context of its surroundings (target, beam line and cart) is shown in Fig. \ref{fig:bandcontext}.
+ 
+The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:barlayout}. The bottom rows are only arranged in four layers due to obstruction from surrounding frames.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.48\textwidth]{Band01.png}
+  \includegraphics[width=0.48\textwidth]{BandVeto.png}
+ \caption {Isometric view of the active BAND detector volume. The geometry is comprised of 5 layers of 18 vertically stacked bars. The magenta bars (top) are $164\,\mathrm{cm}$ long, the blue bars are $202\,\mathrm{cm}$ long while the shorter green bars around the beam hole are $51\,\mathrm{cm}$ long. Every bar is read out on both sides by a PMT.}
+  \label{fig:barlayout}
+  \includegraphics[width=0.40\textwidth]{BandVeto.png}
+ \caption {Isometric view of the BAND veto layer. It is similar to the active area of BAND. The bars have the same length as the bars shown in Fig. \ref{fig:barlayout}. Every bar is read out on one side by a PMT.}
+  \label{fig:vetolayout}
+\end{figure}
+Each bar has a cross section of $7.2 \times 7.2\,\mathrm{cm}^{2}$ and are made of EJ-200 scintillant. Three different long bars are used in the detector: 15 bars with a length of $164\,\mathrm{cm}$ (magenta in Fig. \ref{fig:barlayout}), 43 bars with a length of $202\,\mathrm{cm}$ (blue in Fig. \ref{fig:barlayout}) and 58 short bars with a length of $51\,\mathrm{cm}$ (green in Fig. \ref{fig:barlayout}). The short bars are necessary for hole for the beam line and target installation. The total thickness is $36\,\mathrm{cm}$ giving a neutron detection efficiency of about 30\%.
+
+All bars are read-out on both sides by PMTs (100 Hamamatsu R7724 and 132 ET 9214) giving a total of 232 active channels. Since the PMTs are placed in the fringe field region of the solenoid, and they are encased in a cylindrical shielding made up by a 2-mm-thick layer of mu-metal.
+
+In front of the first active layer of BAND, a veto layer is installed with 24 scintillators bars which are read-out only on one side by Thorne EMI 9954KB PMTs. The bars have a cross section of $2 \times 7.2\,\mathrm{cm}^{2}$. The bars in the veto layer have the same length as the bars of one layer of the active detector area. The veto layer is shown in Fig. \ref{fig:vetolayout}.
+
+
+The total number of channels for BAND including the veto layer is 256. Between BAND and CLAS a $2\,\mathrm{cm}$ lead shield is installed.
+Next to the PMTs attached to the frame a patch panel is installed for the HV cables, signal cables and optical fibers from the laser calibration system.
+
+\subsection{Read-out Electronics}
+
+
+In order to operate the PMTs, high voltages (typically in the range of 1500 V) are provided by a multi-channel CAEN SYS4527 mainframe with 11 A1535SN cards (24 channel each).
+The signal of each PMT is sent to an splitter. The splitter are the same as the one used by the HPS experiment.
+From the splitter one signal is sent to flash-ADCs (250 VXS, 16 channels/board, made and owned by JLab) while the other signal is sent to  discriminators used by HPS (16 channels/board).
+The discriminated time signal then goes to a TDC (CAEN VX1190A, 128 channels/board, 100 ps/channel resolution). The read-out system is installed left of BAND in beam direction. 
+In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and a TDC in a VME crate and 16 splitters.  Furthermore, a signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. A trigger for cosmics for testing and on a pulser for the laser calibration system will be implemented. BAND does not need to be implemented in the main event triggers of CLAS12.
+
+\subsection{Laser Calibration System}
+%MISSING PICTURE
+The Laser calibration system consists of a Teem Photonics STV-01E-140 picosecond laser with a wavelength of $355\,\mathrm{nm}$, several splitters, reference photodiode and a fiber distribution system. All of these components are in a sealed, light-tight box. The output of the laser is about $1\,\mu\mathrm{J}$ which will be attenuated and distributed to all fiber outputs which have an output of about $100\,\mathrm{fJ}$. The fibers are connected via a patch panel to each scintillator bar. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Operation of BAND}
 
+\subsection{Calibration}
+
+\subsection{Cosmics, Source and Laser Data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Summary}
