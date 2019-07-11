@@ -51,29 +51,28 @@ We present a bunch of stuff about BAND and how awesome it is.
 \section{Introduction}
 \begin{itemize}
 \item Quick physics background about tagged DIS measurements and EMC/SRC
+\item Quick overview of CLAS12
+\item broad/generic of BAND
 \end{itemize}
+
 
 The CLAS12 (Cebaf Large Angle Spectrometer)[ADD REF] in Jefferson Lab's HallB experimental hall is a multi-purpose spectrometer to detect charged and neutral particles. It covers angles from xx to xx and momenta from xx to xx for the different particles. For our physics of interest, it is necessary to detect recoil neutrons with momenta above \SI{200/250}{\mega\eVperc} at backward angles. Therefore, a new detector has been build to detect these neutrons, the Backward Angle Neutron Detector (BAND). 
 
+Mention here general design considerations of BAND -- efficiency for XX momenta and coverage of XX angles with resolutions XX and design space XX.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Design Studies}
-NOTE: Not sure if this fits here, but the space constraints gave some limitation on the detector design.
+\section{Design of the BAND}
 
-Due to space constraints in HallB, the only possible space closest to the target is on top of the support cart for the silicon vertex tracker of CLAS12.  The detector in context of its surroundings (target, beam line and cart) is shown in Fig. \ref{fig:bandcontext}.
-
+\begin{itemize}
+\item geometry
 \begin{figure}[thb]
 \centering
 \includegraphics[width=0.48\textwidth]{BandInContext1.png}
 \includegraphics[width=0.48\textwidth]{BandInContext2.png}
- \caption{The BAND detector is shown with its surroundings: CLAS12 target, beam line and Silicon Vertex Tracker cart. (Left) Beam is coming from top left. (Right) Beam is coming from bottom left. }
+ \caption{TODO: better picture, I don't like the options on the CAD drawing. The BAND detector is shown with its surroundings: CLAS12 target, beam line and Silicon Vertex Tracker cart. (Left) Beam is coming from top left. (Right) Beam is coming from bottom left. }
   \label{fig:bandcontext}
 \end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Properties and performances of BAND}
-\subsection{Detector Setup}
 The BAND detector consist of plastic scintillators made from  EJ-200 scintillant. Each bar in the active detector area has a cross section of $7.2 \times 7.2\,\mathrm{cm}^{2}$. In total there are 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bar. The arrangement of the bars is shown in Fig. \ref{fig:barlayout}. The bottom rows are only arranged in four layers due to obstruction from surrounding frames.
 
 \begin{figure}[htb]
@@ -89,6 +88,21 @@ All bars are read-out on both sides by PMTs (100 Hamamatsu R7724  [ADD REF] and 
 
 In front of the first active layer of BAND, a veto layer is installed with 24 scintillators bars which are read-out only on one side by Thorne EMI 9954KB PMTs [ADD REF]. The bars have a cross section of $2 \times 7.2\,\mathrm{cm}^{2}$. The bars in the veto layer have the same length as the bars of one layer of the active detector area. The veto layer is shown in Fig. \ref{fig:vetolayout}.
 
+
+\item Scint material
+\item which PMTs / why
+\begin{figure}[thb]
+\centering
+\includegraphics[width=0.48\textwidth]{R13089.png}
+\includegraphics[width=0.48\textwidth]{R7724-100.png}
+\caption{TODO: want to just parameterize the curve and overlay them on top of each other with table of characteristics and rough cost }
+\label{fig:bandpmts}
+\end{figure}
+
+\item mu metal study
+\item light guides
+\item assembly, installation
+\item electronics
 The total number of channels for BAND including the veto layer is 256. Between BAND and CLAS a $2\,\mathrm{cm}$ lead shield is installed.
 
 
@@ -98,34 +112,35 @@ From the splitter one signal is sent to flash-ADCs (250 VXS, 16 channels/board, 
 The discriminated time signal then goes to a TDC (CAEN VX1190A, 128 channels/board, 100 ps/channel resolution). The read-out system is installed left of BAND in beam direction. 
 In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and a TDC in a VME crate and 16 splitters.  Furthermore, a signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. A trigger for cosmics for testing and on a pulser for the laser calibration system will be implemented. BAND does not need to be implemented in the main event triggers of CLAS12.
 
-%MISSING PICTURE
+
+\item laser system
 The Laser calibration system consists of a Teem Photonics STV-01E-140 picosecond laser with a wavelength of $355\,\mathrm{nm}$, several splitters, reference photodiode and a fiber distribution system. All of these components are in a sealed, light-tight box. The output of the laser is about $1\,\mu\mathrm{J}$ which will be attenuated and distributed to all fiber outputs which have an output of about $100\,\mathrm{fJ}$. The fibers are connected via a patch panel to each scintillator bar. 
 
-\subsection{Performances}
-
-\begin{itemize}
-\item Neutron efficiency (Fall data)
-\item Neutron resolution (Fall data)
 \end{itemize}
+
+
+% (E.S): I saw we can just quickly summarize the general design considerations in the intro, and leave these about more optimization of detector components and final design chosen
+%NOTE: Not sure if this fits here, but the space constraints gave some limitation on the detector design.
+%Due to space constraints in HallB, the only possible space closest to the target is on top of the support cart for the silicon vertex tracker of CLAS12.  The detector in context of its surroundings (target, beam line and cart) is shown in Fig. \ref{fig:bandcontext}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Operation of BAND}
+\section{BAND Performance}
 
-\subsection{Calibration}
 \begin{itemize}
-\item Walk Correction
-\item Offset correction
-\item Speed of Light
-\item Effects of corrections on resolution
+\item bench measurements
+Some plots from our most recent measurements in the lab with realistic BAND bars. Laser resolution and maybe a cosmic run.
+
+\item source, cosmic, laser calibrations
+\item beam performance
 \end{itemize}
 
-\subsection{Cosmics, Source and Laser Data}
+
+
+%MISSING PICTURE
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}
-\item Cosmics $\rightarrow$ ADC gains
-\item Laser $\rightarrow$ Timing Calibrations
-\item Sources $\rightarrow$ ADC to MeVee conversion (probably with newer data, to do in Fall)
-\end{itemize}
 
 \section{Summary}
 
