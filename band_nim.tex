@@ -142,7 +142,63 @@ Some plots from our most recent measurements in the lab with realistic BAND bars
 \item beam performance
 \end{itemize}
 
+% ==================================================================================================
+\subsection{Effective Velocity}
 
+The velocity of light traveling through the scintillator bars 
+can be determined from the width of the left minus right time spectra for a given bar ($\Delta t$), and the bar length ($L$) as:
+
+\begin{equation}
+v_{eff} = \frac{2 \cdot L}{\Delta t}
+\end{equation}
+
+% ---------------------------------------------------
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/calibrations/eff_velocity.pdf}
+\caption{}
+\end{figure}
+% ---------------------------------------------------
+
+$\Delta t$ is defined as the the width of the left minus right time spectra at $20\%$ of the maximum of the distribution using cosmic data.
+
+% ==================================================================================================
+\subsection{Attenuation Length}
+
+The distance in which the intensity of light traveling through a scintillator drops by $1/e$ is called attenuation length.
+It is used to correct the ADC values when determining the deposited energy.
+While scintillator manufacturers provide attenuation length values, this value can be significantly different
+when a detector is built, and thus it has to me measured.
+The attenuation length, hereby denoted by $\mu$, can be related to ADC and timing information recorded by
+the left and right PMTs in a given bar as:
+
+\begin{equation}
+ln(R) \equiv ln \Big( \frac{\rm{ADC}_L}{\rm{ADC}_R} \Big) = -\frac{v_{eff}}{\mu}(t_L-t_R)
+\end{equation}
+
+Consequently, $\mu$ can be determined by fitting a linear function to a plot of $ln ( R )$ vs. $-v_{eff}(t_L-t_R)$
+and extracting the inverse of the slope. We carry out this measurement with cosmic data, since cosmic rays
+interact with the detector throughout the entire length of the bars (in contrast, for example, with the laser data,
+which only produces hits at the center of the bar).
+
+% ---------------------------------------------------
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/calibrations/attenuation.pdf}
+\caption{}
+\end{figure}
+% ---------------------------------------------------
+
+% ==================================================================================================
+\subsection{Resolution}
+
+% ---------------------------------------------------
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/calibrations/resolutions.pdf}
+\caption{}
+\end{figure}
+% ---------------------------------------------------
 
 %MISSING PICTURE
 
