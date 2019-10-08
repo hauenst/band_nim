@@ -4,3 +4,7 @@
 *.out
 *.spl
 *.synctex.gz
+.DS_Store
+*.bbl
+*.blg
+figures/.DS_Store
