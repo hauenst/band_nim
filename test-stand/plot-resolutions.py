@@ -57,12 +57,15 @@ res = [r772410_res,et9214_res,r13089_res,r7724100_res,r13435_res]
 ctr=0
 colors=['red','blue','orange','dimgrey','darkolivegreen']
 labels=['R7724-10 (Chosen)','ET9214 (Chosen)','R13089','R7724-100','R-13435']
+
+plt.figure(figsize=(10,9))
+
 for x,y in zip(ens,res):
 	popt, pcov = curve_fit(func, x, y, p0 = [900,1,400] )
 	xdata = np.linspace(0.3,10,200)
 	#plt.plot(xdata, func(xdata, *popt), linestyle='--', label=labels[ctr]+' fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(popt),color=colors[ctr],linewidth=3)
-	if ctr < 2: plt.plot(xdata, func(xdata, *popt), linestyle='-', label=labels[ctr],color=colors[ctr],linewidth=3,zorder=99-ctr)
-	else: plt.plot(xdata, func(xdata, *popt), linestyle='--', label=labels[ctr],color=colors[ctr],linewidth=3,zorder=99-ctr)
+	if ctr < 2: plt.plot(xdata, func(xdata, *popt), linestyle='-', label=labels[ctr],color=colors[ctr],linewidth=2,zorder=99-ctr)
+	else: plt.plot(xdata, func(xdata, *popt), linestyle='-', label=labels[ctr],color=colors[ctr],linewidth=2,zorder=99-ctr)
 	#plt.plot(x,y,marker='o',linestyle='',color=colors[ctr])
 	plt.ylim([0,900])
 	plt.xlim([0.3,2])
@@ -74,11 +77,11 @@ for x,y in zip(ens,res):
 	plt.xticks(fontsize=14) 
 	plt.yticks(fontsize=14) 
 	
-	plt.tight_layout()
+	#plt.tight_layout()
 	
 	ctr+=1
 
-plt.savefig("test-resolutions.pdf",bbox_inches="tight")
+plt.savefig("test-resolutions.pdf")
 plt.show()
 
 # R7724-10 Fit:

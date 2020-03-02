@@ -9,10 +9,12 @@
 \usepackage{epstopdf}
 \usepackage{multirow}
 \usepackage{color}
+\usepackage{longtable}
 \usepackage{braket}
 %\usepackage{hepparticles} % particle names
 %\usepackage{hepnames} % shortcuts for lots of particle names
 \usepackage[alsoload=hep]{siunitx}
+
 \sisetup{ per-mode=symbol}
 
 
@@ -89,7 +91,8 @@ The CLAS12 (Cebaf Large Angle Spectrometer)[ADD REF] in Jefferson Lab's HallB ex
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.48\textwidth]{BandInClas.pdf}
-	\includegraphics[width=0.48\textwidth]{BandInContext1.png}
+	\includegraphics[width=0.48\textwidth]{FULL_CONTEXT_STUDIE_3.png}
+	\includegraphics[width=0.48\textwidth]{BAND_1-2.png}
 		\caption{BAND with CLAS12}
 		\label{fig:clas12}
 \end{figure}
@@ -113,8 +116,8 @@ time resolutions. With a design ToF resolution below $300$ \si{\pico\second}, $7
 fiducial volume, granularity, and cost.
 \begin{figure}[h]
 	\centering
-		\includegraphics[width=0.48\textwidth]{Band01.png}
-		\includegraphics[width=0.48\textwidth]{BandVeto.png}
+		\includegraphics[width=0.48\textwidth]{MAIN_DETECTOR_COLORED_2.png}
+		\includegraphics[width=0.48\textwidth]{VETO_DETECTOR_COLORED_2.png}
 		\caption{BAND design. Need an updated nicer figure with direction of beam / coordinate system. Also have a similar 
 		color scheme denoting the different sectors, so let's do a darker/ligher shade of green for the short bars so we can make 
 		a table of sector, layer, ID, etc..}
@@ -123,7 +126,7 @@ fiducial volume, granularity, and cost.
 
 \subsection{Calibration system}
 Due to the placement of the BAND, in CEBAF 12 \si{\giga\electronvolt} with the CLAS12 magnetic fields [{\color{red}CITE}], there is a lack of high-rate exclusive processes 
-that can be used for monitoring performance stability. A laser system [{\color{red}CITE}] was implemented to validate performance during data-taking. This system also 
+that can be used for monitoring performance stability and perform calibrations. A laser system [{\color{red}CITE}] was implemented to validate performance during data-taking. This system also 
 provided a method to quickly perform calibrations (discussed below).
 
 \subsection{Components}
@@ -140,9 +143,11 @@ two $\gamma$ decays down to a $0^+$ ground state (1.17, 1.33 MeV respectively). 
 emission of 180$\degree$. The $^{60}$Co source is collimated by two lead bricks to deposit the $\gamma$-rays at specific locations along the bars, allowing for the 
 study of PMT time resolution as a function of distance from the PMT (or, due to attenuation along the bar, effective-energy observed by the PMT).
 
+{\color{red}Discuss the results of the test and which PMT was chosen / why.}
+
 \begin{table}[t!]
 	\caption{Tested configurations. Resolution given $2$ \si{\mega\electronvolt} energy deposit in middle of bar.}
-	\begin{tabular}{  m{5em} | m{4em} | m{5em} | m{4em} | m{3em} |  m{5.7em} | m{4em} }
+	\begin{tabular}{  m{5em} | m{4em} | m{5em} | m{4em} | m{3em} |  m{5.7em} | m{3em} }
 		\hline
 			Scintillator & Reflector & PMT & Optical-coupling & Length (cm) & Cross section (\si{\centi\meter} x \si{\centi\meter}) & $\sigma$ (\si{\pico\second})\\
 		\hline
@@ -176,15 +181,64 @@ study of PMT time resolution as a function of distance from the PMT (or, due to 
 \end{figure}
 
 \subsection{Magnetic shielding}
-{\color{red}Another consideration was magnetic shielding. Explain.}
+{\color{red}EDIT TEXT FROM KITTY:
+Magnetic shielding testing for BAND was conducted at ODU. We constructed a pair of 56-turn Helmholtz coils with a radius of 0.5 m, one borrowed from an existing setup, and one welded and wrapped on-site. We built an aluminium frame to maintain coil spacing, and laid a wooden platform between the coils. We also built a small prototype detector consisting of a 2 cm thick, 5 cm diameter disc of plastic scintillant, 7 cm long, 5 cm diameter cylindrical acrylic light guides, and PMTs with voltage dividers of the type we anticipated using to build the final detector. The disc of scintillant was mounted to the light guides with two-part optical cement, and the PMTs were mounted temporarily using optical grease. The detector was then light-proofed with Tedlar and stabilized in a simple cradle of PMT shipping foam. The cradle was placed on a stack of plastic shelving to center it in the field, then covered with black fleece.
+
+As a baseline, the TDC and ADC peaks produced by strontium-90 and caesium-137 sources, and two different source placements were measured for a nominal operating voltage of the PMTs with no shielding. The goal was to place shielding such that the fewest number of events would be lost and the effect on timing would be minimized as magnetic field increased.
+
+We tested two thicknesses of mu-metal shielding, each in two diameters, as well as two pipes of soft iron. The magnetic field, amount of detector covered by the shielding, the thickness of the shielding, the placement of two radioactive sources, and the angle of the detector to the field were all varied. The following table shows the full complement of variables:
+
+*only the caesium-137 was tested at 5 cm. The strontium-90 source triggered too few events when not directly atop the detector.
+
+Magnetic field: varied by changing current in the coils, limited to 80 gauss to prevent melting
+Angle: changed by aligning PMT cradle with markers on the magnet platform
+Cover: measured from PMT face, along light guides
+Shield thickness: varied by sliding one or both thicknesses of mu-metal shielding over the PMTs. Soft iron was only tested alone.
+--------
+
+We concluded that (***I forget what thickness was finally ordered...***) mu-metal shielding placed 5 cm past the PMT faces was most effective to preserve events and minimize timing distortions.
+}
 
 \subsection{Lead shielding}
-{\color{red}Another consideration was lead shielding. Explain.}
+{\color{red}Why did we end up putting lead shielding - just a guess?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Description}
-All the parts, models, electronics, pmt-to-bar software reconstruction?, etc..
+
+%%% ----------------- Geometry subsection
+\subsection{Geometry}
+
+%%% ----------------- Components subsection
+\subsection{Components}
+
+%\begin{table}[t!]
+%	\caption{}
+
+%	\label{tab:tests}
+%\end{table}
+
+
+%%% ----------------- Assembly subsection
+\subsection{Assembly}
+
+%%% ----------------- Electronics subsection
+\subsection{Electronics}
+In order to operate the PMTs, high voltages (typically in the range of 1500 V) are provided by a multi-channel CAEN SYS4527 mainframe with 11 A1535SN cards (24 channel each).
+The signal of each PMT is sent to an splitter. The splitter are the same as the one used by the HPS experiment.
+From the splitter one signal is sent to flash-ADCs (250 VXS, 16 channels/board, made and owned by JLab) while the other signal is sent to  discriminators used by HPS (16 channels/board).
+The discriminated time signal then goes to a TDC (CAEN VX1190A, 128 channels/board, 100 ps/channel resolution). The read-out system is installed left of BAND in beam direction. 
+In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and a TDC in a VME crate and 16 splitters.  Furthermore, a signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. A trigger for cosmics for testing and on a pulser for the laser calibration system will be implemented. BAND does not need to be implemented in the main event triggers of CLAS12.
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=0.96\textwidth]{figures/electronics-diag.pdf}
+	\caption{Electronic schematic for }
+	\label{fig:electronic-diag}
+\end{figure}
+
+%%% ----------------- Laser system subsection
+\subsection{Laser calibration system}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -203,7 +257,7 @@ shown in Fig~\ref{fig:hv_settings}.
 	\centering
 		\begin{minipage}{0.48\textwidth}
 			\includegraphics[width=\textwidth]{adc-spectra.png}\\
-			\includegraphics[width=\textwidth]{gain-curve.png}
+			%\includegraphics[width=\textwidth]{.png}
 			\label{fig:gain}
 		\end{minipage}
 		\begin{minipage}{0.48\textwidth}
@@ -379,43 +433,9 @@ Fig.~\ref{fig:tof}
 \subsubsection{Neutron efficiency and resolution}
 
 
+	
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\iffalse
-
-The BAND detector consist of plastic scintillators made from  EJ-200 scintillant. Each bar in the active detector area has a cross section of $7.2 \times 7.2\,\mathrm{cm}^{2}$. In total there are 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bar. The arrangement of the bars is shown in Fig. \ref{fig:barlayout}. The bottom rows are only arranged in four layers due to obstruction from surrounding frames.
-
-Three different long bars are used in the detector: 15 bars with a length of $164\,\mathrm{cm}$ (magenta in Fig. \ref{fig:barlayout}), 43 bars with a length of $202\,\mathrm{cm}$ (blue in Fig. \ref{fig:barlayout}) and 58 short bars with a length of $51\,\mathrm{cm}$ (green in Fig. \ref{fig:barlayout}). The short bars are necessary for the hole for the beam line and target installation. The total thickness is $36\,\mathrm{cm}$ gives a neutron detection efficiency of about 30\%.
-
-All bars are read-out on both sides by PMTs (100 Hamamatsu R7724  [ADD REF] and 132 ET 9214  [ADD REF]) giving a total of 232 active channels. Since the PMTs are placed in the fringe field region of the solenoid, and they are encased in a cylindrical shielding made up by a \SI{2}{\milli\metre} thick layer of mu-metal.
-
-In front of the first active layer of BAND, a veto layer is installed with 24 scintillators bars which are read-out only on one side by Thorne EMI 9954KB PMTs [ADD REF]. The bars have a cross section of $2 \times 7.2\,\mathrm{cm}^{2}$. The bars in the veto layer have the same length as the bars of one layer of the active detector area. The veto layer is shown in Fig. \ref{fig:vetolayout}.
-
-The total number of channels for BAND including the veto layer is 256. Between BAND and CLAS a $2\,\mathrm{cm}$ lead shield is installed.
-
-In order to operate the PMTs, high voltages (typically in the range of 1500 V) are provided by a multi-channel CAEN SYS4527 mainframe with 11 A1535SN cards (24 channel each).
-The signal of each PMT is sent to an splitter. The splitter are the same as the one used by the HPS experiment.
-From the splitter one signal is sent to flash-ADCs (250 VXS, 16 channels/board, made and owned by JLab) while the other signal is sent to  discriminators used by HPS (16 channels/board).
-The discriminated time signal then goes to a TDC (CAEN VX1190A, 128 channels/board, 100 ps/channel resolution). The read-out system is installed left of BAND in beam direction. 
-In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and a TDC in a VME crate and 16 splitters.  Furthermore, a signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. A trigger for cosmics for testing and on a pulser for the laser calibration system will be implemented. BAND does not need to be implemented in the main event triggers of CLAS12.
-
-The Laser calibration system consists of a Teem Photonics STV-01E-140 picosecond laser with a wavelength of $355\,\mathrm{nm}$, several splitters, reference photodiode and a fiber distribution system. All of these components are in a sealed, light-tight box. The output of the laser is about $1\,\mu\mathrm{J}$ which will be attenuated and distributed to all fiber outputs which have an output of about $100\,\mathrm{fJ}$. The fibers are connected via a patch panel to each scintillator bar. 
-
-\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -426,6 +446,107 @@ The Laser calibration system consists of a Teem Photonics STV-01E-140 picosecond
 \section{Acknowledgements}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\section{Appendix}
+\begin{longtable}{  m{3em} | m{3em} | m{5em} | m{3em} | m{3em} | m{3em} | m{8em} }
+		\hline
+			Sector & Layer & Component & Length (\si{\centi\meter}) & PMTs  & $\sigma$ (\si{\pico\second}) & Nominal distance from target (\si{\centi\meter}) \\
+		\hline
+		\hline
+1	&1	&1	&160	&R7724	&XXX	&XXX\\ 
+1	&1	&2	&160	&R7724	&XXX	&XXX\\ 
+1	&1	&3	&160	&R7724	&XXX	&XXX\\ 
+2	&1	&1	&200	&R7724	&XXX	&XXX\\ 
+2	&1	&2	&200	&R7724	&XXX	&XXX\\ 
+2	&1	&3	&200	&R7724	&XXX	&XXX\\ 
+2	&1	&4	&200	&R7724	&XXX	&XXX\\ 
+2	&1	&5	&200	&R7724	&XXX	&XXX\\ 
+2	&1	&6	&200	&R7724	&XXX	&XXX\\ 
+2	&1	&7	&200	&R7724	&XXX	&XXX\\ 
+3	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
+3	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
+3	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
+3	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
+3	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
+3	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
+4	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
+4	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
+4	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
+4	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
+4	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
+4	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
+1	&2	&1	&160	&R7724	&XXX	&XXX\\ 
+1	&2	&2	&160	&R7724	&XXX	&XXX\\ 
+1	&2	&3	&160	&R7724	&XXX	&XXX\\ 
+2	&2	&1	&200	&R7724	&XXX	&XXX\\ 
+2	&2	&2	&200	&R7724	&XXX	&XXX\\ 
+2	&2	&3	&200	&R7724	&XXX	&XXX\\ 
+2	&2	&4	&200	&R7724	&XXX	&XXX\\ 
+2	&2	&5	&200	&R7724	&XXX	&XXX\\ 
+2	&2	&6	&200	&R7724	&XXX	&XXX\\ 
+2	&2	&7	&200	&R7724	&XXX	&XXX\\ 
+3	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
+3	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
+3	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
+3	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
+3	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
+3	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
+4	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
+4	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
+4	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
+4	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
+4	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
+4	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
+1	&3	&1	&160	&R7724	&XXX	&XXX\\ 
+1	&3	&2	&160	&R7724	&XXX	&XXX\\ 
+1	&3	&3	&160	&R7724	&XXX	&XXX\\ 
+2	&3	&1	&200	&R7724	&XXX	&XXX\\ 
+2	&3	&2	&200	&R7724	&XXX	&XXX\\ 
+2	&3	&3	&200	&R7724	&XXX	&XXX\\ 
+2	&3	&4	&200	&R7724	&XXX	&XXX\\ 
+2	&3	&5	&200	&R7724	&XXX	&XXX\\ 
+2	&3	&6	&200	&R7724	&XXX	&XXX\\ 
+2	&3	&7	&200	&R7724	&XXX	&XXX\\ 
+3	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
+3	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
+3	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
+3	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
+3	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
+3	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
+4	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
+4	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
+4	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
+4	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
+4	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
+4	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
+1	&4	&1	&160	&R7724	&XXX	&XXX\\ 
+1	&4	&2	&160	&R7724	&XXX	&XXX\\ 
+1	&4	&3	&160	&R7724	&XXX	&XXX\\ 
+2	&4	&1	&200	&R7724	&XXX	&XXX\\ 
+2	&4	&2	&200	&R7724	&XXX	&XXX\\ 
+2	&4	&3	&200	&R7724	&XXX	&XXX\\ 
+2	&4	&4	&200	&R7724	&XXX	&XXX\\ 
+2	&4	&5	&200	&R7724	&XXX	&XXX\\ 
+2	&4	&6	&200	&R7724	&XXX	&XXX\\ 
+2	&4	&7	&200	&R7724	&XXX	&XXX\\ 
+3	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
+3	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
+3	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
+3	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
+3	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
+3	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
+4	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
+4	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
+4	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
+4	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
+4	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
+4	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
+		\hline
+	\end{longtable}
+
+
+
 
 \section*{References}
 
