@@ -1,4 +1,4 @@
-\documentclass[review]{elsarticle}
+\documentclass[3p,final,twocolumn]{elsarticle}
 
 \usepackage{lineno,hyperref}
 
@@ -9,7 +9,7 @@
 \usepackage{epstopdf}
 \usepackage{multirow}
 \usepackage{color}
-\usepackage{longtable}
+%\usepackage{longtable}
 \usepackage{braket}
 %\usepackage{hepparticles} % particle names
 %\usepackage{hepnames} % shortcuts for lots of particle names
@@ -34,6 +34,7 @@
 \newcommand*{\JLAB}{Thomas Jefferson National Accelerator Facility, Newport News, Virginia 23606}
 \newcommand*{\TAU }{School of Physics and Astronomy, Tel Aviv University, Tel Aviv 69978, Israel}
 \newcommand*{\Penn}{Pennsylvania State University, University Park, PA, 16802}
+\newcommand*{\NRC}{Nuclear Research Center Negev, Be'er Sheva 84190, Israel}
 
 
 \begin{document}
@@ -42,26 +43,24 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frontmatter}
 
-\title{The CLAS12 Backward Angle Neutron Detector (BAND) for high momentum neutrons}
+\title{The CLAS12 Backward Angle Neutron Detector (BAND) }
 
 %% Group authors per affiliation:
-\author{E.P.~Segarra, F.~Hauenstein, A.~Schmidt, R.~Cruz-Torres, \\O.~Hen, A.~Denniston, T.~Kutz, J.~Pybus, A.~Hrnjic\\A.~Nambrath\corref{mycorrespondingauthor}}
+\author{E.P.~Segarra, F.~Hauenstein, A.~Schmidt, R.~Cruz-Torres, \\O.~Hen, A.~Denniston, T.~Kutz, J.~Pybus, A.~Hrnjic\\A.~Nambrath, A.~Beck, S.~May-Tal Beck\corref{mycorrespondingauthor}}
 \address{\MIT}
 \author{C.~Fogler, L.B.~Weinstein, T.~Hartlove}
 \address{\ODU}
-\author{E.~Piasetzky}
+\author{I.~Vega, M.~Mu\~nos, H.~Hakobyan, W.~Brooks}
+\address{UTFSM}
+\author{E.~Piasetzky, E.~Cohen, M.~Duer}
 \address{\TAU}
 \author{K.~Pryce}
 \address{Orsay}
 \author{P.~Eugenio}
 \address{FSU}
-\author{I.~Vega, M.~Mu\~nos, H.~Hakobyan}
-\address{UTFSM}
-\author{A.~Beck, S.~Beck}
-\address{}
+\author{I.~Korover}
+\address{NRC}
 \author{P.~Correa}
-\address{}
-\author{People from JLab?}
 \address{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -69,12 +68,11 @@
 \ead[]{}
 
 \begin{abstract}
-The Backward Angle Neutron Detector (BAND) of CLAS12 is discussed. The detector is positioned $3$ \si{\meter} upstream of the target to 
-detect backward neutrons with momenta between $0.25$ and $0.6$ \si{\GeV/\clight}. It consists of $18$ rows and $5$ layers of $7.2$ \si{\centi\meter} 
+The Backward Angle Neutron Detector (BAND) of CLAS12 is discussed. The detector is positioned $3$ \si{\meter} upstream of the target and is used to 
+detect neutrons emitted at backward angles of $155$\si{\degree} to $175$\si{\degree} and momenta between $0.25$ and $0.6$ \si{\GeV/\clight}. It consists of $18$ rows and $5$ layers of $7.2$ \si{\centi\meter} 
 by $7.2$ \si{\centi\meter} scintillator bars with PMT readout on both ends to measure the neutron time-of-flight from the target and the 
-energy deposition in the scintillator layers. There is an additional $1$ \si{\centi\meter} veto layer for vetoing charged particles. The detector 
-covers an angular range of backward going particles from $155$\si{\degree} to $175$\si{\degree} with a detection efficiency of 
-$35$\% and momentum resolution of $<1.5$\%.
+energy deposition in the scintillator layers. The face of the detectors includes a $2.5$ \si{\centi\meter} thick lead wall followed by a $1$ \si{\centi\meter} veto layer to suppress gammas and reject charged particles. The detector achieves a  detection efficiency of 
+$35$\% at xx \si{\MeV/\clight} with a momentum reconstruction resolution of $<1.5$\%.
 \end{abstract}
 
 \begin{keyword}
@@ -88,18 +86,18 @@ CLAS12; Time of flight; Plastic scintillator; Fast neutrons
 \section{Introduction}
 
 
-The CLAS12 (Cebaf Large Angle Spectrometer)[ADD REF TO NIM] in Jefferson Lab's HallB experimental hall is a multi-purpose spectrometer to detect charged and neutral particles. It covers angles from xx to xx and momenta from xx to xx for the different particles. For our physics of interest, it is necessary to detect recoil neutrons with momenta above \SI{200/250}{\mega\eVperc} at backward angles. Therefore, a new detector has been build to detect these neutrons, the Backward Angle Neutron Detector (BAND). It is shown together with its surroundings in Fig.~\ref{fig:clas12} (top row). 
+The CLAS12 (Cebaf Large Angle Spectrometer) \cite{Burkert:2020akg} in Jefferson Lab's HallB experimental hall is a multi-purpose spectrometer to detect charged and neutral particles. It covers angles from xx to xx and momenta from xx to xx for the different particles. For our physics of interest, it is necessary to detect recoil neutrons with momenta above \SI{200/250}{\mega\eVperc} at backward angles. Therefore, a new detector has been build to detect these neutrons, the Backward Angle Neutron Detector (BAND). It is shown together with its surroundings in Fig.~\ref{fig:clas12} (top row). 
 {\color{red} Shall we add more details about our physics here?} 
 
 
-\begin{figure}[h]
+\begin{figure*}[h]
 	\centering
 	\includegraphics[width=0.48\textwidth]{BandInClas.pdf}
 	\includegraphics[width=0.48\textwidth]{FULL_CONTEXT_STUDIE_3.png}
 	\includegraphics[width=0.48\textwidth]{BAND_1-2.png}
 		\caption{Top left: BAND and CLAS12. BAND is on the right side. Top right: BAND and its close surroundings: the target is shown in cyan,  BAND in red and the central detector region of CLAS12 in blue. Bottom row: BAND and its frame. The cyan color indicates the lead shield wall installed at the downstream side of BAND.}
 		\label{fig:clas12}
-\end{figure}
+\end{figure*}
 
 This newly build detector is designed to measure neutrons with an efficiency of $35$\%  and to cover backward angle from $155$\si{\degree} to $175$\si{\degree}. It is based on scintillator bars read-out on both sides with PMTs. 
 
@@ -116,12 +114,12 @@ the raw rates that we need to handle in CLAS12?} .
 
 
 \subsection{Geometry}
-The geometry of the BAND was constrained by the physics of interest (i.e. backward-going neutrons) \cite{Emcsrcdeens} and the available space in the hall. To
+The geometry of the BAND was constrained by the physics of interest (i.e. backward-going neutrons) [ADD REF] and the available space in the hall. To
 maximize the fiducial volume inside of hall constraints, a design of rectangular scintillant bars that are layered perpendicular to the beam direction ($z$); see Fig.~\ref{fig:design}.
 The cross section of each scintillator bar determines our position granularity in $y,z$ (vertical and longitudinal direction), and was chosen such that it yields comparable uncertainty to $x$ (horizontal direction) given the bar 
 time resolutions. With a design ToF resolution below $300$ \si{\pico\second}, $7.2$ \si{\centi\meter} by $7.2$ \si{\centi\meter} scintillator bars were chosen to optimize
 fiducial volume, granularity, and cost.
-\begin{figure}[h]
+\begin{figure*}[h]
 	\centering
 		\includegraphics[width=0.48\textwidth]{MAIN_DETECTOR_COLORED_2.png}
 		\includegraphics[width=0.48\textwidth]{VETO_DETECTOR_COLORED_2.png}
@@ -129,7 +127,7 @@ fiducial volume, granularity, and cost.
 		color scheme denoting the different sectors, so let's do a darker/ligher shade of green for the short bars so we can make 
 		a table of sector, layer, ID, etc..}
 		\label{fig:design}
-\end{figure}
+\end{figure*}
 
 {\color{red} ADD the different length of the bars here due to the constraint from beam pipe.}
 
@@ -146,8 +144,10 @@ two $\gamma$ decays down to a $0^+$ ground state (1.17, 1.3 \si{\mega\electronvo
 study of PMT time resolution as a function of distance from the PMT (or, due to attenuation along the bar, effective-energy observed by the PMT).
 
 {\color{red}TO DO (Efrain): Discuss the results of the test and which PMT was chosen / why.}
+Scintillator Material Reference \cite{scint-mat-ref}
 
-\begin{table}[t!]
+
+\begin{table*}[t!]
 	\caption{Tested configurations. Resolution given $2$ \si{\mega\electronvolt} energy deposit in middle of bar.}
 	\begin{tabular}{  m{5em} | m{4em} | m{5em} | m{4em} | m{3em} |  m{5.7em} | m{3em} }
 		\hline
@@ -167,9 +167,9 @@ study of PMT time resolution as a function of distance from the PMT (or, due to 
 		\hline
 	\end{tabular}
 	\label{tab:tests}
-\end{table}
+\end{table*}
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 	\begin{minipage}{0.48\textwidth}
 		\includegraphics[width=\textwidth]{phys_setup.png} \\
@@ -180,11 +180,11 @@ study of PMT time resolution as a function of distance from the PMT (or, due to 
 	\end{minipage}
 	\caption{Test to determine optimal choice of scintillant, PMT, optical wrapping and gluing material. Diagram of setup and electronics is shown on the left and obtained time resolution as a function of energy is shown on the right. The combination shown in blue and red was choosen for the }
 	\label{fig:test_stand}
-\end{figure}
+\end{figure*}
 
 \subsection{Magnetic shielding}
 
-Due to the placement of BAND in the fringe-field of the solenoid magnet of CLAS12 [CITE MAGNET NIM?], all PMTs need a magnetic shielding. Testing of possible materials was conducted at Old Dominion University. 
+Due to the placement of BAND in the fringe-field of the solenoid magnet of CLAS12 \cite{Fair:2020yfx}, all PMTs need a magnetic shielding. Testing of possible materials was conducted at Old Dominion University. 
 
 {\color{red}TO DO: EDIT TEXT FROM KITTY AND ADD FIGURE WITH RESULTS:
 We constructed a pair of 56-turn Helmholtz coils with a radius of 0.5 m, one borrowed from an existing setup, and one welded and wrapped on-site. We built an aluminium frame to maintain coil spacing, and laid a wooden platform between the coils. We also built a small prototype detector consisting of a 2 cm thick, 5 cm diameter disc of plastic scintillant, 7 cm long, 5 cm diameter cylindrical acrylic light guides, and PMTs with voltage dividers of the type we anticipated using to build the final detector. The disc of scintillant was mounted to the light guides with two-part optical cement, and the PMTs were mounted temporarily using optical grease. The detector was then light-proofed with Tedlar and stabilized in a simple cradle of PMT shipping foam. The cradle was placed on a stack of plastic shelving to center it in the field, then covered with black fleece.
@@ -224,8 +224,8 @@ To minimize background from backward going photons, a lead wall was installed be
 %\end{table}
 
 \subsection{Laser Calibration system}
-Due to the placement of the BAND, in CEBAF 12 \si{\giga\electronvolt} with the CLAS12 magnetic fields [{\color{red}CITE}], there is a lack of high-rate exclusive processes 
-that can be used for monitoring performance stability and perform calibrations. A laser system [{\color{red}CITE THE LASER NIM}] was implemented to validate performance during data-taking. This system also 
+Due to the placement of the BAND, in CEBAF 12 \si{\giga\electronvolt} with the CLAS12 magnetic fields \cite{Fair:2020yfx} there is a lack of high-rate exclusive processes 
+that can be used for monitoring performance stability and perform calibrations. A laser system \cite{band-laser} was implemented to validate performance during data-taking. This system also 
 provided a method to quickly perform various calibrations (discussed below). For this purpose every bar in BAND was equipped with an optical fiber which was connected via a patch panel to the optical/fiber splitter of the laser system. A reference signal of the laser system is provided by a photo diode. The output signal of the photo diode is inverted and shaped before it is sent to the BAND read-out system. The signal is detected by the same ADCs and TDCs which are used for the PMT signals.
 
 
@@ -234,19 +234,19 @@ provided a method to quickly perform various calibrations (discussed below). For
 In the experiment, the high voltages for each PMT (typically in the range of 1500 V) are provided by a multi-channel CAEN SYS4527 mainframe with 11 A1535SN cards (24 channel each).
 A schematic drawing of the read-out electronics and its components is shown in Fig. \ref{fig:electronic-diag}. The signal of each PMT is split to measured ADC and TDC independently. 
 The signal splitters are custom made and have been used in previous experiments at Jefferson Lab (COULD ADD REF to HPS herenwhere it was used before).
-From the splitter one signal is sent to flash-ADCs (250 VXS, 16 channels/board, made and owned by Jefferson Lab [ADD REF]) while the other signal is sent to  discriminators (16 channels/board, also made by Jefferson Lab [ADD REF, possibly online]).
+From the splitter one signal is sent to flash-ADCs (250 VXS, 16 channels/board, made and owned by Jefferson Lab \cite{fadc-manual}) while the other signal is sent to  discriminators (16 channels/board, also made by Jefferson Lab [ADD REF, possibly online]).
 The discriminated time signal goes to a TDC (CAEN VX1190A, 128 channels/board, 100 ps/channel resolution). 
-In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and a TDC in a VME crate and 16 splitters.  Furthermore, a trigger signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. All components are part of the standard electronics components of CLAS12 at Jefferson Lab[CITE NIM DAQ PAPER].
+In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and a TDC in a VME crate and 16 splitters.  Furthermore, a trigger signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. All components are part of the standard electronics components of CLAS12 at Jefferson Lab \cite{clas12-daq, clas12-trigger}.
 
 The detector read-out is either triggered by the main trigger system from CLAS12 or by stand-alone detector triggers for tests and calibrations with cosmics, radioactive sources and the laser system. The stand-alone triggers are implemented by a programmble logic board (CAEN V1495, ADD REF to webpage) and they consist of a single bar trigger for source measurements and a coincidence bar trigger for cosmics and laser measurements. The later one is also feed to the central CLAS12 trigger system to allow monitoring of the detector by recording laser hits during real data taken. This special trigger rate is usually about 10 \si{\hertz} compared to the $\approx$ 15-20 \si{\kilo\hertz} trigger rate from electron interactions in the target.
 
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.96\textwidth]{figures/electronics-diag.pdf}
 	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
 	\label{fig:electronic-diag}
-\end{figure}
+\end{figure*}
 
 
 %%% ----------------- Assembly subsection
@@ -268,7 +268,7 @@ each PMT. A typical ADC spectrum from cosmic data for a single HV setting %and t
 %cosmic peak from many HV settings are both shown
 is shown in Fig~\ref{fig:gain}. The resulting HV settings across all PMTs in BAND is 
 shown in Fig~\ref{fig:hv_settings}. The spread of the settings for the short bars (red points) stems from a non-uniform behaviour from the ET9214 PMTs which were installed on the short bars. The Hamamatsu R7724-10 PMTs show are more uniform gain performance.
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\begin{minipage}{0.48\textwidth}
 			\includegraphics[width=\textwidth]{adc-spectra.png}\\
@@ -283,7 +283,7 @@ shown in Fig~\ref{fig:hv_settings}. The spread of the settings for the short bar
 		\end{minipage}
 		\caption{Gain matching of BAND PMTs. (a) Typical ADC spectrum for a PMT with cosmics. (b) All PMT HV settings for similar gains. One sees a greater 
 		spread of HV needed to match gains in the short bars which have ET9214 PMTs.}
-\end{figure}
+\end{figure*}
 
 
 %%% ----------------- Energy deposit subsection
@@ -298,17 +298,17 @@ A typical response of a PMT to  $^{60}$Co is shown in Fig.~\ref{fig:mev_conversi
 number of bars (right). The edge has been fitted by a parametrization desribed in {ADD REF]. The extracted Compton edges for various bars are quite similar which also shows the a good gain matching obtained with cosmics. 
 {\color{red} Should we add more details here? Like results from all sources and a fit for the conversion? At Efrain: Didn't we use actually geometric mean and not single PMT fits?}
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.48\textwidth]{co-compton.png}
 		\includegraphics[width=0.48\textwidth]{coedges.png}
 	\caption{Left: ADC spectrum for a $^{60}$Co placed on the center of the bar along with the fit of the Compton edge. Right: Obtained Compton edge for different bars.}
 	\label{fig:mev_conversion}
-\end{figure}
+\end{figure*}
 
 %%% ----------------- Time-walk subsection
 \subsubsection{Time-walk calibration}
-Time-walk calibrations were performed with the laser system [{\color{red}{CITE LASER NIM}}]. A motorized fiber optic attenuator is used to vary
+Time-walk calibrations were performed with the laser system \cite{band-laser}. A motorized fiber optic attenuator is used to vary
 the amount of light delivered to each bar. Waveforms and times are measured as the attenuator scans from $40$ \si{\decibel} to $0$ 
 \si{\decibel}. Time-walk curves and calibrations are taken per PMT. The laser pulse, immediately after fiber-coupling, is initially 
 split with $90\%$ going to the attenuator, and $10\%$ going to a photodiode used as a reference time for any calibrations 
@@ -327,13 +327,13 @@ parameterization is not flexible enough and under-estimates the strong dependenc
 heights this low are not of interest, as a software cut on minimum energy deposition is needed to improve signal-to-background 
 which removes these pulses (discussed in Section {\color{red}4.2.3}).
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.48\textwidth]{tw_before.png}
 		\includegraphics[width=0.48\textwidth]{tw_after.png}
 	\caption{Time-walk calibration: Typical time to pulse height spectrum for one PMT with respect to the time for the reference photodiode before time-walk correction (left) and after time-walk correction (right).}
 	\label{fig:time_walk}
-\end{figure}
+\end{figure*}
 
 %%% ----------------- Effective velocity subsection
 \subsubsection{Effective velocity}
@@ -350,13 +350,13 @@ right PMT on a given bar is used to extract the effective velocity in a bar know
 
 and the relative time offset is given by the center of the distribution (see Fig.~\ref{fig:eff_vel} left). The obtained effective velocities for each bar are shown in Fig.~\ref{fig:eff_vel} (right) distinguished between short bars (red) and long bars (blue). The observed difference is due to geometrical effects from the different bar length.
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.48\textwidth]{lr_eff_vel.png}
 		\includegraphics[width=0.48\textwidth]{eff_vel.pdf}
 	\caption{Effective velocity: Left-Right time spectrum in a single bar after time-walk correction for every PMT (left). Obtained effective velocities for each bar (right). The differences in effective velocities between long bars (blue) and short bars (red) are probably due to geometrical effects from the different bar length.}
 	\label{fig:eff_vel}
-\end{figure}
+\end{figure*}
 
 %%% ----------------- Attenuation length subsection
 \subsubsection{Attenuation length}
@@ -375,12 +375,12 @@ of the bar. See Fig.~\ref{fig:atten} (left) for the typical response of a bar to
 length obtained from the central part of the bar (right). The plateau shape of the amplitude ratio closer to the edge of the bar is probably induced by reflections at the light guides.   
  {\color{red} A comparison of the attenuation lengths of all bars can be seen in Fig.~\ref{fig:atten_allbars} }.
  {\color{red} Shall we add more details?  Comparision how does it look with the ADC integral? }.
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.96\textwidth]{atten.png}
 	\caption{Left: Log ratio of amplitudes from both PMTs on a bar as a function of position along the bar (positive x is left side of the bar). Right: Linear fit of left plot in the center of the bar to determine the attenuation length.}
 	\label{fig:atten}
-\end{figure}
+\end{figure*}
 
 %%% ----------------- Bar offsetts subsection
 \subsubsection{Individual Bar offsets}
@@ -412,12 +412,12 @@ cable time difference (see section \ref{sec:global_offset}). Fig~\ref{fig:bar_of
 in the same layer, as a function of pulse amplitude. The mean of this distribution is $\mathcal{O}^{ij}$ for this bar, and the 
 parameter's independence of pulse amplitude ensures the time-walk is well controlled.
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.8\textwidth]{bar_offset.png}
 	\caption{Typcial time difference of bar mean time to a reference bar as a function of geometric mean of ADC pulse amplitude before corrections of relative bar offsets. The independence on amplitude shows a good time-walk calibration. The mean value of the y-axis gives the relativ time offset for this bar.}
 	\label{fig:bar_off}
-\end{figure}
+\end{figure*}
 
 \subsection{BAND performance} 
 %%% ----------------- Global offset subsection
@@ -426,24 +426,24 @@ parameter's independence of pulse amplitude ensures the time-walk is well contro
 A final global time offset is required to align the BAND with production data. Due to low rates in the angular coverage of the BAND, 
 high-statistics data files must be used. 
 In Fig.~\ref{fig:final_offset} (left) the time of flight spectrum is shown for each bar applying all calibrations described in the previous section. The spectrum is zoomed to the area of the photon peak which is used to determine the final global time offset calibration. The two peaks are the two groups of long and short bars which have different length of fiber optic cable installed. Therefore, a global offset is determined for each group independently assuming the known time of flight for photons. Fig.~\ref{fig:final_offset} (right) displays the time difference between the expected photon arrival time and the measured time corrected for the global offsets for all bars. One can see that after the corrections all bars are well aligned in time.
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.48\textwidth]{global_single_bar_all_runs.pdf}
 		\includegraphics[width=0.48\textwidth]{global_single_bar_result.pdf}
 	\caption{Left: Time of flight spectrum over all each around the photon peak before the global offset correction. Time of flight spectrum over all bars relative to the expected photon ToF after  the global offset correction. All bars are aligned.}
 	\label{fig:final_offset}
-\end{figure}
+\end{figure*}
 
 \subsubsection{Time of Flight resolution}
 Fig.~\ref{fig:tof_resolution} shows the obtained ToF resolutions for each bar. The resolutions are obtained from a Gaussian fit of the difference of the mean time of a bar to a reference bar.
 In addition, an minimum energy deposition cut has been applied to remove events which are not of interest in the physics analysis. One can see that all bars are below the design resolution of
 300 \si{\pico\s}. 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.48\textwidth]{tof_resolution.pdf}
 	\caption{ToF resolution as a function for every bar. All bars are well below the required 300 \si{\pico\s}. {\color{red} Update Figure with an energy deposit cut to show actually the good time resolution}}
 	\label{fig:tof_resolution}
-\end{figure}
+\end{figure*}
 
 {\color{red} The current picture is without a energy deposit cut hence giving worse time resolution. Update Figure with an energy deposit cut.}
 %%% ----------------- Neutral veto subsection
@@ -455,12 +455,12 @@ In addition, an minimum energy deposition cut has been applied to remove events 
 The neutron identification for production data is done by cuts on time-of-flight. Fig.~\ref{fig:tof} shows such a spectrum of events from production data where an electron was measured in coincidence in CLAS12 in the reaction $ed \rightarrow e'nX$. In addition, a minimum energy deposition cut of 5 \si{\MeV/\clight} has been applied for BAND hits. One can clearly see two separated peaks for photons and neutrons over a flat background from accidentals. The neutron peak corresponds to momenta between $200$ and $600$ \si{\MeV/\clight}.
 The neutron selection in the physics analysis is based on $\beta$ or ToF per pathlength (inverse $\beta$).
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
 		\includegraphics[width=0.96\textwidth]{tof-labels.pdf}
 	\caption{Time-of-flight spectrum of BAND in coincidence with electrons measured in CLAS12 from production data. Clearly a photon and neutron peak is visible over a flat background from accidentals. The neutron peak corresponds to momenta  between $200$ and $600$ \si{\MeV/\clight}}
 	\label{fig:tof}
-\end{figure}
+\end{figure*}
 
 %%% ----------------- Efficiency, resolution subsection
 \subsubsection{Neutron efficiency}
@@ -484,101 +484,101 @@ The expected neutron efficiency from simulation is $35$\% . In the future, an an
 \clearpage
 
 \section{Appendix}
-\begin{longtable}{  m{3em} | m{3em} | m{5em} | m{3em} | m{3em} | m{3em} | m{8em} }
-		\hline
-			Sector & Layer & Component & Length (\si{\centi\meter}) & PMTs  & $\sigma$ (\si{\pico\second}) & Nominal distance from target (\si{\centi\meter}) \\
-		\hline
-		\hline
-1	&1	&1	&160	&R7724	&XXX	&XXX\\ 
-1	&1	&2	&160	&R7724	&XXX	&XXX\\ 
-1	&1	&3	&160	&R7724	&XXX	&XXX\\ 
-2	&1	&1	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&2	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&3	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&4	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&5	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&6	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&7	&200	&R7724	&XXX	&XXX\\ 
-3	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
-1	&2	&1	&160	&R7724	&XXX	&XXX\\ 
-1	&2	&2	&160	&R7724	&XXX	&XXX\\ 
-1	&2	&3	&160	&R7724	&XXX	&XXX\\ 
-2	&2	&1	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&2	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&3	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&4	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&5	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&6	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&7	&200	&R7724	&XXX	&XXX\\ 
-3	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
-1	&3	&1	&160	&R7724	&XXX	&XXX\\ 
-1	&3	&2	&160	&R7724	&XXX	&XXX\\ 
-1	&3	&3	&160	&R7724	&XXX	&XXX\\ 
-2	&3	&1	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&2	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&3	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&4	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&5	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&6	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&7	&200	&R7724	&XXX	&XXX\\ 
-3	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
-1	&4	&1	&160	&R7724	&XXX	&XXX\\ 
-1	&4	&2	&160	&R7724	&XXX	&XXX\\ 
-1	&4	&3	&160	&R7724	&XXX	&XXX\\ 
-2	&4	&1	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&2	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&3	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&4	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&5	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&6	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&7	&200	&R7724	&XXX	&XXX\\ 
-3	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
-		\hline
-	\end{longtable}
+%\begin{tabular}{  m{3em} | m{3em} | m{5em} | m{3em} | m{3em} | m{3em} | m{8em} }
+%		\hline
+%			Sector & Layer & Component & Length (\si{\centi\meter}) & PMTs  & $\sigma$ (\si{\pico\second}) & Nominal distance from target (\si{\centi\meter}) \\
+%		\hline
+%		\hline
+%1	&1	&1	&160	&R7724	&XXX	&XXX\\ 
+%1	&1	&2	&160	&R7724	&XXX	&XXX\\ 
+%1	&1	&3	&160	&R7724	&XXX	&XXX\\ 
+%2	&1	&1	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&2	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&3	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&4	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&5	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&6	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&7	&200	&R7724	&XXX	&XXX\\ 
+%3	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
+%1	&2	&1	&160	&R7724	&XXX	&XXX\\ 
+%1	&2	&2	&160	&R7724	&XXX	&XXX\\ 
+%1	&2	&3	&160	&R7724	&XXX	&XXX\\ 
+%2	&2	&1	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&2	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&3	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&4	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&5	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&6	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&7	&200	&R7724	&XXX	&XXX\\ 
+%3	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
+%1	&3	&1	&160	&R7724	&XXX	&XXX\\ 
+%1	&3	&2	&160	&R7724	&XXX	&XXX\\ 
+%1	&3	&3	&160	&R7724	&XXX	&XXX\\ 
+%2	&3	&1	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&2	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&3	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&4	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&5	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&6	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&7	&200	&R7724	&XXX	&XXX\\ 
+%3	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
+%1	&4	&1	&160	&R7724	&XXX	&XXX\\ 
+%1	&4	&2	&160	&R7724	&XXX	&XXX\\ 
+%1	&4	&3	&160	&R7724	&XXX	&XXX\\ 
+%2	&4	&1	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&2	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&3	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&4	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&5	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&6	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&7	&200	&R7724	&XXX	&XXX\\ 
+%3	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
+%		\hline
+%	\end{tabular}
 
 
 
