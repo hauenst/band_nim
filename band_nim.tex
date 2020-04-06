@@ -59,7 +59,7 @@
 \author{P.~Eugenio}
 \address{FSU}
 \author{I.~Korover}
-\address{NRC}
+\address{\NRC}
 \author{P.~Correa}
 \address{}
 
@@ -86,34 +86,84 @@ CLAS12; Time of flight; Plastic scintillator; Fast neutrons
 \section{Introduction}
 
 
-The CLAS12 (Cebaf Large Angle Spectrometer) \cite{Burkert:2020akg} in Jefferson Lab's HallB experimental hall is a multi-purpose spectrometer to detect charged and neutral particles. It covers angles from xx to xx and momenta from xx to xx for the different particles. For our physics of interest, it is necessary to detect recoil neutrons with momenta above \SI{200/250}{\mega\eVperc} at backward angles. Therefore, a new detector has been build to detect these neutrons, the Backward Angle Neutron Detector (BAND). It is shown together with its surroundings in Fig.~\ref{fig:clas12} (top row). 
-{\color{red} Shall we add more details about our physics here?} 
+The CLAS12 (Cebaf Large Angle Spectrometer) \cite{Burkert:2020akg} at HallB of the Thomas Jefferson National Acclerator facility (JLab) is a multi-purpose spectrometer used to detect charged and neutral particles. It covers angles from xx to xx and momenta from xx to xx for the different particles. 
+Tagged deep inelastic scattering studies in $ed$ reactions require the detection of recoil neutrons with momenta above \SI{250}{\mega\eVperc} at backward angles. Therefore, a new detector has been build to detect these neutrons, the Backward Angle Neutron Detector (BAND). A model representation of BAND and CLAS12 is shown in Fig.~\ref{fig:clas12band} to highlight the overall layout and scale in HallB. BAND was installed in January 2019 and has been taken data in coincidence with CLAS12.
 
-
-\begin{figure*}[h]
+\begin{figure}[t!]
 	\centering
 	\includegraphics[width=0.48\textwidth]{BandInClas.pdf}
-	\includegraphics[width=0.48\textwidth]{FULL_CONTEXT_STUDIE_3.png}
-	\includegraphics[width=0.48\textwidth]{BAND_1-2.png}
-		\caption{Top left: BAND and CLAS12. BAND is on the right side. Top right: BAND and its close surroundings: the target is shown in cyan,  BAND in red and the central detector region of CLAS12 in blue. Bottom row: BAND and its frame. The cyan color indicates the lead shield wall installed at the downstream side of BAND.}
-		\label{fig:clas12}
-\end{figure*}
+		\caption{Model representation of CLAS12 and BAND in HallB at Jefferson Lab. The electron beam is incident from the right side. BAND is marked in red. The overall detector system is roughly 20 \si{\meter} in scale along the beam axis. }
+		\label{fig:clas12band}
+\end{figure}
 
-This newly build detector is designed to measure neutrons with an efficiency of $35$\%  and to cover backward angle from $155$\si{\degree} to $175$\si{\degree}. It is based on scintillator bars read-out on both sides with PMTs. 
+This newly build detector is designed to measure neutrons with momenta of $0.25 - 0.6$ \si{\GeV/\clight} with a detection efficiency of $35$\%  and angular coverage of $155$\si{\degree} to $175$\si{\degree}. It is based on scintillator bars with PMT readout. 
 
-In this paper, we first explain the general design of BAND and requirements on time resolutions  and geometry. The selection of the detector components are guided by lab measurements. This includes for example the selection of scintillant, PMTs or magnetic shielding. In the following chapter, we present the performance of the detector after its installtion in HallB of Jefferson Lab. A detailed overview of the necessary calibrations is given. Finally, we present obtained ToF resolutions and neutron-photon separation from  data obtained with an electron beam impinding on a deuterium target at Jefferson Lab.
-
+In this paper, we first review the general design of BAND and its requirements in terms of time resolution  and geometry. We then discuss the selection of the detector components,
+comparative test bench measurements of different scintillators, PMTs and magnetic shields. In the following chapter, we present the performance of the detector after its installation in JLab's HallB. A detailed overview of the calibrations is given using mainly data from cosmic rays and a laser calibration system \cite{band-laser}. Finally, we present the measured time-of-flight (TOF) resolutions and neutron-photon separation from  data obtained with a $10.6$ \si{\GeV} electron beam impinding on a deuterium target.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Design of the backward angle neutron detector}
-To achieve the physics channels of interest with neutrons in the BAND, time-of-flight (ToF) resolutions below $300$ \si{\pico\second} are required for the scintillant detector with the average path length of about $3$ \si{\meter} {\color{red} shall we add more details here about why these parameters)}. Neutral-particle identification is established by vetoing on a thin $1$ \si{\centi\meter} veto layer for charged-particle identification between the target and the first active layer of BAND. Neutron-photon discrimination is achieved with ToF separation given the design 
+To achieve the physics channels of interest with neutrons in the BAND \cite{band-proposal}, time-of-flight (ToF) resolutions below $300$ \si{\pico\second} are required for the scintillant detector with the average path length of about $3$ \si{\meter} {\color{red} shall we add more details here about why these parameters)}. Neutral-particle identification is established by vetoing on a thin $1$ \si{\centi\meter} veto layer for charged-particle identification between the target and the first active layer of BAND. Neutron-photon discrimination is achieved with ToF separation given the design 
 timing resolutions. Furthermore, off-time random neutron contamination can be controlled with signal energy deposit. {\color{red} Any need to mention 
 the raw rates that we need to handle in CLAS12?} .
 
-
+%%ADD MORE WHAT IS SHOWN NEXT
+%% ALSO TABLES FOR GEMOETRY< PMTS ADN SCINTILLATOR IN THIS CHAPTER. PART OF IT IN GEOMETRY
+%%ALSO LIGHTGUIDES!!
+%%GEMOETRY CONSTRAINTS: LENGTH BY SIZE, CROSS SECTION BY COSTS
 \subsection{Geometry}
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=0.48\textwidth]{FULL_CONTEXT_STUDIE_3.png}
+		\caption{BAND and its close surroundings: the target is shown in cyan,  BAND in red and the central detector region of CLAS12 in blue. }
+		\label{fig:bandtarget}
+\end{figure}
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.48\textwidth]{BAND_1-2.png}
+		\caption{BAND and its frame. The cyan color indicates the lead shield wall installed at the downstream side of BAND.}
+		\label{fig:band}
+\end{figure}
+
+
+\begin{table*}[t]
+\caption{{\color{red} THIS TABLE NEEDS AN UPDATE> IT IS JUST A TEMPORARY PLACEHOLDER WITH FTOF VALUES}Parameters for the scintillators, PMTs, and counters for the different BAND sectors and layers.}
+\begin{center}
+\begin{tabular} {c|l} \hline
+~~Parameter~~ &~~~~~~~~~~~~~~~~~~~~~~ Design Value ~~~~~~~~~~\\ \hline
+\multicolumn{2}{c} {Panel-1a (23 counters per sector)} \\
+Angular Coverage      & $\theta = 5^\circ \to 35^\circ$, $\phi: 50\% {\rm ~at~} 5^\circ \to 85\% {\rm ~at~} 
+35^\circ$ \\
+Counter Dimensions   & $L = 32.3$~cm $\to$ 376.1~cm, $w \times h$ = 15~cm $\times$ 5~cm   \\
+Scintillation Material & BC-408   \\
+PMTs                         & EMI 9954A, Philips XP2262 \\
+Counter Time Resolution     & 90~ps $\to$ 180~ps   \\ \hline
+\multicolumn{2}{c} {Panel-1b (62 counters per sector)} \\
+Angular Coverage      & $\theta = 5^\circ \to 35^\circ$, $\phi: 50\% {\rm ~at~} 5^\circ \to 85\% {\rm ~at~} 
+35^\circ$ \\
+Counter Dimensions   & $L = 17.3$~cm $\to$ 407.9~cm, $w \times h$ = 6~cm $\times$ 6~cm   \\
+Scintillation Material & BC-404 (\#1 $\to$ \#31), BC-408 (\#32 $\to$ \#62)  \\
+PMTs                         & Hamamatsu R9779 \\
+Counter Time Resolution     & 60~ps $\to$ 110~ps   \\ \hline
+\multicolumn{2}{c} {Panel-2 (5 counters per sector)} \\
+Angular Coverage      & $\theta = 35^\circ \to 45^\circ$, $\phi: 85\% {\rm ~at~} 35^\circ \to 95\% {\rm ~at~} 
+45^\circ$ \\
+Counter Dimensions   & $L = 371.3$~cm $\to$ 426.1~cm, $w \times h$ = 22~cm $\times$ 5~cm   \\
+Scintillation Material & BC-408   \\
+PMTs                         & Photonis XP4312B, EMI 4312KB \\
+Counter Time Resolution     & 170~ps $\to$ 180~ps   \\ \hline
+\end{tabular}
+\label{spec-table}
+\end{center}
+\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 The geometry of the BAND was constrained by the physics of interest (i.e. backward-going neutrons) [ADD REF] and the available space in the hall. To
 maximize the fiducial volume inside of hall constraints, a design of rectangular scintillant bars that are layered perpendicular to the beam direction ($z$); see Fig.~\ref{fig:design}.
 The cross section of each scintillator bar determines our position granularity in $y,z$ (vertical and longitudinal direction), and was chosen such that it yields comparable uncertainty to $x$ (horizontal direction) given the bar 
