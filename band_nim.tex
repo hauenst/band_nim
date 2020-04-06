@@ -232,15 +232,16 @@ Scintillator Material Reference \cite{scint-mat-ref}
 \end{figure*}
 
 \subsection{Magnetic shielding}
+Due to the fringe-field of the solenoid magnet of CLAS12 \cite{Fair:2020yfx}, all PMTs require a magnetic shielding. We estimated a transverse field in the  PMT region ranging from xx to xx and a longitudinal field that ranges from xx to xx. As dedicated test stand was setup to test different shieldings.
 
-Due to the placement of BAND in the fringe-field of the solenoid magnet of CLAS12 \cite{Fair:2020yfx}, all PMTs need a magnetic shielding. Testing of possible materials was conducted at Old Dominion University. 
+We constructed a pair of 56-turn Helmholtz coils with a radius of 0.5 \si{\meter} in an aluminium frame that maintained coil spacing of xx. A prototype detector consisting of a 2 \si{\centi\meter} thick, 5 \si{\centi\meter} diameter scintillator disc, coupled to 7 \si{\centi\meter} long, 5 \si{\centi\meter} diameter cylindrical acrylic light guides on each end, and PMTs. The detector was light-proofed with Tedlar and stabilized on a simple plastic stand at the center of the field assembly. 
 
-{\color{red}TO DO: EDIT TEXT FROM KITTY AND ADD FIGURE WITH RESULTS:
-We constructed a pair of 56-turn Helmholtz coils with a radius of 0.5 m, one borrowed from an existing setup, and one welded and wrapped on-site. We built an aluminium frame to maintain coil spacing, and laid a wooden platform between the coils. We also built a small prototype detector consisting of a 2 cm thick, 5 cm diameter disc of plastic scintillant, 7 cm long, 5 cm diameter cylindrical acrylic light guides, and PMTs with voltage dividers of the type we anticipated using to build the final detector. The disc of scintillant was mounted to the light guides with two-part optical cement, and the PMTs were mounted temporarily using optical grease. The detector was then light-proofed with Tedlar and stabilized in a simple cradle of PMT shipping foam. The cradle was placed on a stack of plastic shelving to center it in the field, then covered with black fleece.
+As a baseline, we measured the TDC and ADC response to $^{90}$Sr and $^{137}$Cs sources for two different source placements at nominal PMT operating voltage and no shielding. 
+The goal was to select the minimal shielding required to minimize the number of events lost and the effect on timing response as  magnetic field increased.
 
-As a baseline, the TDC and ADC peaks produced by strontium-90 and caesium-137 sources, and two different source placements were measured for a nominal operating voltage of the PMTs with no shielding. The goal was to place shielding such that the fewest number of events would be lost and the effect on timing would be minimized as magnetic field increased.
+We tested $\mu$-metal shielding with thicknesses of xx and xx, each in two diameters of xx and xx, as well as two pipes of soft iron. The magnetic field, amount of detector covered by the shielding, the thickness of the shielding, the placement of two radioactive sources, and the angle of the detector to the field were all varied. 
 
-We tested two thicknesses of mu-metal shielding, each in two diameters, as well as two pipes of soft iron. The magnetic field, amount of detector covered by the shielding, the thickness of the shielding, the placement of two radioactive sources, and the angle of the detector to the field were all varied. The following table shows the full complement of variables:}
+Table xx shows the full complement of variables.
 
 {\color{red}MISSING TABLE AND PIC FROM KITTY:}
 %*only the caesium-137 was tested at 5 cm. The strontium-90 source triggered too few events when not directly atop the detector.
@@ -251,7 +252,7 @@ We tested two thicknesses of mu-metal shielding, each in two diameters, as well 
 %Shield thickness: varied by sliding one or both thicknesses of mu-metal shielding over the PMTs. Soft iron was only tested alone.
 %--------
 
-The results show that a xx thick $\mu$-metal shielding placed 5 cm past the PMT faces is most effective to preserve events and minimize timing distortions. Therefore, every PMT in the detector has been equipped with such a shielding. During installation, we ensure that the $\mu$-metal is also covering an area of the light guide in front of the PMT photo cathode to obtain optimal shielding.
+The results show that a xx thick $\mu$-metal shielding placed 5 \si{\centi\meter} (i.e. one PMT diameter) past the PMT faces is most effective to preserve events and minimize timing distortions. Therefore, every PMT in the detector has been equipped with such a shielding. 
 
 \subsection{Lead shielding}
 To minimize background from backward going photons, a lead wall was installed between the target of CLAS12 and BAND. This lead wall consists of individual 20 \si{\milli\meter} thick blocks stacked in front of the veto layer. Each block is covered on both sides with an Aluminium layer to simplify its handling.
@@ -510,7 +511,7 @@ In addition, an minimum energy deposition cut has been applied to remove events 
 
 %%% ----------------- Photon-neutron subsection
 \subsubsection{Neutron identification}
-{\color{red} it would be good to update this section to ToF/m selection instead of ToF}
+{\color{red}  TODO: update this section to ToF/m selection instead of ToF}
 The neutron identification for production data is done by cuts on time-of-flight. Fig.~\ref{fig:tof} shows such a spectrum of events from production data where an electron was measured in coincidence in CLAS12 in the reaction $ed \rightarrow e'nX$. In addition, a minimum energy deposition cut of 5 \si{\MeV/\clight} has been applied for BAND hits. One can clearly see two separated peaks for photons and neutrons over a flat background from accidentals. The neutron peak corresponds to momenta between $200$ and $600$ \si{\MeV/\clight}.
 The neutron selection in the physics analysis is based on $\beta$ or ToF per pathlength (inverse $\beta$).
 
