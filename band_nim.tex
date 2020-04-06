@@ -105,7 +105,7 @@ comparative test bench measurements of different scintillators, PMTs and magneti
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Design of the backward angle neutron detector}
-To achieve the physics channels of interest with neutrons in the BAND \cite{band-proposal}, time-of-flight (ToF) resolutions below $300$ \si{\pico\second} are required for the scintillant detector with the average path length of about $3$ \si{\meter} {\color{red} shall we add more details here about why these parameters)}. Neutral-particle identification is established by vetoing on a thin $1$ \si{\centi\meter} veto layer for charged-particle identification between the target and the first active layer of BAND. Neutron-photon discrimination is achieved with ToF separation given the design 
+To achieve the physics of interest with neutrons in the BAND \cite{band-proposal}, ToF resolutions below $300$ \si{\pico\second} at an energy deposition threshold of $xx \mathrm{MeVee}$ are required. Neutral-particle identification is established by vetoing on a thin $1$ \si{\centi\meter} veto layer for charged-particle identification between the target and the first active layer of BAND. Neutron-photon discrimination is achieved with ToF separation given the design 
 timing resolutions. Furthermore, off-time random neutron contamination can be controlled with signal energy deposit. {\color{red} Any need to mention 
 the raw rates that we need to handle in CLAS12?} .
 
@@ -164,8 +164,8 @@ Counter Time Resolution     & 170~ps $\to$ 180~ps   \\ \hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The geometry of the BAND was constrained by the physics of interest (i.e. backward-going neutrons) [ADD REF] and the available space in the hall. To
-maximize the fiducial volume inside of hall constraints, a design of rectangular scintillant bars that are layered perpendicular to the beam direction ($z$); see Fig.~\ref{fig:design}.
+The geometry of the BAND was constrained by the requirement to detect backward angle neutrons and the physical limitations in the hall. 
+To maximize the fiducial volume given the physical constraints, a design of rectangular scintillant bars that are layered perpendicular to the beam direction ($z$) was chosen; see Fig.~\ref{fig:design}.
 The cross section of each scintillator bar determines our position granularity in $y,z$ (vertical and longitudinal direction), and was chosen such that it yields comparable uncertainty to $x$ (horizontal direction) given the bar 
 time resolutions. With a design ToF resolution below $300$ \si{\pico\second}, $7.2$ \si{\centi\meter} by $7.2$ \si{\centi\meter} scintillator bars were chosen to optimize
 fiducial volume, granularity, and cost.
@@ -185,12 +185,11 @@ fiducial volume, granularity, and cost.
 The timing resolution of the scintillator bars is impacted by many factors, and each component was optimized considering the design constraint and cost. Tests were 
 performed varying the scintillant, reflective wrapping, photo-multipler tube (PMT), and optical-coupling-method of the scintillators to light-guides to PMTs to select the optimal combination
 
-In our test measurements in  the lab, we used a coincidence setup between a ``test" scintillator bar and a ``reference" scintillator bar. Each bar has 2 PMTs 
-coupled to the ends; the test bar has the PMTs which we wish to measure the time resolution. Both bars are wrapped in an optical reflector, and made light-tight 
-via use of tape, coverings, and a black-box. The reference bar parameters are never changed during any measurement. A diagram of our test setup and electronics is shown in Fig. \ref{fig:test_stand}. The tested combination of components and results are summarized in Table~\ref{tab:tests}. 
+A diagram of our test setup and electronics is shown in Fig. \ref{fig:test_stand}. For the test bench measurements, we used a coincidence setup between a ``test" scintillator bar and a ``reference" scintillator bar. Each bar has 2 PMTs 
+coupled to the ends; the test bar has the PMTs which we wish to measure the time resolution. Both bars are wrapped in an optical reflector, and placed in a dark-box. The reference bar was kept fixed during all measurements. The tested combination of components and results are summarized in Table~\ref{tab:tests}. 
 
-The coincidence signal for our measurement is produced by a $^{60}$Co source which is placed between the two bars. $^{60}$Co undergoes $\beta^-$ decay to an excited state $^{60}$Ni, which then undergoes 
-two $\gamma$ decays down to a $0^+$ ground state (1.17, 1.3 \si{\mega\electronvolt} respectively). The two $\gamma$-rays are collimated by two lead bricks to deposit the $\gamma$-rays at specific locations along the bars, allowing for the 
+The coincidence signal for our measurement is produced by a $^{60}$Co source which is placed between the two bars. $^{60}$Co produced  
+two $\gamma$ rays with energies of 1.17  and  1.3 \si{\mega\electronvolt}. The two $\gamma$-rays are collimated by two lead bricks to hit specific locations along the bars, allowing for the 
 study of PMT time resolution as a function of distance from the PMT (or, due to attenuation along the bar, effective-energy observed by the PMT).
 
 {\color{red}TO DO (Efrain): Discuss the results of the test and which PMT was chosen / why.}
@@ -255,7 +254,7 @@ We tested two thicknesses of mu-metal shielding, each in two diameters, as well 
 The results show that a xx thick $\mu$-metal shielding placed 5 cm past the PMT faces is most effective to preserve events and minimize timing distortions. Therefore, every PMT in the detector has been equipped with such a shielding. During installation, we ensure that the $\mu$-metal is also covering an area of the light guide in front of the PMT photo cathode to obtain optimal shielding.
 
 \subsection{Lead shielding}
-To minimize background from backward going photons, a lead wall was installed between the target of CLAS12 and BAND. This lead wall consists of individual 20 \si{\milli\meter} thick blocks stacked in front of the veto layer. Each block is covered on both sides with an Aluminium layer to simplify the handling of every block. We estimated a reduction of the background rates from photons by xx. {\color{red} more details here or not?}
+To minimize background from backward going photons, a lead wall was installed between the target of CLAS12 and BAND. This lead wall consists of individual 20 \si{\milli\meter} thick blocks stacked in front of the veto layer. Each block is covered on both sides with an Aluminium layer to simplify its handling.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -274,29 +273,35 @@ To minimize background from backward going photons, a lead wall was installed be
 %\end{table}
 
 \subsection{Laser Calibration system}
-Due to the placement of the BAND, in CEBAF 12 \si{\giga\electronvolt} with the CLAS12 magnetic fields \cite{Fair:2020yfx} there is a lack of high-rate exclusive processes 
-that can be used for monitoring performance stability and perform calibrations. A laser system \cite{band-laser} was implemented to validate performance during data-taking. This system also 
-provided a method to quickly perform various calibrations (discussed below). For this purpose every bar in BAND was equipped with an optical fiber which was connected via a patch panel to the optical/fiber splitter of the laser system. A reference signal of the laser system is provided by a photo diode. The output signal of the photo diode is inverted and shaped before it is sent to the BAND read-out system. The signal is detected by the same ADCs and TDCs which are used for the PMT signals.
+%Due to the placement of the BAND, in CEBAF 12 \si{\giga\electronvolt} with the CLAS12 magnetic fields \cite{Fair:2020yfx} there is a lack of high-rate exclusive processes 
+%that can be used for monitoring performance stability and perform calibrations.
+A laser system was implemented to calibrate BAND and monitor its performance during data-taking. This 
+provided a method to quickly perform various calibrations (discussed below). The design and performance of the system is described in Ref. \cite{band-laser}. 
+Its installation required equipping each scintillator with an optical fiber that goes to its center and to an optical patch panel on the other side to connect to the laser system.
+A reference signal of the laser system is provided by a photo-diode. The output signal of the photo diode is inverted and shaped before it is sent to the BAND read-out system. The signal is detected by the same ADCs and TDCs which are used for the PMT signals.
 
+{\color{red} TO DO: Details on the connection of the fibers to the bars.}
 
 %%% ----------------- Electronics subsection
 \subsection{Electronics and DAQ}
-In the experiment, the high voltages for each PMT (typically in the range of 1500 V) are provided by a multi-channel CAEN SYS4527 mainframe with 11 A1535SN cards (24 channel each).
-A schematic drawing of the read-out electronics and its components is shown in Fig. \ref{fig:electronic-diag}. The signal of each PMT is split to measured ADC and TDC independently. 
-The signal splitters are custom made and have been used in previous experiments at Jefferson Lab (COULD ADD REF to HPS herenwhere it was used before).
-From the splitter one signal is sent to flash-ADCs (250 VXS, 16 channels/board, made and owned by Jefferson Lab \cite{fadc-manual}) while the other signal is sent to  discriminators (16 channels/board, also made by Jefferson Lab [ADD REF, possibly online]).
-The discriminated time signal goes to a TDC (CAEN VX1190A, 128 channels/board, 100 ps/channel resolution). 
-In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and a TDC in a VME crate and 16 splitters.  Furthermore, a trigger signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. All components are part of the standard electronics components of CLAS12 at Jefferson Lab \cite{clas12-daq, clas12-trigger}.
+In the experiment, the high voltages for each PMT are provided by a multi-channel CAEN SYS4527 mainframe with eleven A1535SN cards with 24 channel each \cite{caen-hvframe,caen-hvcard}.
 
-The detector read-out is either triggered by the main trigger system from CLAS12 or by stand-alone detector triggers for tests and calibrations with cosmics, radioactive sources and the laser system. The stand-alone triggers are implemented by a programmble logic board (CAEN V1495, ADD REF to webpage) and they consist of a single bar trigger for source measurements and a coincidence bar trigger for cosmics and laser measurements. The later one is also feed to the central CLAS12 trigger system to allow monitoring of the detector by recording laser hits during real data taken. This special trigger rate is usually about 10 \si{\hertz} compared to the $\approx$ 15-20 \si{\kilo\hertz} trigger rate from electron interactions in the target.
+A schematic drawing of the read-out electronics and its components is shown in Fig. \ref{fig:electronic-diag}. The signal of each PMT is split to an ADC and TDC readout independently. 
+The signal splitters are custom made and have been used in previous experiments at Jefferson Lab (REF HPS).
+From the splitter one signal is sent to a 250 \si{\mega\hertz} sampling flash-ADCs \cite{fadc-manual} while the other signal is sent to  discriminators [ADD REF].
+The discriminated time signal goes to a TDC (CAEN VX1190A \cite{caen-tdc}) with 100 ps resolution per channel. 
+In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and two TDCs in a VME crate and 16 splitters.  Furthermore, a trigger signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. All components are part of the standard electronics components of CLAS12 at Jefferson Lab \cite{clas12-daq, clas12-trigger}.
 
+The detector is read-out either by a trigger from the main CLAS12 trigger system \cite{clas12-trigger} or by stand-alone BAND detector triggers usedcfor tests and calibrations with cosmic rays, radioactive sources and the laser system. The stand-alone triggers are implemented by a programmble CAEN V1495 logic board \cite{caen-logicboard}. They consist of a single bar trigger for source measurements and a coincidence bar trigger for cosmics and laser measurements. The later one is also feed to the central CLAS12 trigger system to allow monitoring of the detector by recording laser hits during real data taken. This special trigger rate is usually about 10 \si{\hertz} compared to the $\approx$ 15-20 \si{\kilo\hertz} trigger rate from electron interactions in the target.
 
-\begin{figure*}[h!]
+%ADD SOMEHTING ABOUT THE READOUT WINDOW FOR THE FADCs, ADD TABLE FOR THE ELECTRONICS SPECs
+%MOVE HV to ANOTHER SECTION. ADD PICTURE OF SLOWCONTROL OR at least reference it.
+\begin{figure}[th!]
 	\centering
-		\includegraphics[width=0.96\textwidth]{figures/electronics-diag.pdf}
+		\includegraphics[width=0.48\textwidth]{figures/electronics-diag.pdf}
 	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
 	\label{fig:electronic-diag}
-\end{figure*}
+\end{figure}
 
 
 %%% ----------------- Assembly subsection
@@ -314,7 +319,11 @@ In the second part of the chapter, the performance of the whole BAND detector is
 {\color{red} Should we add more detaill like FTOF does -- what value for cosmic did we match to / why...?}
 In order to have similar response to a given energy deposit across all PMTs of BAND, each PMT's HV was optimized using
 cosmic rays. Multiple data sets with varying PMT HV were taken with cosmic rays, and combined to produce a gain curve for 
-each PMT. A typical ADC spectrum from cosmic data for a single HV setting %and the resulting gain curve from fitting the 
+each PMT. 
+%NEXT SENTENCE ARE FROM OR's comment. Double check with EFRAIN
+We select events when the cosmic ray is perpendicular to the bar and passes through the center of the detector. This corresponds to a relatively high energy deposition of 14.2 \si{\mega\eV}. For each HV setting we fit the ADC channel of the cosmic peak to obtain the gain curves. The value of the fit parameters for each PMT are shown in Fig. xx. The final HV setting for each PMT was chosen to position in the middle of our ADC spectrum at channel 20,000 (of 40,000 {\color{red} check this number} total).
+
+A typical ADC spectrum from cosmic data for a single HV setting %and the resulting gain curve from fitting the 
 %cosmic peak from many HV settings are both shown
 is shown in Fig~\ref{fig:gain}. The resulting HV settings across all PMTs in BAND is 
 shown in Fig~\ref{fig:hv_settings}. The spread of the settings for the short bars (red points) stems from a non-uniform behaviour from the ET9214 PMTs which were installed on the short bars. The Hamamatsu R7724-10 PMTs show are more uniform gain performance.
