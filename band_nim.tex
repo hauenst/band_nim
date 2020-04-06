@@ -180,12 +180,16 @@ fiducial volume, granularity, and cost.
 \end{figure*}
 
 {\color{red} ADD the different length of the bars here due to the constraint from beam pipe.}
+The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:design}. The bottom rows are only arranged in four layers due to obstruction from surrounding frames.
 
+Each bar has a cross section of $7.2 \times 7.2\,\mathrm{cm}^{2}$ and are made of BC-408 scintillant. Three different long bars are used in the detector: 15 bars with a length of $164\,\mathrm{cm}$ (xx in Fig. \ref{fig:design}), 43 bars with a length of $202\,\mathrm{cm}$ (xx in Fig. \ref{fig:design}) and 58 short bars with a length of $51\,\mathrm{cm}$ (in Fig. \ref{fig:design}). The short bars are necessary for hole for the beam line and target installation. The total thickness is $36\,\mathrm{cm}$.
+All bars are read-out on both sides by PMTs (100 Hamamatsu R7724 and 132 ET 9214) giving a total of 232 active channels
+a veto layer is installed with 24 scintillators bars which are read-out only on one side by Thorne EMI 9954KB PMTs. The bars have a cross section of $2 \times 7.2\,\mathrm{cm}^{2}$. The bars in the veto layer have the same length as the bars of one layer of the active detector area. The veto layer is shown in Fig. \ref{fig:design}.
 \subsection{Components}
 The timing resolution of the scintillator bars is impacted by many factors, and each component was optimized considering the design constraint and cost. Tests were 
 performed varying the scintillant, reflective wrapping, photo-multipler tube (PMT), and optical-coupling-method of the scintillators to light-guides to PMTs to select the optimal combination
 
-A diagram of our test setup and electronics is shown in Fig. \ref{fig:test_stand}. For the test bench measurements, we used a coincidence setup between a ``test" scintillator bar and a ``reference" scintillator bar. Each bar has 2 PMTs 
+A diagram of our test setup and electronics is shown in Fig. \ref{fig:test_stand_setup}. For the test bench measurements, we used a coincidence setup between a ``test" scintillator bar and a ``reference" scintillator bar. Each bar has 2 PMTs 
 coupled to the ends; the test bar has the PMTs which we wish to measure the time resolution. Both bars are wrapped in an optical reflector, and placed in a dark-box. The reference bar was kept fixed during all measurements. The tested combination of components and results are summarized in Table~\ref{tab:tests}. 
 
 The coincidence signal for our measurement is produced by a $^{60}$Co source which is placed between the two bars. $^{60}$Co produced  
@@ -218,18 +222,20 @@ Scintillator Material Reference \cite{scint-mat-ref}
 	\label{tab:tests}
 \end{table*}
 
-\begin{figure*}[h!]
+\begin{figure}[th!]
 	\centering
-	\begin{minipage}{0.48\textwidth}
-		\includegraphics[width=\textwidth]{phys_setup.png} \\
-		\includegraphics[width=\textwidth]{electr_setup.png}
-	\end{minipage}
-	\begin{minipage}{0.48\textwidth}
-		\includegraphics[width=\textwidth]{test-stand/test-resolutions.pdf}
-	\end{minipage}
-	\caption{Test to determine optimal choice of scintillant, PMT, optical wrapping and gluing material. Diagram of setup and electronics is shown on the left and obtained time resolution as a function of energy is shown on the right. The combination shown in blue and red was choosen for the }
-	\label{fig:test_stand}
-\end{figure*}
+		\includegraphics[width=0.48\textwidth]{phys_setup.png} \\
+		\includegraphics[width=0.48\textwidth]{electr_setup.png}
+	\caption{Test to determine optimal choice of scintillant, PMT, optical wrapping and gluing material. Diagram of setup and electronics is shown. }
+	\label{fig:test_stand_setup}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=0.48\textwidth]{test-stand/all-lines-somedata.pdf}
+		\caption{Obtained time resolution as a function of energy for various PMTs in the bench test measurements. {\color{red} ADD more description here}The combination shown in blue and red was choosen for the }
+	\label{fig:test_stand_results}
+\end{figure}
 
 \subsection{Magnetic shielding}
 Due to the fringe-field of the solenoid magnet of CLAS12 \cite{Fair:2020yfx}, all PMTs require a magnetic shielding. We estimated a transverse field in the  PMT region ranging from xx to xx and a longitudinal field that ranges from xx to xx. As dedicated test stand was setup to test different shieldings.
@@ -322,17 +328,33 @@ In order to have similar response to a given energy deposit across all PMTs of B
 cosmic rays. Multiple data sets with varying PMT HV were taken with cosmic rays, and combined to produce a gain curve for 
 each PMT. 
 %NEXT SENTENCE ARE FROM OR's comment. Double check with EFRAIN
-We select events when the cosmic ray is perpendicular to the bar and passes through the center of the detector. This corresponds to a relatively high energy deposition of 14.2 \si{\mega\eV}. For each HV setting we fit the ADC channel of the cosmic peak to obtain the gain curves. The value of the fit parameters for each PMT are shown in Fig. xx. The final HV setting for each PMT was chosen to position in the middle of our ADC spectrum at channel 20,000 (of 40,000 {\color{red} check this number} total).
+We select events when the cosmic ray is perpendicular to the bar and passes through the center of the detector. This corresponds to a relatively high energy deposition of 14.2 \si{\mega\eV}. For each HV setting we fit the ADC channel of the cosmic peak to obtain the gain curves. The value of the fit parameters for each PMT are shown in Fig. xx. The final HV setting for each PMT was chosen to position in the middle of our ADC spectrum at channel 15,000 (of 30,000 {\color{red} check this number} total)\footnote{We obtained similar results when using the pulse amplitude of the ADC signal instead of the integral}.
 
 A typical ADC spectrum from cosmic data for a single HV setting %and the resulting gain curve from fitting the 
 %cosmic peak from many HV settings are both shown
-is shown in Fig~\ref{fig:gain}. The resulting HV settings across all PMTs in BAND is 
+is shown in Fig~\ref{fig:adc-spectrum}. The resulting HV settings across all PMTs in BAND is 
 shown in Fig~\ref{fig:hv_settings}. The spread of the settings for the short bars (red points) stems from a non-uniform behaviour from the ET9214 PMTs which were installed on the short bars. The Hamamatsu R7724-10 PMTs show are more uniform gain performance.
-\begin{figure*}[h!]
+\begin{figure}[th!]
 	\centering
 		\begin{minipage}{0.48\textwidth}
-			\includegraphics[width=\textwidth]{adc-spectra.png}\\
-			%\includegraphics[width=\textwidth]{.png}
+			\includegraphics[width=\textwidth]{adc-fit-example.pdf}\\
+					\subcaption{}
+			\label{fig:adc-spectrum}
+		\end{minipage}
+		\begin{minipage}{0.48\textwidth}
+			\includegraphics[width=\textwidth]{gainfit.pdf}
+			\subcaption{}
+		\label{fig:gain-curve}
+		\end{minipage}
+		\caption{Gain matching of BAND PMTs. (a) Typical ADC spectrum for a PMT with cosmics. (b) All PMT HV settings for similar gains. One sees a greater 
+		spread of HV needed to match gains in the short bars which have ET9214 PMTs.}
+\end{figure}
+
+
+\begin{figure}[th!]
+	\centering
+		\begin{minipage}{0.48\textwidth}
+			\includegraphics[width=\textwidth]{pmt-gains.png}\\
 			\subcaption{}
 			\label{fig:gain}
 		\end{minipage}
@@ -341,10 +363,9 @@ shown in Fig~\ref{fig:hv_settings}. The spread of the settings for the short bar
 			\subcaption{}
 		\label{fig:hv_settings}
 		\end{minipage}
-		\caption{Gain matching of BAND PMTs. (a) Typical ADC spectrum for a PMT with cosmics. (b) All PMT HV settings for similar gains. One sees a greater 
+		\caption{ (a) Gain parameters for each PMT. (b) PMT HV settings for gains with $\mathrm{ADC}_{\mathrm{peak}} = 15000$. One sees a greater 
 		spread of HV needed to match gains in the short bars which have ET9214 PMTs.}
-\end{figure*}
-
+\end{figure}
 
 %%% ----------------- Energy deposit subsection
 \subsubsection{Energy deposit calibration}
@@ -500,8 +521,9 @@ In addition, an minimum energy deposition cut has been applied to remove events 
 300 \si{\pico\s}. 
 \begin{figure*}[h!]
 	\centering
+			\includegraphics[width=0.48\textwidth]{tof-resolutions-laser.png}
 		\includegraphics[width=0.48\textwidth]{tof_resolution.pdf}
-	\caption{ToF resolution as a function for every bar. All bars are well below the required 300 \si{\pico\s}. {\color{red} Update Figure with an energy deposit cut to show actually the good time resolution}}
+	\caption{ToF resolution as a function for every bar (left Laser, right beam-on data). All bars are well below the required 300 \si{\pico\s}. {\color{red} Update Figure with an energy deposit cut to show actually the good time resolution}}
 	\label{fig:tof_resolution}
 \end{figure*}
 
