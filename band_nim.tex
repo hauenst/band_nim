@@ -1,4 +1,4 @@
-\documentclass[3p,final,twocolumn]{elsarticle}
+\documentclass[3p,final,twocolumn,nofootinbib]{elsarticle}
 %\documentclass[3p,times,twocolumn]{elsarticle}
 
 \usepackage{lineno,hyperref}
@@ -176,20 +176,22 @@ The cross section of each scintillator bar determines our position granularity i
 time resolutions. With a design ToF resolution below $300$ \si{\pico\second}, $7.2$ \si{\centi\meter} by $7.2$ \si{\centi\meter} scintillator bars were chosen to optimize
 fiducial volume, granularity, and cost. 
 
-\begin{figure*}[tbh!]
+\begin{figure}[tbh!]
 	\centering
-		\includegraphics[width=0.48\textwidth]{MAIN_DETECTOR_COLORED_2.png}
-		\includegraphics[width=0.48\textwidth]{VETO_DETECTOR_COLORED_2.png}
-		\caption{BAND design	of active detector bars (left) and veto bars (right). The 164 \si{\centi\meter} long bars are shown in red, the 202 \si{\centi\meter} long in white and the short, 51 \si{\centi\meter} lon, ones in cyan, respectively. The position of the PMTs for each bar is also shown. The beam direction corresponds to the $z$-axis. ({\color{red} Need an updated nicer figure with direction of beam / coordinate system, maybe having a darker/ligher shade of green for the short bars to distinguish between sectors})      }
+	%\includegraphics[width=0.48\textwidth]{MAIN_DETECTOR_COLORED_2.png}
+	%	\includegraphics[width=0.48\textwidth]{VETO_DETECTOR_COLORED_2.png}
+			\includegraphics[width=0.48\textwidth]{band-schematic.pdf}
+		\caption{BAND design	of bars in the main detector and the veto. The 164 \si{\centi\meter} long bars are shown in red, the 202 \si{\centi\meter} long in white and the short, 51 \si{\centi\meter} lon, ones in cyan, respectively. The position of the PMTs for each bar is also shown. The beam direction corresponds to the $z$-axis.  }
 		\label{fig:design}
-\end{figure*}
+\end{figure}
 
-The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:design} (left). The bottom rows are only arranged in four layers due to obstructions from the cart below BAND.  Three different long bars are used in the detector: 15 bars with a length of 164 \si{\centi\meter} (red, Fig. \ref{fig:design}), 43 bars with a length of 202 \si{\centi\meter} (white, Fig. \ref{fig:design}) and 58 short bars with a length of 51 \si{\centi\meter} (cyan, Fig. \ref{fig:design}) to allow for the spared region for the beam pipe. All bars have light guides attached to both sides which are connected to either Hamamatsu R7724 \cite{pmtR7724} or Electron Tubes (ET) 9214 \cite{pmt9214} 2-in PMTs for read-out.
+The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:design}. The bottom rows are only arranged in four layers due to obstructions from the cart below BAND.  Three different long bars are used in the detector: 15 bars with a length of 164 \si{\centi\meter} (red, Fig. \ref{fig:design}), 43 bars with a length of 202 \si{\centi\meter} (white, Fig. \ref{fig:design}) and 58 short bars with a length of 51 \si{\centi\meter} (cyan, Fig. \ref{fig:design}) to allow for the spared region for the beam pipe. All bars have light guides attached to both sides which are connected to either Hamamatsu R7724 \cite{pmtR7724} or Electron Tubes (ET) 9214 \cite{pmt9214} 2-in PMTs for read-out.
 
-The veto layer, which is installed on the downstream side of BAND, consists of 24 scintillator bars with a cross section of $2$ \si{\centi\meter} by $7.2$ \si{\centi\meter}. The length of the bars and the stacking follow the active detector area such that the whole downstream surface is covered by the veto, see Fig. \ref{fig:design} (right). Each bar is only read-out on one side by ET 9954KB \cite{pmt9954} 2-in PMTs.
+The veto layer, which is installed on the downstream side of BAND, consists of 24 scintillator bars with a cross section of $2$ \si{\centi\meter} by $7.2$ \si{\centi\meter}. The length of the bars and the stacking follow the active detector area such that the whole downstream surface is covered by the veto, see Fig. \ref{fig:design}. Each bar is only read-out on one side by ET 9954KB \cite{pmt9954} 2-in PMTs.
 
 Each bar has an assigned sector and layer number. The layer number corresponds to the horizontal position along the beam line starting from upstream (1) to downstream (5) for the active area and (6) for all veto bars. The sector numbering follows from top to bottom. The middle-long bars in the top three rows make up sector 1. Sector 2 and 5 are consisting of the long bars above (seven rows total) and below (two rows total) the short bars, respectively. The short bars to the left of the beam hole are sector 3, while the ones on the right side are sector 4. Table 
 \ref{tab:geometry} summarizes the geometry parameters and PMTs for each sector and layer .
+
 
 %NOT PERFECT PHI SYMMETRY BUT NOT IMPORTANT FOR BAND PHYSICS
 \begin{table}[t]
