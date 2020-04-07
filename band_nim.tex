@@ -162,7 +162,7 @@ In the next subsections, the details of the individual BAND components are descr
 	\centering
 		\includegraphics[width=0.40\textwidth]{FULL_CONTEXT_STUDIE_3.png}
 		\vspace{0.5cm}
-		\caption{BAND and its close surroundings: the cyrotarget and beam line components (cyan),  BAND (red) and the central detector region of CLAS12 (blue). }
+		\caption{BAND and its close surroundings: the cyrotarget and beam line components (cyan),  BAND (red) and the central detector region of CLAS12 (blue). The beam is coming from the left side.}
 		\label{fig:bandtarget}
 		
 \end{figure}
@@ -176,7 +176,7 @@ The cross section of each scintillator bar determines our position granularity i
 time resolutions. With a design ToF resolution below $300$ \si{\pico\second}, $7.2$ \si{\centi\meter} by $7.2$ \si{\centi\meter} scintillator bars were chosen to optimize
 fiducial volume, granularity, and cost. 
 
-\begin{figure}[tbh!]
+\begin{figure}[tb]
 	\centering
 	%\includegraphics[width=0.48\textwidth]{MAIN_DETECTOR_COLORED_2.png}
 	%	\includegraphics[width=0.48\textwidth]{VETO_DETECTOR_COLORED_2.png}
@@ -327,6 +327,13 @@ Its installation required equipping each scintillator with an optical fiber that
 A reference signal of the laser system is provided by a photo-diode. The output signal of the photo diode is inverted and shaped before it is sent to the BAND read-out system. The signal is detected by the same ADCs and TDCs which are used for the PMT signals.
 
 {\color{red} TO DO: Details on the connection of the fibers to the bars.}
+\begin{figure}[tbh]
+	\centering
+		\includegraphics[width=0.40\textwidth]{pic-fiberonbar.pdf}
+	\caption{Connection of fiber to bar after gluing. ADD MORE DESCRIPTION.}
+	\label{fig:pic-fiberonbar}
+\end{figure}
+
 
 %%% ----------------- Electronics subsection
 \subsection{Electronics and DAQ}
@@ -353,13 +360,36 @@ The detector is read-out either by a trigger from the main CLAS12 trigger system
 %%% ----------------- Assembly subsection
 \subsection{Final Assembly}
 {\color{red} Shall we keep this section describing some remarks on the final assembly and having 1-2 nice pictures or scratch it?}
+
+Fig. \ref{fig:barassembly} shows the bars and its stacking to rows in BAND.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Fig. \ref{fig:band} shows BAND and its frame from the design (left) and after installation in the Jefferson Lab's HallB (right).
-\begin{figure}[th]
+\begin{figure*}[tb]
 	\centering
-	\includegraphics[width=0.48\textwidth]{BAND_1-2.png}
+	\includegraphics[width=0.48\textwidth , height=0.40\textwidth]{pic-construction1.pdf}
+	\includegraphics[width=0.40\textwidth , height=0.40\textwidth]{pic-construction2.pdf}
+				\caption{BAND construction. From ESR wrapped bars (left) to assembled detector (right). The intermediate steps show the fully wrapped bars with the optical fiber and the assembled bottom row of the detector. }
+		\label{fig:barassembly}
+\end{figure*}
+
+
+
+
+Fig. \ref{fig:band_downstream} shows BAND and its frame from the design (left) and after installation in the Jefferson Lab's HallB (right).
+\begin{figure*}[th]
+	\centering
+	\includegraphics[width=0.48\textwidth]{BAND_1-2.png} 
+	\includegraphics[width=0.42\textwidth]{pic-bandinhall1.pdf}
 		\caption{BAND and its frame. The cyan color indicates the lead shield wall installed at the downstream side of BAND. ADD PICTURE HOW IT LOOKS IN REALITY. SAME ANGLE.}
-		\label{fig:band}
+		\label{fig:band_downstream}
+\end{figure*}
+
+Fig. \ref{fig:bandinhall} shows the upstream side of BAND in HallB during the connection of cables.
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.48\textwidth]{pic-bandinhall2.pdf}
+				\caption{BAND in HallB. Upstream side with first set of cables installed.}
+		\label{fig:bandinhall}
 \end{figure}
 
 
@@ -616,7 +646,8 @@ The expected neutron efficiency from simulation is $35$\% . In the future, an an
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
+ 
+ \clearpage
 
 
 
