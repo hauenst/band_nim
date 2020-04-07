@@ -47,9 +47,12 @@
 \title{The CLAS12 Backward Angle Neutron Detector (BAND) }
 
 %% Group authors per affiliation:
-\author{E.P.~Segarra, F.~Hauenstein\corref{corresponding}, A.~Schmidt, A.~Beck, \\ S.~May-Tal Beck, 
+
+
+\author{E.P.~Segarra, F.~Hauenstein\corref{mycorrespondingauthor}, A.~Schmidt, A.~Beck, \\ S.~May-Tal Beck, 
 R.~Cruz-Torres, A.~Denniston, \\ O.~Hen, A.~Hrnjic, T.~Kutz, A.~Nambrath,  J.~Pybus }
 \address{\MIT}
+
 \author{K.~Pryce, C.~Fogler, T.~Hartlove, L.B.~Weinstein}
 \address{\ODU}
 %ADD current address for Kitty (Orsay)
@@ -61,8 +64,10 @@ R.~Cruz-Torres, A.~Denniston, \\ O.~Hen, A.~Hrnjic, T.~Kutz, A.~Nambrath,  J.~Py
 \address{\NRC}
 \author{P.~Eugenio}
 \address{FSU}
-\cortext[corresponding]{hauenst@jlab.org, Address: MIT Cambridge, Massachusetts 02139 
-}
+\cortext[mycorrespondingauthor]{Corresponding Author}
+
+\ead{hauenst@jlab.org}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \date{\today}
 %\ead[]{}
@@ -117,11 +122,13 @@ In the next subsections, the details of the individual BAND components are descr
 %% ALSO TABLES FOR GEMOETRY< PMTS ADN SCINTILLATOR IN THIS CHAPTER. PART OF IT IN GEOMETRY
 %%ALSO LIGHTGUIDES!!
 %%GEMOETRY CONSTRAINTS: LENGTH BY SIZE, CROSS SECTION BY COSTS
-\begin{figure}[t]
+\begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.40\textwidth]{FULL_CONTEXT_STUDIE_3.png}
+		\vspace{0.5cm}
 		\caption{BAND and its close surroundings: the cyrotarget and beam line components (cyan),  BAND (red) and the central detector region of CLAS12 (blue). }
 		\label{fig:bandtarget}
+		
 \end{figure}
 
 The geometry of the BAND was constrained by the requirement to detect backward angle neutrons and the physical limitations in the hall. 
@@ -133,55 +140,49 @@ The cross section of each scintillator bar determines our position granularity i
 time resolutions. With a design ToF resolution below $300$ \si{\pico\second}, $7.2$ \si{\centi\meter} by $7.2$ \si{\centi\meter} scintillator bars were chosen to optimize
 fiducial volume, granularity, and cost. 
 
-\begin{figure*}[t!]
+\begin{figure*}[tbh!]
 	\centering
 		\includegraphics[width=0.48\textwidth]{MAIN_DETECTOR_COLORED_2.png}
 		\includegraphics[width=0.48\textwidth]{VETO_DETECTOR_COLORED_2.png}
-		\caption{BAND design	of active detector layers (left) and veto layer (right).  ({\color{red} Need an updated nicer figure with direction of beam / coordinate system, maybe having a darker/ligher shade of green for the short bars to distinguish between sectors})      }
+		\caption{BAND design	of active detector bars (left) and veto bars (right). The 164 \si{\centi\meter} long bars are shown in red, the 202 \si{\centi\meter} long in white and the short, 51 \si{\centi\meter} lon, ones in cyan, respectively. The position of the PMTs for each bar is also shown. The beam direction corresponds to the $z$-axis. ({\color{red} Need an updated nicer figure with direction of beam / coordinate system, maybe having a darker/ligher shade of green for the short bars to distinguish between sectors})      }
 		\label{fig:design}
 \end{figure*}
 
-The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:design} (left). The bottom rows are only arranged in four layers due to obstructions from the cart below BAND.  Three different long bars are used in the detector: 15 bars with a length of $164\,\mathrm{cm}$ (red, Fig. \ref{fig:design}), 43 bars with a length of $202\,\mathrm{cm}$ (white, Fig. \ref{fig:design}) and 58 short bars with a length of $51\,\mathrm{cm}$ (cyan, Fig. \ref{fig:design}) to allow for the spared region for the beam pipe. All bars have light guides attached to both sides which are connected to either Hamamatsu R7724 \cite{pmtR7724} or ET 9214 \cite{pmt9214} 2-in PMTs for read-out.
+The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:design} (left). The bottom rows are only arranged in four layers due to obstructions from the cart below BAND.  Three different long bars are used in the detector: 15 bars with a length of 164 \si{\centi\meter} (red, Fig. \ref{fig:design}), 43 bars with a length of 202 \si{\centi\meter} (white, Fig. \ref{fig:design}) and 58 short bars with a length of 51 \si{\centi\meter} (cyan, Fig. \ref{fig:design}) to allow for the spared region for the beam pipe. All bars have light guides attached to both sides which are connected to either Hamamatsu R7724 \cite{pmtR7724} or Electron Tubes (ET) 9214 \cite{pmt9214} 2-in PMTs for read-out.
 
-{\color{red}TO DO: DEFINITION OF SECTORS AND LAYERS}
-%
-Table \ref{tab:geometry} summarizes the geometry parameters and PMTs for each sector.
+The veto layer, which is installed on the downstream side of BAND, consists of 24 scintillator bars with a cross section of $2$ \si{\centi\meter} by $7.2$ \si{\centi\meter}. The length of the bars and the stacking follow the active detector area such that the whole downstream surface is covered by the veto, see Fig. \ref{fig:design} (right). Each bar is only read-out on one side by ET 9954KB \cite{pmt9954} 2-in PMTs.
+
+Each bar has an assigned sector and layer number. The layer number corresponds to the horizontal position along the beam line starting from upstream (1) to downstream (5) for the active area and (6) for all veto bars. The sector numbering follows from top to bottom. The middle-long bars in the top three rows make up sector 1. Sector 2 and 5 are consisting of the long bars above (seven rows total) and below (two rows total) the short bars, respectively. The short bars to the left of the beam hole are sector 3, while the ones on the right side are sector 4. Table 
+\ref{tab:geometry} summarizes the geometry parameters and PMTs for each sector and layer .
+
 %NOT PERFECT PHI SYMMETRY BUT NOT IMPORTANT FOR BAND PHYSICS
-\begin{table*}[t]
-\caption{{\color{red} THIS TABLE NEEDS AN UPDATE> IT IS JUST A TEMPORARY PLACEHOLDER WITH FTOF VALUES}Parameters for bars and PMTs for the different BAND sectors and layers.}
-\begin{center}
-\begin{tabular} {c|l} \hline
-~~Parameter~~ &~~~~~~~~~~~~~~~~~~~~~~ Design Value ~~~~~~~~~~\\ \hline
-\multicolumn{2}{c} {Panel-1a (23 counters per sector)} \\
-Angular Coverage      & $\theta = 5^\circ \to 35^\circ$, $\phi: 50\% {\rm ~at~} 5^\circ \to 85\% {\rm ~at~} 
-35^\circ$ \\
-Counter Dimensions   & $L = 32.3$~cm $\to$ 376.1~cm, $w \times h$ = 15~cm $\times$ 5~cm   \\
-Scintillation Material & BC-408   \\
-PMTs                         & EMI 9954A, Philips XP2262 \\
-Counter Time Resolution     & 90~ps $\to$ 180~ps   \\ \hline
-\multicolumn{2}{c} {Panel-1b (62 counters per sector)} \\
-Angular Coverage      & $\theta = 5^\circ \to 35^\circ$, $\phi: 50\% {\rm ~at~} 5^\circ \to 85\% {\rm ~at~} 
-35^\circ$ \\
-Counter Dimensions   & $L = 17.3$~cm $\to$ 407.9~cm, $w \times h$ = 6~cm $\times$ 6~cm   \\
-Scintillation Material & BC-404 (\#1 $\to$ \#31), BC-408 (\#32 $\to$ \#62)  \\
-PMTs                         & Hamamatsu R9779 \\
-Counter Time Resolution     & 60~ps $\to$ 110~ps   \\ \hline
-\multicolumn{2}{c} {Panel-2 (5 counters per sector)} \\
-Angular Coverage      & $\theta = 35^\circ \to 45^\circ$, $\phi: 85\% {\rm ~at~} 35^\circ \to 95\% {\rm ~at~} 
-45^\circ$ \\
-Counter Dimensions   & $L = 371.3$~cm $\to$ 426.1~cm, $w \times h$ = 22~cm $\times$ 5~cm   \\
-Scintillation Material & BC-408   \\
-PMTs                         & Photonis XP4312B, EMI 4312KB \\
-Counter Time Resolution     & 170~ps $\to$ 180~ps   \\ \hline
+\begin{table}[t]
+\caption{Parameters for bars and PMTs for the different BAND sectors and layers.}
+\centering
+\begin{tabular} {l |l | m{4em}} \hline
+ &  Dimensions ($w\times h$) & PMT \\ \hline\hline
+\multicolumn{3}{l} {Sector 1,  $L = 164~\si{\centi\meter}$} \\ \hline
+Layer $1 - 5$  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
+Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
+\hline
+\multicolumn{3}{l} {Sector 2, $L = 202~\si{\centi\meter}$} \\ \hline
+Layer $1 - 5$  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
+Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
+\hline
+\multicolumn{3}{l} {Sector 3 and 4, $L = 51~\si{\centi\meter}$} \\ \hline
+Layer $1 - 4$  & \multirow{2}{*}{7.2$\times$7.2 \si{\centi\meter\squared}} & 9214 \\
+Layer 5 & & R7724 \\
+Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
+\hline
+\multicolumn{3}{l} {Sector 5, $L = 202~\si{\centi\meter}$ } \\ \hline
+Layer $1 - 4$\footnote{Layer 5 bars do not exist due to obstructions from below}  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
+Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
+\hline
+
 \end{tabular}
 \label{tab:geometry}
-\end{center}
-\end{table*}
+\end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-A veto layer is installed with 24 scintillators bars which are read-out only on one side by ET 9954KB \cite{pmt9954} PMTs. The bars have a cross section of $2 \times 7.2\,\mathrm{cm}^{2}$. The bars in the veto layer have the same length as the bars of one layer of the active detector area. The veto layer is shown on the right in Fig. \ref{fig:design}.
 
 \subsection{Components}
 The timing resolution of the scintillator bars is impacted by many factors, and each component was optimized considering the design constraint and cost. Tests were 
@@ -200,12 +201,11 @@ Scintillator Material Reference \cite{scint-mat-ref}
 
 \begin{table}[t!]
 	\caption{Tested configurations. Resolution given $2$ \si{\mega\electronvolt} energy deposit in middle of bar.}
+\centering
 	\begin{tabular}{ m{5em} | m{4em} | m{3em} |  m{3em} }
 		\hline
 			PMT & Reflector & Length (cm) & $\sigma$ (\si{\pico\second})\\
-		\hline
-		\hline
-			
+		\hline\hline	
 			R7724-10 & 3M ESR &   200 & 150	\\
 			R7724-10 & Al foil &  200 &  240		\\
 			R7724-100 & Al foil &  250 & 200 		\\
@@ -214,10 +214,10 @@ Scintillator Material Reference \cite{scint-mat-ref}
 		
 			ET-9214 & Al foil &   200 & 270			\\
 			ET-9214 &   3M ESR & 50 & 150				\\
-
 		\hline
 	\end{tabular}
 	\label{tab:tests}
+
 \end{table}
 
 \begin{figure}[th!]
@@ -230,8 +230,16 @@ Scintillator Material Reference \cite{scint-mat-ref}
 
 \begin{figure}[h!]
 	\centering
-		\includegraphics[width=0.48\textwidth]{test-stand/all-lines-somedata.pdf}
-		\caption{Obtained time resolution as a function of energy for various PMTs in the bench test measurements. {\color{red} ADD more description here}The combination shown in blue and red was choosen for the }
+		\includegraphics[width=0.48\textwidth]{pos-dep.pdf}
+		\caption{Obtained time resolution as a function of energy deposit for different source placements along the bar for one PMT.{\color{red} ADD more description here} }
+	\label{fig:test_stand_posdep}
+\end{figure}
+
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=0.48\textwidth]{all-lines-somedata.pdf}
+		\caption{Obtained time resolution as a function of energy deposit for various PMTs in the bench test measurements. {\color{red} ADD more description here}The combination shown in blue and red was choosen for the }
 	\label{fig:test_stand_results}
 \end{figure}
 
@@ -271,11 +279,6 @@ To minimize background from backward going photons, a lead wall was installed be
 %%% ----------------- Components subsection
 %\subsection{Components}
 
-%\begin{table}[t!]
-%	\caption{}
-
-%	\label{tab:tests}
-%\end{table}
 
 \subsection{Laser Calibration system}
 %Due to the placement of the BAND, in CEBAF 12 \si{\giga\electronvolt} with the CLAS12 magnetic fields \cite{Fair:2020yfx} there is a lack of high-rate exclusive processes 
@@ -301,7 +304,7 @@ The detector is read-out either by a trigger from the main CLAS12 trigger system
 
 %ADD SOMEHTING ABOUT THE READOUT WINDOW FOR THE FADCs, ADD TABLE FOR THE ELECTRONICS SPECs
 %MOVE HV to ANOTHER SECTION. ADD PICTURE OF SLOWCONTROL OR at least reference it.
-\begin{figure}[th!]
+\begin{figure}[tbh!]
 	\centering
 		\includegraphics[width=0.48\textwidth]{figures/electronics-diag.pdf}
 	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
@@ -314,7 +317,7 @@ The detector is read-out either by a trigger from the main CLAS12 trigger system
 {\color{red} Shall we keep this section describing some remarks on the final assembly and having 1-2 nice pictures or scratch it?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Fig. \ref{fig:band} shows BAND and its frame from the design (left) and after installation in the Jefferson Lab's HallB (right).
-\begin{figure}[ht]
+\begin{figure}[th]
 	\centering
 	\includegraphics[width=0.48\textwidth]{BAND_1-2.png}
 		\caption{BAND and its frame. The cyan color indicates the lead shield wall installed at the downstream side of BAND. ADD PICTURE HOW IT LOOKS IN REALITY. SAME ANGLE.}
@@ -542,12 +545,12 @@ In addition, an minimum energy deposition cut has been applied to remove events 
 The neutron identification for production data is done by cuts on time-of-flight. Fig.~\ref{fig:tof} shows such a spectrum of events from production data where an electron was measured in coincidence in CLAS12 in the reaction $ed \rightarrow e'nX$. In addition, a minimum energy deposition cut of 5 \si{\MeV/\clight} has been applied for BAND hits. One can clearly see two separated peaks for photons and neutrons over a flat background from accidentals. The neutron peak corresponds to momenta between $200$ and $600$ \si{\MeV/\clight}.
 The neutron selection in the physics analysis is based on $\beta$ or ToF per pathlength (inverse $\beta$).
 
-\begin{figure*}[h!]
+\begin{figure}[h!]
 	\centering
-		\includegraphics[width=0.96\textwidth]{tof-labels.pdf}
+		\includegraphics[width=0.48\textwidth]{tof-labels.pdf}
 	\caption{Time-of-flight spectrum of BAND in coincidence with electrons measured in CLAS12 from production data. Clearly a photon and neutron peak is visible over a flat background from accidentals. The neutron peak corresponds to momenta  between $200$ and $600$ \si{\MeV/\clight}}
 	\label{fig:tof}
-\end{figure*}
+\end{figure}
 
 %%% ----------------- Efficiency, resolution subsection
 \subsubsection{Neutron efficiency}
