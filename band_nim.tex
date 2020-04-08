@@ -194,7 +194,7 @@ fiducial volume, granularity, and cost.
 		\label{fig:design}
 \end{figure}
 
-The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:design}. The bottom rows are only arranged in four layers due to obstructions from the cart below BAND.  Three different long bars are used in the detector: 15 bars with a length of 164 \si{\centi\meter} (red, Fig. \ref{fig:design}), 43 bars with a length of 202 \si{\centi\meter} (white, Fig. \ref{fig:design}) and 58 short bars with a length of 51 \si{\centi\meter} (cyan, Fig. \ref{fig:design}) to allow for the spared region for the beam pipe. All bars have light guides attached to both sides which are connected to either Hamamatsu R7724 \cite{pmtR7724} or Electron Tubes (ET) 9214 \cite{pmt9214} 2-in PMTs for read-out.
+The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:design}. The bottom rows are only arranged in four layers due to obstructions from the cart below BAND.  Three different long bars are used in the detector: 15 bars with a length of 164 \si{\centi\meter} (red, Fig. \ref{fig:design}), 43 bars with a length of 202 \si{\centi\meter} (white, Fig. \ref{fig:design}) and 58 short bars with a length of 51 \si{\centi\meter} (cyan, Fig. \ref{fig:design}) to allow for the spared region for the beam pipe. All bars have light guides attached to both sides which are connected to either Hamamatsu R7724 \cite{pmtR7724} or Electron Tubes (ET) 9214KB \cite{pmt9214} 2-in PMTs for read-out.
 
 The veto layer, which is installed on the downstream side of BAND, consists of 24 scintillator bars with a cross section of $2$ \si{\centi\meter} by $7.2$ \si{\centi\meter}. The length of the bars and the stacking follow the active detector area such that the whole downstream surface is covered by the veto, see Fig. \ref{fig:design}. Each bar is only read-out on one side by ET 9954KB \cite{pmt9954} 2-in PMTs.
 
@@ -217,7 +217,7 @@ Layer $1 - 5$  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
 \multicolumn{3}{l} {Sector 3 / 4, $L = 51~\si{\centi\meter}$} \\ \hline
-Layer $1 - 4$  & \multirow{2}{*}{7.2$\times$7.2 \si{\centi\meter\squared}} & 9214 \\
+Layer $1 - 4$  & \multirow{2}{*}{7.2$\times$7.2 \si{\centi\meter\squared}} & 9214KB \\
 Layer 5 & & R7724 \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
@@ -238,58 +238,54 @@ As the scintillator material, we choose Bicron BC-408 \cite{scint-mat-ref} asinc
 
 
 \subsubsection{Bench Measurements}
-
-A diagram of our test setup and electronics is shown in Fig. \ref{fig:test_stand_setup}. For the test bench measurements, we used a coincidence setup between a ``test" scintillator bar and a ``reference" scintillator bar. Each bar has 2 PMTs 
-coupled to the ends; the test bar has the PMTs which we wish to measure the time resolution. Both bars are wrapped in an optical reflector, and placed in a dark-box. The reference bar was kept fixed during all measurements. The tested combination of components and results are summarized in Table~\ref{tab:tests}. 
-
-The coincidence signal for our measurement is produced by a $^{60}$Co source which is placed between the two bars. $^{60}$Co produced  
-two $\gamma$ rays with energies of 1.17  and  1.3 \si{\mega\electronvolt}. The two $\gamma$-rays are collimated by two lead bricks to hit specific locations along the bars, allowing for the 
-study of PMT time resolution as a function of distance from the PMT (or, due to attenuation along the bar, effective-energy observed by the PMT).
-
-{\color{red}TO DO (Efrain): Discuss the results of the test and which PMT was chosen / why.}
-
-
-\begin{table}[t!]
-	\caption{Bench test configurations. Resolution given $2$ \si{\mega\electronvolt} energy deposit in middle of bar. {\color{red}TO DO (Efrain): Update Sigma values}}
-\centering
-	\begin{tabular}{ m{5em}  m{4em}  m{3em}   m{3em} }
-		\hline
-			PMT & Reflector & Length (cm) & $\sigma$ (\si{\pico\second})\\
-		\hline\hline
-			R7724-10 & ESR &   200 & 150	\\
-			R7724-10 & Al foil &  200 &  240		\\
-			R7724-100 & Al foil &  250 & 200 		\\
-			R13089 & Al foil &  250 & 220			\\			
-			R13435 & Al foil &  200 & 300 			\\	
-		
-			ET-9214 & Al foil &   200 & 270			\\
-			ET-9214 &  ESR & 50 & 150				\\
-		\hline
-	\end{tabular}
-	\label{tab:tests}
-
-\end{table}
-
 \begin{figure}[th!]
 	\centering
 		\includegraphics[width=0.48\textwidth]{phys_setup.png} \\
 		\includegraphics[width=0.48\textwidth]{electr_setup.png}
-	\caption{Test to determine optimal choice of scintillant, PMT, optical wrapping and gluing material. Diagram of setup and electronics is shown. }
+	\caption{Schematic of the bench test setup (top) and its read-out system (bottom) to determine time resolutions of PMT. }
 	\label{fig:test_stand_setup}
 \end{figure}
 
-\begin{figure}[h!]
+A diagram of our test setup and electronics is shown in Fig. \ref{fig:test_stand_setup}. For the test bench measurements, we used a coincidence setup between a ``test" scintillator bar and a ``reference" scintillator bar. Each bar has 2 PMTs 
+coupled to the ends; the test bar has the PMTs which we wish to measure the time resolution. Both bars are wrapped in an optical reflector, and placed in a dark-box. The reference bar was kept fixed during all measurements. In our measurements, we used in total 5 different 2-in PMTs (see \cite{hamapmts} and \cite{pmt9214}) assembled on 200 to 250 \si{\centi\meter} long bars. The tested combination of components and their results are summarized in Table~\ref{tab:tests}.  
+
+The coincidence signal for our measurement is produced by a $^{60}$Co source which is placed between the two bars. $^{60}$Co produced  
+two $\gamma$ rays with energies of 1.17 and 1.3 \si{\mega\electronvolt}. The two $\gamma$-rays are collimated by two lead bricks to hit specific locations along the bars, allowing for the 
+study of PMT time resolution as a function of distance from the PMT (or, due to attenuation along the bar, effective-energy observed by the PMT).
+
+\begin{table}[t!]
+	\caption{Bench test configurations. Resolution given for $2$ \si{\mega\electronvolt} central-equivalent energy deposit in middle of bar extrapolated from fits to data.}
+\centering
+	\begin{tabular}{ m{5em}   m{3em}   m{3em} }
+		\hline
+			PMT & Length (cm) & $\sigma$ (\si{\pico\second})\\
+		\hline\hline
+%			R7724 & ESR &   200 & 150	\\
+			R7724 &  200 &  240		\\
+			R7724-100 & 250 & 212 		\\
+			R13089 & 250 & 213			\\			
+			R13435 & 200 & 308 			\\		
+			9214KB & 200 & 257			\\
+%			ET-9214KB &  ESR & 50 & 150				\\
+		\hline
+	\end{tabular}
+	\label{tab:tests}
+\end{table}
+% FOR NIM ADD 3M Enhanced Specular Reflector \cite{3MESR}) RESULTS
+
+To combine measurements with different placements of the source along the bar, we use the center-equivalent energy deposit determined by taken into accout the attenuation lenght of the bar, which was measured individually for each test configuration. Fig. \ref{fig:test_stand_posdep} shows the PMT time resolution dependence on the energy deposit for different source placements separately. Since the individual data sets are consisted within error bars, we can combine the measurements to cover a larger energy deposition range, hence we can reach up to 1.8 \si{\mega\electronvolt} with the $^{60}$Co by changing the distance of the source to the PMT.
+\begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{pos-dep.pdf}
-		\caption{Obtained time resolution as a function of energy deposit for different source placements along the bar for one PMT.{\color{red} ADD more description here} }
+		\caption{PMT time resolution as a function of center-equivalent energy deposit for different placements of the $^{60}$Co source along the bar for Hamamatsu R13089 PMT. The labels indicate the distance of the source to the PMT. }
 	\label{fig:test_stand_posdep}
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{all-lines-somedata.pdf}
-		\caption{Obtained time resolution as a function of energy deposit for various PMTs in the bench test measurements. {\color{red} ADD more description here}The combination shown in blue and red was choosen for the }
+		\caption{PMT time resolution as a function of center-equivalent energy deposit for various PMTs in the bench test measurements. The lines are fits to data (data points for yellow and blue are only shown for simplicity). At 2 \si{\mega\electronvolt} energy deposition all PMTs besides R13435 achieve a time resolution below 300 \si{\pico\s}.}
 	\label{fig:test_stand_results}
 \end{figure}
 
@@ -299,7 +295,7 @@ study of PMT time resolution as a function of distance from the PMT (or, due to 
 \caption{Properties of the PMTs used in BAND. }
 \centering
 \begin{tabular} { l  l  l l } \hline
- &  R7724 & 9214 & 9954KB \\ \hline\hline
+ &  R7724 & 9214KB & 9954KB \\ \hline\hline
 Company                                  & Hamamatsu       & ET           & ET \\
 Diameter                                           & 2~in                         & 2~in                        & 2~in \\ 
 Dynode stages                                  & 10                           & 12                              & 12 \\
@@ -328,9 +324,9 @@ The goal was to select the minimal shielding required to minimize the number of 
 
 We tested $\mu$-metal shielding with thicknesses of xx and xx, each in two diameters of xx and xx, as well as two pipes of soft iron. The magnetic field, amount of detector covered by the shielding, the thickness of the shielding, the placement of two radioactive sources, and the angle of the detector to the field were all varied. 
 
-Table xx shows the full complement of variables.
+%Table xx shows the full complement of variables.
 
-{\color{red}MISSING TABLE AND PIC FROM KITTY:}
+{\color{red}TODO: TABLE AND PIC FROM KITTY}
 %*only the caesium-137 was tested at 5 cm. The strontium-90 source triggered too few events when not directly atop the detector.
 
 %Magnetic field: varied by changing current in the coils, limited to 80 gauss to prevent melting
@@ -387,22 +383,31 @@ The detector is read-out either by a trigger from the main CLAS12 trigger system
 
 %%% ----------------- Assembly subsection
 \subsection{Final Assembly}
-{\color{red} Shall we keep this section describing some remarks on the final assembly and having 1-2 nice pictures or scratch it?}
-
-Fig. \ref{fig:barassembly} shows the bars and its stacking to rows in BAND.
+For the final assembly, every bar was build independently and intensively tested before stacked together. For each bar a pair of PMTs was chosen with similar gains measured in the lab.
+Each bar undergo the following procedure:
+\begin{enumerate}
+\item Gluing of PMTs to light guides with xx glue.
+\item Gluing of light guides/PMTs on bars with UV curing glue.
+\item Wrapping of bar and lightguides with Enhanced Specular Reflector \cite{3MESR}.
+\item Wrapping of bar and lightguides with black xx thick Tedlar foil.
+\item Testing of PMTs and dark currents with pico-ammeter, possibly fixing light leaks.
+\item Installation of optical fiber in the center of the bar
+\item Installation of mu-shield on PMTs and light guides
+\item Second testing of PMTs and light leaks
+\item Installation of bar in BAND support frame
+\item Final testing for light leaks
+\end{enumerate}
+Fig. \ref{fig:barassembly} shows pictures of the bars from first wrapping with ESR foil (left) to the final stack of bars (right). The pictures in between show a full wrapped bar with an installed optical fiber (middle left) and the bottom row of BAND (middle right). The right picture shows the upstream side of BAND with the patch panels for HV, signal and fibers.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure*}[tb]
 	\centering
 	\includegraphics[width=0.48\textwidth , height=0.40\textwidth]{pic-construction1.pdf}
 	\includegraphics[width=0.40\textwidth , height=0.40\textwidth]{pic-construction2.pdf}
-				\caption{BAND construction. From ESR wrapped bars (left) to assembled detector (right). The intermediate steps show the fully wrapped bars with the optical fiber and the assembled bottom row of the detector. }
+				\caption{BAND construction. From ESR \cite{3MESR} wrapped bars (left) to assembled detector (right). The intermediate steps show the fully wrapped bars with the optical fiber and the assembled bottom row of the detector. }
 		\label{fig:barassembly}
 \end{figure*}
 
-
-
-
-Fig. \ref{fig:band_downstream} shows BAND and its frame from the design (left) and after installation in the Jefferson Lab's HallB (right).
+After the assembly of the bars in the support frame, the lead wall was installed on the downstream side of BAND and the whole detector was craned into its position on top of the central vertex tracker support cart in front of CLAS12. Fig. \ref{fig:band_downstream} shows the upstream side of BAND from the design (left) and after installation in Jefferson Lab's HallB (right). The reflective surface in the picture are the Aluminium covers of the lead blocks. 
 \begin{figure*}[th]
 	\centering
 	\includegraphics[width=0.48\textwidth]{BAND_1-2.png} 
@@ -411,8 +416,7 @@ Fig. \ref{fig:band_downstream} shows BAND and its frame from the design (left) a
 		\label{fig:band_downstream}
 \end{figure*}
 
-Fig. \ref{fig:bandinhall} shows the upstream side of BAND in HallB during the connection of cables.
-
+Fig. \ref{fig:bandinhall} shows the upstream side of BAND in HallB with about 3/4 of the cables installed. All cables are connected to electronics which is installed outside of the picture on the left side.
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.48\textwidth]{pic-bandinhall2.pdf}
