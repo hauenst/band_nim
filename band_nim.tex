@@ -1,7 +1,10 @@
-\documentclass[3p,final,twocolumn,nofootinbib]{elsarticle}
+\documentclass[3p,final,twocolumn]{elsarticle}
 %\documentclass[3p,times,twocolumn]{elsarticle}
 
-\usepackage{lineno,hyperref}
+\usepackage{lineno}
+
+ \usepackage[flushleft]{threeparttable}
+ \usepackage{tablefootnote}
 
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
@@ -16,10 +19,12 @@
 %\usepackage{hepnames} % shortcuts for lots of particle names
 \usepackage[alsoload=hep]{siunitx}
 \sisetup{ per-mode=symbol}
+\usepackage{hyperref}
+%\let\oldbibitem\bibitem
+%\def\bibitem{\vfill\oldbibitem}
 
 \usepackage{subcaption}
 %\captionsetup[subfigure]{labelformat = parens, labelsep = space, font = small}
-
 
 \graphicspath{{figures/}}
 
@@ -43,6 +48,7 @@
     \@eadauthor={#1}
 }
 \makeatother
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \newcommand*{\MIT }{Massachusetts Institute of Technology, Cambridge, Massachusetts 02139, USA}
@@ -124,6 +130,9 @@ CLAS12; time of flight; plastic scintillator; fast neutrons
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \linenumbers
 
+
+\setcounter{footnote}{0}
+\renewcommand{\thefootnote}{\alph{footnote}}
 \section{Introduction}
 
 
@@ -151,7 +160,7 @@ To achieve the physics of interest with neutrons in the BAND \cite{band-proposal
 timing resolutions. Furthermore, off-time random neutron contamination can be controlled with signal energy deposit. {\color{red} Any need to mention 
 the raw rates that we need to handle in CLAS12?} .
 
-In the next subsections, the details of the individual BAND components are described including results from bench measurements. In addition, this section also includes information on the readout electronics and the high voltage system as well as pictures from the final assembly of the detector.
+In the next subsections, the details of the individual BAND components are described including results from bench measurements. In addition, this section also includes information on the lead shielding, laser calibration system, readout electronics and the high voltage system as well as pictures from the final assembly of the detector.
 
 
 \subsection{Geometry}
@@ -197,7 +206,7 @@ Each bar has an assigned sector and layer number. The layer number corresponds t
 \begin{table}[t]
 \caption{Parameters for bars and PMTs for the different BAND sectors and layers.}
 \centering
-\begin{tabular} {l |l | m{4em}} \hline
+\begin{tabular} {l  l  m{4em}} \hline
  &  Dimensions ($w\times h$) & PMT \\ \hline\hline
 \multicolumn{3}{l} {Sector 1,  $L = 164~\si{\centi\meter}$} \\ \hline
 Layer $1 - 5$  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
@@ -207,24 +216,28 @@ Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 Layer $1 - 5$  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
-\multicolumn{3}{l} {Sector 3 and 4, $L = 51~\si{\centi\meter}$} \\ \hline
+\multicolumn{3}{l} {Sector 3 / 4, $L = 51~\si{\centi\meter}$} \\ \hline
 Layer $1 - 4$  & \multirow{2}{*}{7.2$\times$7.2 \si{\centi\meter\squared}} & 9214 \\
 Layer 5 & & R7724 \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
 \multicolumn{3}{l} {Sector 5, $L = 202~\si{\centi\meter}$ } \\ \hline
-Layer $1 - 4$\footnote{Layer 5 bars do not exist due to obstructions from below}  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
+Layer $1 - 4$\tablefootnote{Layer 5 is missing due to obstructions from below}  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
-
 \end{tabular}
 \label{tab:geometry}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Components}
-The timing resolution of the scintillator bars is impacted by many factors, and each component was optimized considering the design constraint and cost. Tests were 
-performed varying the scintillant, reflective wrapping, photo-multipler tube (PMT), and optical-coupling-method of the scintillators to light-guides to PMTs to select the optimal combination
+The timing resolution of the scintillator bars is impacted by many factors, and each component was optimized considering the design constraint and cost. 
+Bench measurements have been cnoducted to select the reflective wrapping of the bars and the PMTs.
+% Tests were performed varying the scintillant, reflective wrapping, photo-multipler tube (PMT), and optical-coupling-method of the scintillators to light-guides to PMTs to select the optimal combination
+As the scintillator material, we choose Bicron BC-408 \cite{scint-mat-ref} asince its properties fits our demands in terms of light output, time response and attenuation length. The bulk attenuation length of 380 \si{\centi\meter} is much longer than the bar to ensure sufficient photon statistics on both ends. 
+
+
+\subsubsection{Bench Measurements}
 
 A diagram of our test setup and electronics is shown in Fig. \ref{fig:test_stand_setup}. For the test bench measurements, we used a coincidence setup between a ``test" scintillator bar and a ``reference" scintillator bar. Each bar has 2 PMTs 
 coupled to the ends; the test bar has the PMTs which we wish to measure the time resolution. Both bars are wrapped in an optical reflector, and placed in a dark-box. The reference bar was kept fixed during all measurements. The tested combination of components and results are summarized in Table~\ref{tab:tests}. 
@@ -234,24 +247,23 @@ two $\gamma$ rays with energies of 1.17  and  1.3 \si{\mega\electronvolt}. The t
 study of PMT time resolution as a function of distance from the PMT (or, due to attenuation along the bar, effective-energy observed by the PMT).
 
 {\color{red}TO DO (Efrain): Discuss the results of the test and which PMT was chosen / why.}
-Scintillator Material Reference \cite{scint-mat-ref}
 
 
 \begin{table}[t!]
-	\caption{Tested configurations. Resolution given $2$ \si{\mega\electronvolt} energy deposit in middle of bar.}
+	\caption{Bench test configurations. Resolution given $2$ \si{\mega\electronvolt} energy deposit in middle of bar. {\color{red}TO DO (Efrain): Update Sigma values}}
 \centering
-	\begin{tabular}{ m{5em} | m{4em} | m{3em} |  m{3em} }
+	\begin{tabular}{ m{5em}  m{4em}  m{3em}   m{3em} }
 		\hline
 			PMT & Reflector & Length (cm) & $\sigma$ (\si{\pico\second})\\
-		\hline\hline	
-			R7724-10 & 3M ESR &   200 & 150	\\
+		\hline\hline
+			R7724-10 & ESR &   200 & 150	\\
 			R7724-10 & Al foil &  200 &  240		\\
 			R7724-100 & Al foil &  250 & 200 		\\
 			R13089 & Al foil &  250 & 220			\\			
 			R13435 & Al foil &  200 & 300 			\\	
 		
 			ET-9214 & Al foil &   200 & 270			\\
-			ET-9214 &   3M ESR & 50 & 150				\\
+			ET-9214 &  ESR & 50 & 150				\\
 		\hline
 	\end{tabular}
 	\label{tab:tests}
@@ -281,7 +293,32 @@ Scintillator Material Reference \cite{scint-mat-ref}
 	\label{fig:test_stand_results}
 \end{figure}
 
-\subsection{Magnetic shielding}
+\subsubsection{PMTs, Voltage Dividers and Light Guides}
+{\color{red}ADD Information about PMTs and voltage divider. Also add information about connection of PMTs with light guides to bars.}
+\begin{table*}[tbh]
+\caption{Properties of the PMTs used in BAND. }
+\centering
+\begin{tabular} { l  l  l l } \hline
+ &  R7724 & 9214 & 9954KB \\ \hline\hline
+Company                                  & Hamamatsu       & ET           & ET \\
+Diameter                                           & 2~in                         & 2~in                        & 2~in \\ 
+Dynode stages                                  & 10                           & 12                              & 12 \\
+Spectral response                            & 300 $\to$ 650~nm & 290 $\to$ 630~nm & 290 $\to$ 680~nm \\ 
+Max. wavelength emission               & 420~nm & 350~nm & 380~nm \\ 
+Quantum eff. @ $\lambda_{max}$   & 26\% & 30\% & 28\% \\ 
+Gain                                                    & 3.3$\times$10$^6$ & 3.0$\times$10$^7$ & 1.8$\times$10$^7$ \\ 
+Max. anode current rating               & 200~$\mu$A & 100~$\mu$A & 100~$\mu$A \\ 
+Anode dark current                         & 6~nA  & 4~nA & 8~nA \\ 
+Anode pulse rise time                      & 2.1~ns & 2.0 ns & 2.0 ns \\ 
+Electron transit time                        & 29 ns & 45 ns & 41 ns \\
+\hline
+\end{tabular}
+\label{tab:pmts}
+\end{table*}
+
+{\color{red}Do we want to show a picture/drawing of lightguides? Or just mention them}
+
+\subsubsection{PMT Magnetic shielding}
 Due to the fringe-field of the solenoid magnet of CLAS12 \cite{Fair:2020yfx}, all PMTs require a magnetic shielding. We estimated a transverse field in the  PMT region ranging from xx to xx and a longitudinal field that ranges from xx to xx. As dedicated test stand was setup to test different shieldings.
 
 We constructed a pair of 56-turn Helmholtz coils with a radius of 0.5 \si{\meter} in an aluminium frame that maintained coil spacing of xx. A prototype detector consisting of a 2 \si{\centi\meter} thick, 5 \si{\centi\meter} diameter scintillator disc, coupled to 7 \si{\centi\meter} long, 5 \si{\centi\meter} diameter cylindrical acrylic light guides on each end, and PMTs. The detector was light-proofed with Tedlar and stabilized on a simple plastic stand at the center of the field assembly. 
@@ -305,17 +342,8 @@ Table xx shows the full complement of variables.
 The results show that a xx thick $\mu$-metal shielding placed 5 \si{\centi\meter} (i.e. one PMT diameter) past the PMT faces is most effective to preserve events and minimize timing distortions. Therefore, every PMT in the detector has been equipped with such a shielding. 
 
 \subsection{Lead shielding}
-To minimize background from backward going photons, a lead wall was installed between the target of CLAS12 and BAND. This lead wall consists of individual 20 \si{\milli\meter} thick blocks stacked in front of the veto layer. Each block is covered on both sides with an Aluminium layer to simplify its handling.
+To minimize background from backward going photons, a lead wall was installed between the target of CLAS12 and BAND. This lead wall consists of individual 20 \si{\milli\meter} thick blocks stacked in front of the veto layer. Each block is covered on both sides with an Aluminium layer to simplify its handling. The lead wall can be seen on the final assembly pictures shown in Fig. \ref{fig:band_downstream}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\section{Description}
-
-%%% ----------------- Geometry subsection
-%\subsection{Geometry}
-
-%%% ----------------- Components subsection
-%\subsection{Components}
 
 
 \subsection{Laser Calibration system}
@@ -351,7 +379,7 @@ The detector is read-out either by a trigger from the main CLAS12 trigger system
 %MOVE HV to ANOTHER SECTION. ADD PICTURE OF SLOWCONTROL OR at least reference it.
 \begin{figure}[tbh!]
 	\centering
-		\includegraphics[width=0.48\textwidth]{figures/electronics-diag.pdf}
+	\includegraphics[width=0.48\textwidth]{electronics-diag.pdf}
 	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
 	\label{fig:electronic-diag}
 \end{figure}
@@ -378,7 +406,7 @@ Fig. \ref{fig:band_downstream} shows BAND and its frame from the design (left) a
 \begin{figure*}[th]
 	\centering
 	\includegraphics[width=0.48\textwidth]{BAND_1-2.png} 
-	\includegraphics[width=0.42\textwidth]{pic-bandinhall1.pdf}
+	\includegraphics[width=0.40\textwidth]{pic-bandinhall1.pdf}
 		\caption{BAND and its frame. The cyan color indicates the lead shield wall installed at the downstream side of BAND. ADD PICTURE HOW IT LOOKS IN REALITY. SAME ANGLE.}
 		\label{fig:band_downstream}
 \end{figure*}
