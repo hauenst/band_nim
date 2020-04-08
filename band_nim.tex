@@ -232,15 +232,17 @@ Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 
 \subsection{Components}
 The timing resolution of the scintillator bars is impacted by many factors, and each component was optimized considering the design constraint and cost. 
-Bench measurements have been cnoducted to select the reflective wrapping of the bars and the PMTs.
+%Bench measurements have been conducted to select the reflective wrapping of the bars and the PMTs.
+Bench measurements have been conducted to select the PMTs and magnetic shielding .
 % Tests were performed varying the scintillant, reflective wrapping, photo-multipler tube (PMT), and optical-coupling-method of the scintillators to light-guides to PMTs to select the optimal combination
-As the scintillator material, we choose Bicron BC-408 \cite{scint-mat-ref} asince its properties fits our demands in terms of light output, time response and attenuation length. The bulk attenuation length of 380 \si{\centi\meter} is much longer than the bar to ensure sufficient photon statistics on both ends. 
+As the scintillator material, we choose Bicron BC-408 \cite{scint-mat-ref} asince its properties fits our demands in terms of light output, time response and attenuation length. The bulk attenuation length of 380 \si{\centi\meter} is much longer than the bar to ensure sufficient photon statistics on both ends. To enhance reflectivity, we use 3M Enhanced Specular Reflector foil \cite{3MESR} around each bar.
 
 
 \subsubsection{Bench Measurements}
 \begin{figure}[th!]
 	\centering
-		\includegraphics[width=0.48\textwidth]{phys_setup.png} \\
+	%	\includegraphics[width=0.48\textwidth]{phys_setup.png} \\
+		\includegraphics[width=0.48\textwidth]{setup-diagram.pdf} \\
 		\includegraphics[width=0.48\textwidth]{electr_setup.png}
 	\caption{Schematic of the bench test setup (top) and its read-out system (bottom) to determine time resolutions of PMT. }
 	\label{fig:test_stand_setup}
@@ -273,7 +275,7 @@ study of PMT time resolution as a function of distance from the PMT (or, due to 
 \end{table}
 % FOR NIM ADD 3M Enhanced Specular Reflector \cite{3MESR}) RESULTS
 
-To combine measurements with different placements of the source along the bar, we use the center-equivalent energy deposit determined by taken into accout the attenuation lenght of the bar, which was measured individually for each test configuration. Fig. \ref{fig:test_stand_posdep} shows the PMT time resolution dependence on the energy deposit for different source placements separately. Since the individual data sets are consisted within error bars, we can combine the measurements to cover a larger energy deposition range, hence we can reach up to 1.8 \si{\mega\electronvolt} with the $^{60}$Co by changing the distance of the source to the PMT.
+To combine measurements with different placements of the source along the bar, we use the center-equivalent energy deposit, determined by taken into accout the attenuation lenght, and normalize the PMT response to the $^{60}$Co placed at the center of the bar. Fig. \ref{fig:test_stand_posdep} shows the PMT time resolution dependence on the energy deposit for different source placements separately. Since the individual data sets are consisted within error bars, we can combine the measurements to cover a larger energy deposition range, hence we can reach up to 1.8 \si{\mega\electronvolt} with the $^{60}$Co by changing the distance of the source to the PMT.
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{pos-dep.pdf}
@@ -281,7 +283,7 @@ To combine measurements with different placements of the source along the bar, w
 	\label{fig:test_stand_posdep}
 \end{figure}
 
-
+In Fig. \ref{fig:test_stand_results} the results of PMT time resolution for the different testing configurations are shown. The lines indicate fits to data extrapolated beyond 1.8 \si{\mega\electronvolt}. We omit some data points for clarity of the plot. Besides the R13435, all PMTs achieve a resolution below 300 \si{\pico\s} at 2 \si{\mega\electronvolt} energy deposition.
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{all-lines-somedata.pdf}
@@ -289,13 +291,24 @@ To combine measurements with different placements of the source along the bar, w
 	\label{fig:test_stand_results}
 \end{figure}
 
-\subsubsection{PMTs, Voltage Dividers and Light Guides}
-{\color{red}ADD Information about PMTs and voltage divider. Also add information about connection of PMTs with light guides to bars.}
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=0.48\textwidth]{resolution-laser-scan.pdf}
+		\caption{Time resolution as a function of center energy deposit for one bar with R7724 PMTs using the BAND laser system after installation. The energy deposition is the geometric mean of both PMTs at the end of the bar. The deposition is in the center of the bar due to the installtion of the fiber there. }
+	\label{fig:resolution-laser}
+\end{figure}
+To reduce costs, we choose a combination of Hamamatsu R7724 \cite{pmtR7724} and Electron Tube 9214KB \cite{pmt9214} PMTs for BAND. For the veto layer, we use already available Electron Tube 9954KB PMTs, which have a suitable resolution shown in previous measurements ({\color{red} can we cite something here? Or add a reference to private communication?}).
+The detailed properties of the PMTs are summarized in Table \ref{tab:pmts}. {\color{red}Or shall we add a specific subsubsection for the PMTs with information about voltage dividers and light guides?}
+
+With the assembled BAND, we also measure the time resolution as a function of energy deposit in the center of the bar using the laser calibration system (see Sec. \ref{sec:laserystem} and \cite{band-laser}). Fig. \ref{fig:resolution-laser} shows the results for a bar with R7724 PMTs. The resolution is below 250 \si{\pico\s} from 1 to 7 \si{\mega\electronvolt} central energy deposition indicating the good performance of the bars and PMTs. Note, the results are not fully comparable with the source results since the energy deposition refers here to the geometric mean of both PMTs on the sides and the time resolution to the bar and not a single PMT.
+
+%\subsubsection{PMTs, Voltage Dividers and Light Guides}
+
 \begin{table*}[tbh]
 \caption{Properties of the PMTs used in BAND. }
 \centering
 \begin{tabular} { l  l  l l } \hline
- &  R7724 & 9214KB & 9954KB \\ \hline\hline
+ &  R7724 \cite{pmtR7724} & 9214KB \cite{pmt9214}& 9954KB \cite{pmt9954} \\ \hline\hline
 Company                                  & Hamamatsu       & ET           & ET \\
 Diameter                                           & 2~in                         & 2~in                        & 2~in \\ 
 Dynode stages                                  & 10                           & 12                              & 12 \\
@@ -311,8 +324,6 @@ Electron transit time                        & 29 ns & 45 ns & 41 ns \\
 \end{tabular}
 \label{tab:pmts}
 \end{table*}
-
-{\color{red}Do we want to show a picture/drawing of lightguides? Or just mention them}
 
 \subsubsection{PMT Magnetic shielding}
 Due to the fringe-field of the solenoid magnet of CLAS12 \cite{Fair:2020yfx}, all PMTs require a magnetic shielding. We estimated a transverse field in the  PMT region ranging from xx to xx and a longitudinal field that ranges from xx to xx. As dedicated test stand was setup to test different shieldings.
@@ -343,6 +354,7 @@ To minimize background from backward going photons, a lead wall was installed be
 
 
 \subsection{Laser Calibration system}
+\label{sec:laserystem}
 %Due to the placement of the BAND, in CEBAF 12 \si{\giga\electronvolt} with the CLAS12 magnetic fields \cite{Fair:2020yfx} there is a lack of high-rate exclusive processes 
 %that can be used for monitoring performance stability and perform calibrations.
 A laser system was implemented to calibrate BAND and monitor its performance during data-taking. This 
@@ -350,11 +362,11 @@ provided a method to quickly perform various calibrations (discussed below). The
 Its installation required equipping each scintillator with an optical fiber that goes to its center and to an optical patch panel on the other side to connect to the laser system.
 A reference signal of the laser system is provided by a photo-diode. The output signal of the photo diode is inverted and shaped before it is sent to the BAND read-out system. The signal is detected by the same ADCs and TDCs which are used for the PMT signals.
 
-{\color{red} TO DO: Details on the connection of the fibers to the bars.}
-\begin{figure}[tbh]
+Each fiber is glue to the center of the bar with UV-cure glue (see Fig. \ref{fig:pic-fiberonbar}). Windows for easy access were kept in the wrapping foils around the bar. The windows were stacked with different alignments to reduce light leaks. After the installation of the fiber, the bar was intensively tested for light-leaks.
+\begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.40\textwidth]{pic-fiberonbar.pdf}
-	\caption{Connection of fiber to bar after gluing. ADD MORE DESCRIPTION.}
+	\caption{Connection of a fiber to bar after UV-cure gluing. The fiber is positioned in the center of the bar and is covered by both layers of wrapping material, ESR \cite{3MESR} and Tedlar foil.}
 	\label{fig:pic-fiberonbar}
 \end{figure}
 
@@ -373,7 +385,7 @@ The detector is read-out either by a trigger from the main CLAS12 trigger system
 
 %ADD SOMEHTING ABOUT THE READOUT WINDOW FOR THE FADCs, ADD TABLE FOR THE ELECTRONICS SPECs
 %MOVE HV to ANOTHER SECTION. ADD PICTURE OF SLOWCONTROL OR at least reference it.
-\begin{figure}[tbh!]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.48\textwidth]{electronics-diag.pdf}
 	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
