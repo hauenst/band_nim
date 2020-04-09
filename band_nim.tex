@@ -502,23 +502,35 @@ However, the peak of the cosmic rays are well aligned after adjusting the HV bas
 
 %%% ----------------- Energy deposit subsection
 \subsubsection{Energy deposit calibration}
+\label{sec:energydeposit}
+\begin{figure}[tbh]
+	\centering
+		\includegraphics[width=0.48\textwidth]{co-compton.png}
+		\caption{ADC spectrum for a $^{60}$Co placed on the center of the bar along with the fit of the Compton edge.}
+	\label{fig:compton_edge}
+\end{figure}
+
 The ADC response of each PMT is converted to \si{\mega\electronvolt} energy deposition by measuring the response to 
 multiple radioactive sources. The sources $^{60}$Co, $^{22}$Na, $^{137}$Cs were chosen due to the gamma rays that have 
 Compton edges of $0.963$ and $1.118$, $0.477$, and, $1.062$ and $0.341$, respectively (in \si{\mega\electronvolt}). The 
 response to each source was measured in the center of the bar. Using the ADC response to all sources, in combination with the 
-attenuation length of the bar, the ADC response can be converted to \si{\mega\electronvolt}.
+attenuation length of the bar, the ADC response can be converted to \si{\mega\electronvolt}. These measurements were done after the detector was gain matched (see previous section)
 
-A typical response of a PMT to  $^{60}$Co is shown in Fig.~\ref{fig:mev_conversion} (left), along with the extracted Compton edge for a 
-number of bars (right). The edge has been fitted by a parametrization desribed in {ADD REF]. The extracted Compton edges for various bars are quite similar which also shows the a good gain matching obtained with cosmics. 
-{\color{red} Should we add more details here? Like results from all sources and a fit for the conversion? At Efrain: Didn't we use actually geometric mean and not single PMT fits?}
+A typical response of a PMT to  $^{60}$Co is shown in Fig.~\ref{fig:compton_edge} along with a fit of the Compton edge by a parametrization desribed in [ADD REF]. The extracted Compton edges for various bars are quite similar which also shows the a good gain matching obtained with cosmics, see Fig. \ref{fig:edge_bars}. Taking into account the results from cosmic ray and  source measurement, we obtain a ADC to MeV conversion function with a linear fit, see Fig. \ref{fig:mev_conversion}.
 
-\begin{figure*}[h!]
+\begin{figure}[tbh]
 	\centering
-		\includegraphics[width=0.48\textwidth]{co-compton.png}
-		\includegraphics[width=0.48\textwidth]{coedges.png}
-	\caption{Left: ADC spectrum for a $^{60}$Co placed on the center of the bar along with the fit of the Compton edge. Right: Obtained Compton edge for different bars.}
+			\includegraphics[width=0.48\textwidth]{coedges.png}
+	\caption{Obtained Compton edge for different bars.}
+	\label{fig:edge_bars}
+\end{figure}
+
+\begin{figure}[tbh]
+	\centering
+			\includegraphics[width=0.48\textwidth]{coedges.png}
+	\caption{PLACEHOLDER FIGURE: ADC to MeV conversion fit using data from source and cosmic ray measurements.}
 	\label{fig:mev_conversion}
-\end{figure*}
+\end{figure}
 
 %%% ----------------- Time-walk subsection
 \subsubsection{Time-walk calibration}
@@ -539,9 +551,9 @@ this dependence on pulse height, $A$, as:
 The residual after time-walk correction, $t-t_*$, is shown in Fig.~\ref{fig:time_walk} (right). At pulse heights close to threshold, the 
 parameterization is not flexible enough and under-estimates the strong dependence on pulse height. However, signals with pulse 
 heights this low are not of interest, as a software cut on minimum energy deposition is needed to improve signal-to-background 
-which removes these pulses (discussed in Section {\color{red}4.2.3}).
+which removes these pulses (discussed in Section \ref{sec:neutronidentification}).
 
-\begin{figure*}[h!]
+\begin{figure*}[tbh]
 	\centering
 		\includegraphics[width=0.48\textwidth]{tw_before.png}
 		\includegraphics[width=0.48\textwidth]{tw_after.png}
@@ -564,17 +576,17 @@ right PMT on a given bar is used to extract the effective velocity in a bar know
 
 and the relative time offset is given by the center of the distribution (see Fig.~\ref{fig:eff_vel} left). The obtained effective velocities for each bar are shown in Fig.~\ref{fig:eff_vel} (right) distinguished between short bars (red) and long bars (blue). The observed difference is due to geometrical effects from the different bar length.
 
-\begin{figure*}[h!]
+\begin{figure*}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{lr_eff_vel.png}
 		\includegraphics[width=0.48\textwidth]{eff_vel.pdf}
-	\caption{Effective velocity: Left-Right time spectrum in a single bar after time-walk correction for every PMT (left). Obtained effective velocities for each bar (right). The differences in effective velocities between long bars (blue) and short bars (red) are probably due to geometrical effects from the different bar length.}
+	\caption{Effective velocity: Typical $t_{L} - t_{R}$ time spectrum in a single bar after time-walk correction for every PMT (left). Obtained effective velocities for each bar (right). The differences in effective velocities between long bars (blue) and short bars (red) are probably due to geometrical effects from the different bar length.}
 	\label{fig:eff_vel}
 \end{figure*}
 
 %%% ----------------- Attenuation length subsection
 \subsubsection{Attenuation length}
-The attenuation length of the scintillator material can be extracted using cosmic ray data by using the 
+The attenuation length of the scintillator material is extracted with cosmic ray data by using the 
 amplitude ($A$) and time measured by both PMTs in the bar:
 \begin{eqnarray}
 	\begin{split}
@@ -584,10 +596,10 @@ amplitude ($A$) and time measured by both PMTs in the bar:
 		 \label{eqn:atten}
 	\end{split}
 \end{eqnarray}
-where $x=-\frac{v}{2}(t_L - t_R)$. So by measuring the slope of $R(x)$, one can extract the attenuation length 
-of the bar. See Fig.~\ref{fig:atten} (left) for the typical response of a bar to cosmic ray data, and the resulting attenuation 
-length obtained from the central part of the bar (right). The plateau shape of the amplitude ratio closer to the edge of the bar is probably induced by reflections at the light guides.   
- {\color{red} A comparison of the attenuation lengths of all bars can be seen in Fig.~\ref{fig:atten_allbars} }.
+where $x=-\frac{v}{2}(t_L - t_R)$. The attenuation length $\mu$ is extracted from the slope of $R(x)$, see Fig.~\ref{fig:atten} (left) for a typical $R(x)$ plot of a bar.
+The slope of the central part is linearly fit to obtained the attenuation length, see Fig.~\ref{fig:atten} (right). 
+The plateau shape of the amplitude ratio closer to the edge of the bar is probably induced by reflections at the light guides.   
+ {\color{red} TODO: A comparison of the attenuation lengths of all bars can be seen in Fig.~\ref{fig:atten_allbars} }.
  {\color{red} Shall we add more details?  Comparision how does it look with the ADC integral? }.
 \begin{figure*}[h!]
 	\centering
@@ -600,11 +612,9 @@ length obtained from the central part of the bar (right). The plateau shape of t
 \subsubsection{Individual Bar offsets}
 After all bars are individually calibrated, relative time delays between bars can still remain, and require correction to combine 
 statistics from all bars. The alignment of all bars can be done quickly using the laser calibration system, as the laser pulse arrival 
-time to each bar should be within timing resolution, provided all of the fiber optic cables are of the same length to the BAND bars. 
-However, the $51$ \si{\centi\meter} bars have fiber optic cables of $1.5$ \si{\meter} length from the patch panel to the center 
-of the bars, and the $160$ and $200$  \si{\centi\meter} bars have fiber optic cables of $2.5$ \si{\meter} length. This residual offset 
-between the ``short" bars and ``long" bars can be corrected later by using the photon arrival time to the bars with production data, 
-grouping the short bars and long bars separately (see later). Furthermore, obtaining bar alignment with only production data 
+time to each bar should be within timing resolution. Any residual offset 
+between bars can be corrected later by using the photon arrival time to the bars with production data. 
+However, obtaining bar alignment with only production data 
 requires high-statistics datasets due to the backward-angle placement of the BAND. 
 
 Using data taken with the laser calibration system, bar alignment is done on the average time of a given bar, 
@@ -621,8 +631,7 @@ $j$ is done as follows:
 \end{eqnarray}
 where $ t_{avg}^{ref}$ is the average time of the global reference bar chosen on the most downstream layer of BAND, and
 $t_{avg}^j$ is the average time of the reference bar chosen in layer $j$. Then only one global offset is needed to correct the
-offset of $t_{avg}^j$ (expect, as mentioned, an additional correction is needed for the long and short bars due to the fiber optic 
-cable time difference (see section \ref{sec:global_offset}). Fig~\ref{fig:bar_off} shows a typical relative timing distribution of the bar with respect to a reference bar 
+offset of $t_{avg}^j$ if there are no residual offsets between bars. Fig~\ref{fig:bar_off} shows a typical relative timing distribution of the bar with respect to a reference bar 
 in the same layer, as a function of pulse amplitude. The mean of this distribution is $\mathcal{O}^{ij}$ for this bar, and the 
 parameter's independence of pulse amplitude ensures the time-walk is well controlled.
 
@@ -639,8 +648,8 @@ parameter's independence of pulse amplitude ensures the time-walk is well contro
 \label{sec:global_offset}
 A final global time offset is required to align the BAND with production data. Due to low rates in the angular coverage of the BAND, 
 high-statistics data files must be used. 
-In Fig.~\ref{fig:final_offset} (left) the time of flight spectrum is shown for each bar applying all calibrations described in the previous section. The spectrum is zoomed to the area of the photon peak which is used to determine the final global time offset calibration. The two peaks are the two groups of long and short bars which have different length of fiber optic cable installed. Therefore, a global offset is determined for each group independently assuming the known time of flight for photons. Fig.~\ref{fig:final_offset} (right) displays the time difference between the expected photon arrival time and the measured time corrected for the global offsets for all bars. One can see that after the corrections all bars are well aligned in time.
-\begin{figure*}[h!]
+In Fig.~\ref{fig:final_offset} (left) the time of flight spectrum is shown for each bar applying all calibrations described in the previous sections. The spectrum is zoomed to the area of the photon peak which is used to determine the final global time offset calibration for each bar. The two peaks are the two groups of long and short bars which have different length of fiber optic cable installed. Fig.~\ref{fig:final_offset} (right) displays the time difference between the expected photon arrival time and the measured time corrected for the global offsets for all bars. One can see that after the corrections all bars are well aligned in time.
+\begin{figure*}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{global_single_bar_all_runs.pdf}
 		\includegraphics[width=0.48\textwidth]{global_single_bar_result.pdf}
@@ -649,23 +658,29 @@ In Fig.~\ref{fig:final_offset} (left) the time of flight spectrum is shown for e
 \end{figure*}
 
 \subsubsection{Time of Flight resolution}
-Fig.~\ref{fig:tof_resolution} shows the obtained ToF resolutions for each bar. The resolutions are obtained from a Gaussian fit of the difference of the mean time of a bar to a reference bar.
+\label{sec:tofresolution}
+
+{\color{red} TODO: Update Laser picture with layer 5. Update Photon picture to use TDC instead of FADC. Update some text.}
+The time-of-flight resolution of the detector are obtained by the laser calibration data and from the photon peak in data with beam. The laser data allows a scan of the time resolution over the whole energy deposition range (see Fig. \ref{fig:resolution-laser}) from 0.5 to 7 \si{\mega\electronvolt}. The resolutions are obtained from a Gaussian fit of the difference of the mean time of a bar to a reference bar as a function of ADC or energy deposit using the calibration from Section \ref{sec:energydeposit}).
+
+
+Fig.~\ref{fig:tof_resolution} shows the obtained ToF resolutions for each bar. 
 In addition, an minimum energy deposition cut has been applied to remove events which are not of interest in the physics analysis. One can see that all bars are below the design resolution of
 300 \si{\pico\s}. 
-\begin{figure*}[h!]
+\begin{figure*}[tb]
 	\centering
-			\includegraphics[width=0.48\textwidth]{tof-resolutions-laser.png}
+			\includegraphics[width=0.48\textwidth]{laser-res-MeV.pdf}
 		\includegraphics[width=0.48\textwidth]{tof-resolutions-photons-2MeV.pdf}
-	\caption{ToF resolution as a function for every bar (left Laser, right beam-on data). All bars are well below the required 300 \si{\pico\s}. {\color{red} Update Figure with an energy deposit cut to show actually the good time resolution}}
+	\caption{ToF resolution as a function for every bar (left Laser, right beam-on data). All bars are well below the required 300 \si{\pico\s}. }
 	\label{fig:tof_resolution}
 \end{figure*}
 
-{\color{red} The current picture is without a energy deposit cut hence giving worse time resolution. Update Figure with an energy deposit cut.}
 %%% ----------------- Neutral veto subsection
 %\subsubsection{Neutral veto algorithm}
 
 %%% ----------------- Photon-neutron subsection
 \subsubsection{Neutron identification}
+\label{sec:neutronidentification}
 {\color{red}  TODO: update this section to ToF/m selection instead of ToF}
 The neutron identification for production data is done by cuts on time-of-flight. Fig.~\ref{fig:tof} shows such a spectrum of events from production data where an electron was measured in coincidence in CLAS12 in the reaction $ed \rightarrow e'nX$. In addition, a minimum energy deposition cut of 5 \si{\MeV/\clight} has been applied for BAND hits. One can clearly see two separated peaks for photons and neutrons over a flat background from accidentals. The neutron peak corresponds to momenta between $200$ and $600$ \si{\MeV/\clight}.
 The neutron selection in the physics analysis is based on $\beta$ or ToF per pathlength (inverse $\beta$).
