@@ -373,15 +373,30 @@ Each fiber is glue to the center of the bar with UV-cure glue (see Fig. \ref{fig
 
 %%% ----------------- Electronics subsection
 \subsection{Electronics and DAQ}
+%TODO SOME UPDATES ON THE FADC SIGNALING, HV CONTROL, TABLE WITH TDC AND ADC PARAMETERS
+%\begin{table*}[htbp]
+%\caption{Key performance specifications of the CAEN V1190A TDCs and the JLab FADC250 flash ADCs.}
+%\centering
+%\begin{tabular}{c|c} \hline
+%TDC Specs (1190A) & ADC Specs \\ \hline
+%No. Channels: 128             & 16               \\ 
+%RMS resolution 100~ps          & Sampling 250 MHz \\
+%Resolution: 19~bit                  & Resolution: 12-bit \\ 
+%Inter-channel isolation $\le$ 3 LSB & Clock jitter 350~fs \\ 
+%Double-hit resolution 5~ns          & Data memory 8~$\mu$s \\  
+%Full-scale range 52~$\mu$s          & Trigger/Data latency 8~$\mu$s / 32~ns \\
+%\end{tabular}
+%\label{table:tdcadc-specs}
+%\end{table*}
 In the experiment, the high voltages for each PMT are provided by a multi-channel CAEN SYS4527 mainframe with eleven A1535SN cards with 24 channel each \cite{caen-hvframe,caen-hvcard}.
 
 A schematic drawing of the read-out electronics and its components is shown in Fig. \ref{fig:electronic-diag}. The signal of each PMT is split to an ADC and TDC readout independently. 
 The signal splitters are custom made and have been used in previous experiments at Jefferson Lab (REF HPS).
-From the splitter one signal is sent to a 250 \si{\mega\hertz} sampling flash-ADCs \cite{fadc-manual} while the other signal is sent to  discriminators [ADD REF].
+From the splitter one signal is sent to a 250 \si{\mega\hertz} sampling flash-ADCs (FADC) \cite{fadc-manual} while the other signal is sent to discriminators [ADD REF].
 The discriminated time signal goes to a TDC (CAEN VX1190A \cite{caen-tdc}) with 100 ps resolution per channel. 
 In total, the system consists of 16 flash-ADCs in one VXS crate, 16 discriminators and two TDCs in a VME crate and 16 splitters.  Furthermore, a trigger signal distribution card for the flash-ADCs and trigger interface boards are installed in the crates. All components are part of the standard electronics components of CLAS12 at Jefferson Lab \cite{clas12-daq, clas12-trigger}.
 
-The detector is read-out either by a trigger from the main CLAS12 trigger system \cite{clas12-trigger} or by stand-alone BAND detector triggers usedcfor tests and calibrations with cosmic rays, radioactive sources and the laser system. The stand-alone triggers are implemented by a programmble CAEN V1495 logic board \cite{caen-logicboard}. They consist of a single bar trigger for source measurements and a coincidence bar trigger for cosmics and laser measurements. The later one is also feed to the central CLAS12 trigger system to allow monitoring of the detector by recording laser hits during real data taken. This special trigger rate is usually about 10 \si{\hertz} compared to the $\approx$ 15-20 \si{\kilo\hertz} trigger rate from electron interactions in the target.
+The detector is read-out either by a trigger from the main CLAS12 trigger system \cite{clas12-trigger} or by stand-alone BAND detector triggers used for tests and calibrations with cosmic rays, radioactive sources and the laser system. The stand-alone triggers are implemented by a programmble CAEN V1495 logic board \cite{caen-logicboard}. They consist of a single bar trigger for source measurements and a coincidence bar trigger for cosmics and laser measurements. The later one is also feed to the central CLAS12 trigger system to allow monitoring of the detector by recording laser hits during real data taken. This special trigger rate is usually about 10 \si{\hertz} compared to the $\approx$ 15-20 \si{\kilo\hertz} trigger rate from electron interactions in the target.
 
 %ADD SOMEHTING ABOUT THE READOUT WINDOW FOR THE FADCs, ADD TABLE FOR THE ELECTRONICS SPECs
 %MOVE HV to ANOTHER SECTION. ADD PICTURE OF SLOWCONTROL OR at least reference it.
@@ -443,48 +458,46 @@ In this chapter, we first describe the performance of every bar and the necessar
 In the second part of the chapter, the performance of the whole BAND detector is shown with a focus on neutron identification and efficiency.
 \subsection{Individual bar performance}
 \subsubsection{Gain matching}
-{\color{red} Should we add more detaill like FTOF does -- what value for cosmic did we match to / why...?}
 In order to have similar response to a given energy deposit across all PMTs of BAND, each PMT's HV was optimized using
 cosmic rays. Multiple data sets with varying PMT HV were taken with cosmic rays, and combined to produce a gain curve for 
-each PMT. 
+each PMT. These data was collected with a cosmic trigger which required a cosmic ray passing through an individual layer of BAND to get almost only rays passing BAND vertically.
 %NEXT SENTENCE ARE FROM OR's comment. Double check with EFRAIN
-We select events when the cosmic ray is perpendicular to the bar and passes through the center of the detector. This corresponds to a relatively high energy deposition of 14.2 \si{\mega\eV}. For each HV setting we fit the ADC channel of the cosmic peak to obtain the gain curves. The value of the fit parameters for each PMT are shown in Fig. xx. The final HV setting for each PMT was chosen to position in the middle of our ADC spectrum at channel 15,000 (of 30,000 {\color{red} check this number} total)\footnote{We obtained similar results when using the pulse amplitude of the ADC signal instead of the integral}.
+We select events when the cosmic ray passes through the center of the detector. This corresponds to a relatively high energy deposition of 14.2 \si{\mega\eV}. For each HV setting we fit 
+the ADC spectrum with a Landau distribution and an exponential background to obtain the cosmic peak position. A representative ADC spectrum is shown in Fig. \ref{fig:adc-spectrum}.
+The obtained gain curve for this PMT is shown in \ref{fig:gain-curve}. The dashed lines indicate the final HV setting to position the cosmic peak at ADC channel 15,000, which was choosen to have sufficient range for neutrons which deposit less energy than the cosmic rays and to avoid signal overflows in the sampling FADCs dominating above ADCs of 20,000.
 
-A typical ADC spectrum from cosmic data for a single HV setting %and the resulting gain curve from fitting the 
-%cosmic peak from many HV settings are both shown
-is shown in Fig~\ref{fig:adc-spectrum}. The resulting HV settings across all PMTs in BAND is 
-shown in Fig~\ref{fig:hv_settings}. The spread of the settings for the short bars (red points) stems from a non-uniform behaviour from the ET9214 PMTs which were installed on the short bars. The Hamamatsu R7724-10 PMTs show are more uniform gain performance.
-\begin{figure}[th!]
+Each PMT gain curve was fit with a power law with parameters $\alpha$ and $\beta$. The value of the fit parameters for each PMT are shown in Fig. \ref{fig:gain}. The Hamamatsu R7724 PMTs (red) show are more uniform gain performance than the two ET PMTs, 9954KB (green) and 9214KB (blue)\footnote{We obtained similar results when using the pulse amplitude of the ADC signal instead of the integral}. This was also observed in bench measurements when the PMT gains were measured to pair PMTs with similar gains for each bar.
+However, the peak of the cosmic rays are well aligned after adjusting the HV based on the obtained gain curves (see Fig. \ref{fig:hv_settings}).
+\begin{figure}[th]
 	\centering
 		\begin{minipage}{0.48\textwidth}
-			\includegraphics[width=\textwidth]{adc-fit-example.pdf}\\
+			\includegraphics[width=\textwidth]{adc-fit-example.pdf}
 					\subcaption{}
 			\label{fig:adc-spectrum}
 		\end{minipage}
-		\begin{minipage}{0.48\textwidth}
+		\begin{minipage}{0.47\textwidth}
 			\includegraphics[width=\textwidth]{gainfit.pdf}
 			\subcaption{}
 		\label{fig:gain-curve}
 		\end{minipage}
-		\caption{Gain matching of BAND PMTs. (a) Typical ADC spectrum for a PMT with cosmics. (b) All PMT HV settings for similar gains. One sees a greater 
-		spread of HV needed to match gains in the short bars which have ET9214 PMTs.}
+		\caption{Gain matching of BAND PMTs. (a) Typical ADC spectrum for a representative PMT with cosmic rays and the fit with a Landau distribution and an exponential background. (b) Gain curve for the same PMT. The dotted lines indicate the final HV setting to get the cosmic peak to ADC channel 15000. }
 \end{figure}
 
 
-\begin{figure}[th!]
+\begin{figure}[th]
 	\centering
-		\begin{minipage}{0.48\textwidth}
-			\includegraphics[width=\textwidth]{pmt-gains.png}\\
+		\begin{minipage}{0.46\textwidth}
+			\includegraphics[width=\textwidth]{gainspread.pdf}
 			\subcaption{}
 			\label{fig:gain}
 		\end{minipage}
-		\begin{minipage}{0.48\textwidth}
-			\includegraphics[width=\textwidth]{hv-settings.pdf}
+		\begin{minipage}{0.46\textwidth}
+			\includegraphics[width=\textwidth]{gainsadcresponse.pdf}
 			\subcaption{}
 		\label{fig:hv_settings}
 		\end{minipage}
-		\caption{ (a) Gain parameters for each PMT. (b) PMT HV settings for gains with $\mathrm{ADC}_{\mathrm{peak}} = 15000$. One sees a greater 
-		spread of HV needed to match gains in the short bars which have ET9214 PMTs.}
+		\caption{ (a) Gain parameters for each PMT. One sees a greater spread in the Electron Tube PMTs (green and blue) than in the Hamamatsu PMTs (red).
+		(b) PMT HV settings for gains with $\mathrm{ADC}_{\mathrm{cosmic peak}} = 15000$. .}
 \end{figure}
 
 %%% ----------------- Energy deposit subsection
