@@ -113,12 +113,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \date{\today}
 %\ead[]{}
-
 \begin{abstract}
-The Backward Angle Neutron Detector (BAND) of CLAS12 is discussed. The detector is positioned $3$ \si{\meter} upstream of the target and is used to 
-detect neutrons emitted at backward angles of $155$\si{\degree} to $175$\si{\degree} and momenta between $0.25$ and $0.6$ \si{\GeV/\clight}. It consists of $18$ rows and $5$ layers of $7.2$ \si{\centi\meter} 
-by $7.2$ \si{\centi\meter} scintillator bars with PMT readout on both ends to measure the neutron time-of-flight from the target and the 
-energy deposition in the scintillator layers. The face of the detectors includes a $2.5$ \si{\centi\meter} thick lead wall followed by a $1$ \si{\centi\meter} veto layer to suppress gammas and reject charged particles. The detector achieves a momentum reconstruction resolution of $<1.5$\% at the design momentum range.
+  Backward Angle Neutron Detector (BAND) of CLAS12 detects neutrons
+  emitted at backward angles of $155$\si{\degree} to $175$\si{\degree}
+  and momenta between $0.25$ and $0.6$ \si{\GeV/\clight}. It is
+  positioned $3$ \si{\meter} upstream of the target and consists of
+  $18$ rows and $5$ layers of $7.2$ \si{\centi\meter} by $7.2$
+  \si{\centi\meter} scintillator bars with PMT readout on both ends to
+  measure time and energy deposition in the scintillator
+  layers. Between the target and BAND there is a $2.5$
+  \si{\centi\meter} thick lead wall followed by a $1$
+  \si{\centi\meter} veto layer to suppress gammas and reject charged
+  particles. The momentum reconstruction
+  resolution is $\delta p/p < 1.5$\% in the design momentum range.
 \end{abstract}
 
 \begin{keyword}
@@ -135,32 +142,75 @@ CLAS12; time of flight; plastic scintillator; fast neutrons
 \section{Introduction}
 
 
-The CLAS12 (CEBAF Large Acceptance Spectrometer)~\cite{Burkert:2020akg} at Hall B of the Thomas Jefferson National Accelerator facility (JLab) is a multi-purpose spectrometer used to detect charged and neutral particles emitted in high-energy electron scattering reactions.Tagged deep inelastic scattering studies in electron-deuteron interactions require the detection of recoil neutrons with momenta above \SI{250}{\mega\eVperc} at backward angles.
-This is achieved by a combination of a Central Neutron Detector (CND)~\cite{Chatagnon:2020lwt} and a Backward Angle Neutron Detector (BAND). The CND covers angles between $40$\si{\degree} to $120$\si{\degree} while BAND covers $155$\si{\degree} to $175$\si{\degree}.
+CLAS12 (12-GeV CEBAF Large Acceptance
+Spectrometer)~\cite{Burkert:2020akg} in Hall B of the Thomas Jefferson
+National Accelerator Facility (JLab) is a multi-purpose spectrometer
+used to detect charged and neutral particles emitted in high-energy
+electron scattering reactions.Tagged deep inelastic scattering studies
+in electron-deuteron interactions require the detection of recoil
+neutrons with momenta above \SI{250}{\mega\eVperc} at backward angles.
+This is achieved by a combination of a Central Neutron Detector
+(CND)~\cite{Chatagnon:2020lwt} and a Backward Angle Neutron Detector
+(BAND). The CND covers angles from $40$\si{\degree} to
+$120$\si{\degree} while BAND covers from $155$\si{\degree} to
+$175$\si{\degree}.
 
-This paper describes the BAND.  A model representation of BAND and CLAS12 is shown in Fig.~\ref{fig:clas12band} which highlights the overall layout and scale in Hall B. BAND was installed in January 2019 and has been taken data in coincidence with CLAS12.
+This paper describes BAND.  Fig.~\ref{fig:clas12band} shows a drawing
+of BAND
+located upstream of CLAS12
+in Hall B. BAND was installed in January 2019 and has
+taken data in coincidence with CLAS12.
 
 
 \begin{figure}[t!]
 	\centering
 	\includegraphics[width=0.49\textwidth]{BandInClas.png}
-		\caption{Model representation of CLAS12 and BAND in Hall B at Jefferson Lab. The electron beam is incident from the right side. BAND is marked in red. The overall detector system is roughly 20 \si{\meter} in scale along the beam axis. }
+        \caption{CLAS12 and BAND in Hall B at Jefferson Lab. The
+          electron beam is incident from the right side. BAND is
+          marked in red. The overall detector system is roughly 20
+          \si{\meter} in scale along the beam axis. }
 		\label{fig:clas12band}
 \end{figure}
 
-This newly build detector is designed to measure neutrons with momenta of $0.25 - 0.6$ \si{\GeV/\clight} with a detection efficiency of $35$\%  and momentum reconstruction resolution better than $1.5\%$. It is based on scintillator bars with PMT readout. 
+BAND was designed to measure neutrons with momenta
+of $0.25 - 0.6$ \si{\GeV/\clight} with a detection efficiency of
+$35$\% and momentum reconstruction resolution better than $1.5\%$. It
+is based on scintillator bars with PMT readout.
 
-Chapter 2 presents the BAND design requirements in terms of time resolution and geometry, discusses the selection of the detector components, and presents results from  comparative test bench measurements of different PMTs and magnetic shields. Chapter 3 presents the performance of the detector after its installation in JLab's Hall B. A detailed overview of the calibrations is given, primarily using data from cosmic rays and a laser calibration system~\cite{band-laser}. Finally, we present the measured time-of-flight (ToF) resolutions and neutron-photon separation from data obtained with a $10.6$ \si{\GeV} electron beam impinging on a deuterium target, before
-summarizing the paper in Chapter 4.
+Chapter 2 presents the required time
+resolution, efficiency and geometry, the resulting design and layout, the selection of detector
+components, and results from comparative 
+measurements of different PMTs and magnetic shields. Chapter 3
+presents the performance of the detector after its installation in
+Hall B. It describes cosmic-ray and laser calibrations
+~\cite{band-laser} as well as the measured
+time-of-flight (ToF) resolutions and neutron-photon separation from
+$10.6$-\si{\GeV} electron-deuteron data. Chapter 4  summarizing the results.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Design of the backward angle neutron detector}
-The major considerations for the BAND design were the constraints on geometry and areal coverage in Hall B, the time-of-flight resolutions and neutral particle identification.
-To achieve the physics of interest with neutrons in the BAND~\cite{band-proposal}, ToF resolutions below $300$ \si{\pico\second} at an energy deposition threshold of $\sim 3$ MeVee are required. Neutral-particle identification is established by vetoing on a thin $1$ \si{\centi\meter} veto layer for charged-particle identification between the target and the first active layer of BAND. Photons are suppressed by a 20 \si{\milli\meter} thick Lead wall placed in front of the veto layer. Neutron-photon discrimination is achieved via ToF relative to the electron scattering time measured by CLAS12. Off-time random neutron and photon contamination is controlled with signal energy deposit.
+The major considerations for the BAND design were the constraints on
+geometry and areal coverage in Hall B, the time-of-flight
+resolution required
+and, neutral particle identification.  To achieve the physics of
+interest with neutrons in BAND~\cite{band-proposal}, ToF
+resolutions below $300$ \si{\pico\second} at an energy deposition
+threshold of $\sim 3$ MeVee are required. Neutral-particles are 
+identified by using a thin $1$-\si{\centi\meter} veto layer for charged-particle identification
+between the target and the first active layer of BAND. Photons are
+suppressed by a 20-\si{\milli\meter} thick Lead wall placed downstream 
+of the veto layer. Neutron-photon discrimination is achieved via ToF
+relative to the electron scattering time measured by CLAS12. Off-time
+random neutron and photon contamination is reduced by optimizing the
+energy-deposition cuts.
 
-In the next subsections, the details of the individual BAND components are described including results from bench measurements. In addition, this section also includes information on the lead shielding, laser calibration system, readout electronics and the high voltage system as well as pictures from the final assembly of the detector.
+The next subsections describe the details of the individual BAND components,
+including results from bench measurements. In addition,
+this section also includes information on the lead shielding, laser
+calibration system, readout electronics and the high voltage system as
+well as pictures from the final assembly of the detector.
 
 
 \subsection{Geometry}
@@ -171,38 +221,88 @@ In the next subsections, the details of the individual BAND components are descr
 	\centering
 		\includegraphics[width=0.40\textwidth]{FULL_CONTEXT_STUDIE_3.png}
 		\vspace{0.5cm}
-		\caption{BAND and its close surroundings: the cyrotarget and beam line components (cyan),  BAND (red) and the central detector region of CLAS12 (blue). The beam is coming from the left side.}
+		\caption{BAND and its close surroundings: the
+                  cyrotarget and beam line components (cyan),  BAND
+                  (red), the central detector region of CLAS12
+                  (blue), the space fram (black), and the central detector support cart (gray). The beam is coming from the left side. The
+                  target is located at the center of the CLAS12 central detector}
 		\label{fig:bandtarget}
 		
 \end{figure}
 
-The geometry of the BAND was constrained by the requirement to detect backward angle neutrons and the physical limitations in the hall. 
-The close surroundings of BAND are shown in Fig. \ref{fig:bandtarget}. BAND has to be positioned between the target support and the central detector region of CLAS12 to reduce scattering of neutrons on material in their flight path. Furthermore, BAND had to be placed on the support cart for the central tracking detectors of CLAS12 (grey in Fig. \ref{fig:bandtarget}) and mounted from an existing opening in the floor above it (black in Fig. \ref{fig:bandtarget}). 
+The geometry of the BAND was constrained by the requirement to detect
+backward angle neutrons and by the physical constraints in the hall (see 
+Fig. \ref{fig:bandtarget}). BAND had to be positioned between the
+target support and the central detector region of CLAS12 to reduce
+scattering of neutrons on material in their flight path. Furthermore,
+BAND had to be placed on the support cart for the central tracking
+detectors of CLAS12 and lowered
+onto the cart
+from an existing opening in the floor above it (black in
+Fig. \ref{fig:bandtarget}).
 
-To meet these requirement, the overall detector had to fit within a box of 3 \si{\meter} length, 1.5 \si{\meter} height and 1 \si{\meter} depth, with a hole for the beam pipe to go through.
+These requirement constrained BAND to fit within a
+box 3-\si{\meter} wide, 1.5-\si{\meter} high, and 1-\si{\meter}
+deep, with a hole in the middle for the beam pipe.
 
-To maximize the fiducial volume given the physical constraints, a design of rectangular scintillant bars that are layered perpendicular to the beam direction ($z$) was chosen; see Fig.~\ref{fig:design}.
-The cross section of each scintillator bar determines our position granularity in $y,z$ (vertical and longitudinal directions relative to the beam pipe), and was chosen such that it yields comparable uncertainty to $x$ (transverse direction) given the bar 
-time resolutions. With a design ToF resolution below $300$ \si{\pico\second}, $7.2$ \si{\centi\meter} by $7.2$ \si{\centi\meter} scintillator bars were chosen to optimize
-fiducial volume, granularity, and cost. 
+To maximize the active detector volume within these constraints, we
+chose to use rectangular scintillator bars layered perpendicular to
+the beam direction ($z$), see Fig.~\ref{fig:design}.  The cross
+section of each scintillator bar determines our position granularity
+in $y,z$ (vertical and longitudinal directions relative to the beam
+pipe), which is comparable to our time-resolution-dependent position
+resolution along the bar. Given our time-resolution specification of
+$300$ \si{\pico\second} (discussed below), $7.2$
+\si{\centi\meter} by $7.2$ \si{\centi\meter} scintillator bars were
+chosen to optimize fiducial volume, granularity, and cost.
 
 \begin{figure}[tb]
 	\centering
 	%\includegraphics[width=0.48\textwidth]{MAIN_DETECTOR_COLORED_2.png}
 	%	\includegraphics[width=0.48\textwidth]{VETO_DETECTOR_COLORED_2.png}
 			\includegraphics[width=0.48\textwidth]{band-schematic.pdf}
-		\caption{BAND design	of bars in the main detector and the veto. The 164 \si{\centi\meter} long bars are shown in red, the 202 \si{\centi\meter} long in white and the short, 51 \si{\centi\meter} lon, ones in cyan, respectively. The position of the PMTs for each bar is also shown. The beam direction corresponds to the $z$-axis.  }
+                        \caption{BAND design of bars in the main
+                          detector and the veto layer. The 164-\si{\centi\meter} long bars are shown in
+                          red, the 202-\si{\centi\meter} bars in white
+                          and the short, 51-\si{\centi\meter} bars in cyan. The position of
+                          the PMTs for each bar is also shown. The
+                          beam direction corresponds to the $z$-axis.
+                        }
 		\label{fig:design}
 \end{figure}
 
-The active detector area consists of 116 scintillator bars, arranged in 5 layers with 18 vertically stacked bars. The arrangement of the bars is shown in Fig. \ref{fig:design}. The bottom rows are only arranged in four layers due to obstructions from the cart below BAND.  
+The active detector area consists of 116 scintillator bars, arranged
+in 5 layers with 18 vertically stacked bars. The arrangement of the
+bars is shown in Fig. \ref{fig:design}. The bottom three rows each have only
+four layers due to obstructions from the cart below BAND.
 
-Three different bar lengths are used: 15 bars with a length of 164 \si{\centi\meter} (red, Fig. \ref{fig:design}), 43 bars with a length of 202 \si{\centi\meter} (white, Fig. \ref{fig:design}) and 58 short bars with a length of 51 \si{\centi\meter} (cyan, Fig. \ref{fig:design}). The shorter bars were used in the vicinity of the beam pipe. All bars have light guides attached to both sides which are readout by either Hamamatsu R7724 \cite{pmtR7724} or Electron Tubes (ET) 9214KB \cite{pmt9214} 2-inch PMTs.
+Three different bar lengths are used: 15 164-\si{\centi\meter} bars, 43 202-\si{\centi\meter} bars, and 58 
+51-\si{\centi\meter}  bars). The shorter bars were used in the vicinity of
+the beam pipe. All bars have light guides attached to both sides which
+are readout by either Hamamatsu R7724 \cite{pmtR7724} or Electron
+Tubes (ET) 9214KB \cite{pmt9214} 2-inch PMTs.
 
-The veto layer, which is installed on the downstream side of BAND, consists of 24 scintillator bars with a cross section of $2$ \si{\centi\meter} by $7.2$ \si{\centi\meter}. The length of the bars and their stacking follow the active detector area such that the whole downstream surface is covered by the veto, see Fig. \ref{fig:design}. Each veto bar is only read-out on one side by a single ET 9954KB \cite{pmt9954} 2-in PMTs.
+The veto layer, which is installed on the downstream face of BAND
+(i.e., between BAND and the target),
+consists of 24 scintillator bars with a cross section of $2$
+\si{\centi\meter} by $7.2$ \si{\centi\meter}. The veto bars have the
+same lengths as the corresponding BAND bars such that the whole
+downstream surface is covered by the veto, see
+Fig. \ref{fig:design}. Each veto bar is only read-out on one side by a
+single ET 9954KB \cite{pmt9954} 2-in PMT.
 
-Each bar has an assigned sector and layer number. The layer number corresponds to the horizontal position along the beam line starting from upstream (1) to downstream (5) for the active area and (6) for the veto bars. The sector numbering follows from top to bottom. The middle-long bars in the top three rows make up sector 1 (red in Fig.~\ref{fig:design}). Sector 2 and 5 consists of the long bars above (seven rows total) and below (two rows total) the short bars, respectively (gray in Fig.~\ref{fig:design}). The short bars to the left of the beam hole are sector 3, while the ones on the right side are sector 4 (cyan in Fig.~\ref{fig:design}). 
-Table~\ref{tab:geometry} summarizes the geometry parameters and PMTs for each sector and layer .
+Each bar has an assigned sector and layer number. The layer number
+corresponds to the horizontal position along the beam line starting
+from upstream (1) to downstream (5) for the active area and (6) for
+the veto bars. The sector numbering follows from top to bottom. The
+middle-long bars in the top three rows make up sector 1 (red in
+Fig.~\ref{fig:design}). Sectors 2 and 5 consists of the 202-cm long bars above
+(seven rows total) and below (two rows total) the short bars,
+respectively (gray in Fig.~\ref{fig:design}). The short bars to the
+left of the beam hole are sector 3, while the ones on the right side
+are sector 4 (cyan in Fig.~\ref{fig:design}).
+Table~\ref{tab:geometry} summarizes the geometry parameters and PMTs
+for each sector and layer .
 
 
 %NOT PERFECT PHI SYMMETRY BUT NOT IMPORTANT FOR BAND PHYSICS
@@ -234,31 +334,41 @@ Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Components}
-The timing resolution of the scintillator bars is impacted by many factors, and each component was optimized considering both cost and the above mention design constraints. 
-%Bench measurements have been conducted to select the reflective wrapping of the bars and the PMTs.
-Bench measurements have been conducted to select the PMTs and magnetic shielding.
+The timing resolution of the scintillator bars is affected by many
+factors, and each component was optimized considering both cost and
+ design constraints.
+We choose to use Bicron BC-408 \cite{scint-mat-ref} scintillators
+since their properties fits our demands in terms of light output, time
+response and attenuation length. The bulk attenuation length of 380
+\si{\centi\meter} is much longer than the bar, ensuring sufficient
+photon statistics at both ends. To enhance reflectivity, we wrapped
+each bar with 3M Enhanced Specular Reflector foils~\cite{3MESR}. 
+We bench-tested different PMT and magnetic shielding options.
 % Tests were performed varying the scintillant, reflective wrapping, photo-multipler tube (PMT), and optical-coupling-method of the scintillators to light-guides to PMTs to select the optimal combination
-We choose to use Bicron BC-408 \cite{scint-mat-ref} scintillators since their properties fits our demands in terms of light output, time response and attenuation length. The bulk attenuation length of 380 \si{\centi\meter} is much longer than the bar which ensures sufficient photon statistics on both ends. To enhance reflectivity, we wrapped each bar with 3M Enhanced Specular Reflector foils~\cite{3MESR}.
 
 
-\begin{figure}[tb]
+
+\begin{figure}[th!]
 	\centering
 	%	\includegraphics[width=0.48\textwidth]{phys_setup.png} \\
 		\includegraphics[width=0.48\textwidth]{setup-diagram.pdf} \\
 		\includegraphics[width=0.48\textwidth]{electr_setup.png}
-	\caption{Schematic of the bench test setup (top) and its read-out system (bottom) to determine time resolutions of PMT. }
+	\caption{Schematic of the bench test setup (top) and its
+          read-out system (bottom) to measure PMT time resolutions. }
 	\label{fig:test_stand_setup}
 \end{figure}
 
 \subsubsection{Bench Measurements}
-Bench measurements were used to guide the PMT and magnetic shielding selection. 
-A diagram of our test setup and electronics is shown in Fig. \ref{fig:test_stand_setup}, 
-featuring a coincidence setup between a ``test" scintillator bar and a ``reference" scintillator bar. 
-Each bar has 2 PMTs coupled to its ends; the test bar has the PMTs whose time resolution we wish to study.
-Both bars are wrapped in an optical reflector, and placed in a dark-box. 
-The reference bar was kept fixed during all measurements. 
-We used in total 5 different 2-in PMTs (see \cite{hamapmts} and \cite{pmt9214}), 
-assembled on 200 to 250 \si{\centi\meter} long bars. 
+Bench measurements were used to guide the PMT and magnetic shielding
+selection.  A diagram of our test setup and electronics is shown in
+Fig. \ref{fig:test_stand_setup}, featuring a coincidence setup between
+a ``test" scintillator bar and a ``reference" scintillator bar.  Each
+bar has 2 PMTs coupled to its ends; the test bar has the PMTs whose
+time resolution we wish to study.  Both bars are wrapped in an optical
+reflector, and placed in a dark-box.  The reference bar was kept fixed
+during all measurements.  We used in total 5 different 2-in PMTs (see
+\cite{hamapmts} and \cite{pmt9214}), assembled on 200 to 250
+\si{\centi\meter} long bars.
 
 The coincidence signal for our measurement is produced by a $^{60}$Co source which is placed between the two bars. 
 The $^{60}$Co source produced two $\gamma$ rays with energies of 1.17 and 1.3 \si{\mega\electronvolt}. 
