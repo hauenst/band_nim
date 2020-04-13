@@ -487,7 +487,7 @@ Electron transit time                        & 29 ns & 45 ns & 41 ns \\
 \subsubsection{Light Guides}
 
 The light guides design was constrained by the available space and the
-sizes of the scintillator bars and PMTs. CAD drawings of the light guides for the main detector and the veto bars are shown in Fig. \ref{lightguides}. They are xx long. Each light guide has a 2-in wide tube connected to the PMTs to allow for a cover of an area in front of the photocathode with magnetic shields (see next section). The other end of the light guide matches the cross section of a bar. It is glued to the bar with UV curing glue xx and to the PMT with xx glue. All light guides were designed by UTFSM in Chile and manufactured by Florida State University.  
+sizes of the scintillator bars and PMTs. CAD drawings of the light guides for the main detector and the veto bars are shown in Fig. \ref{fig:lightguides}. They are xx long. Each light guide has a 2-in wide tube connected to the PMTs to allow for a cover of an area in front of the photocathode with magnetic shields (see next section). The other end of the light guide matches the cross section of a bar. It is glued to the bar with UV curing glue xx and to the PMT with xx glue. All light guides were designed by UTFSM in Chile and manufactured by Florida State University.  
 {\color{red} LARRY: more details here? Mention reflection problem???}
 \begin{figure}[tb]
 	\centering
@@ -546,7 +546,9 @@ be conservative, we selected 2-mm thick $\mu$-metal shields.
 
 
 \subsubsection{PMT and bar quality test measurements}
-{\color{red} Add details about the quality tests of all PMTs and bars in the lab.}
+Before the final assembly of BAND (see Section \ref{sec:assembly}), all PMTs and bars have been tested on the bench for quality. These measurements were conducted at the same test setup as the bench measurements. However, instead of a source a LED pulser has been used. 
+Two setups: One for attenuation measurement, other one LED pulser through 2cm long scintillator disc in front of PMT.
+{\color{red} TO DO FInish text.}
 
 \subsection{Lead shielding}
 To minimize background from backward going photons, we installed a
@@ -653,6 +655,7 @@ rate from electron interactions in the target.
 
 %%% ----------------- Assembly subsection
 \subsection{Final Assembly}
+\label{sec:assembly}
 \begin{figure*}[tb]
 	\centering
 	\includegraphics[width=0.48\textwidth , height=0.40\textwidth]{pic-construction1.pdf}
@@ -775,8 +778,8 @@ However, the cosmic ray ADC peaks are well aligned after adjusting the HV based 
 \label{sec:energydeposit}
 \begin{figure}[tbh]
 	\centering
-		\includegraphics[width=0.48\textwidth]{co-compton.png}
-		\caption{TO DO: PICTURE UPDATE: ADC spectrum for a $^{60}$Co placed on the center of the bar along with the fit of the Compton edge.}
+		\includegraphics[width=0.48\textwidth]{cobaltfit.pdf}
+		\caption{ADC spectrum for a $^{60}$Co placed on the center of the bar along with the fit of the Compton edge.}
 	\label{fig:compton_edge}
 \end{figure}
 
@@ -799,8 +802,8 @@ A typical response of a PMT to  $^{60}$Co is shown in Fig.~\ref{fig:compton_edge
 
 \begin{figure}[tbh]
 	\centering
-			\includegraphics[width=0.48\textwidth]{coedges.png}
-	\caption{PLACEHOLDER FIGURE: ADC to MeV conversion fit using data from source and cosmic ray measurements.}
+			\includegraphics[width=0.48\textwidth]{mevadc.pdf}
+	\caption{TODO UPDATE PICTURE with fit: ADC to MeV conversion fit using data from source and cosmic ray measurements.}
 	\label{fig:mev_conversion}
 \end{figure}
 
@@ -879,7 +882,7 @@ using the integral of the signal and not the amplitude for $R(x)$, see Fig.~\ref
 	\centering
 		\includegraphics[width=0.48\textwidth]{atten-amp.pdf}
 		\includegraphics[width=0.48\textwidth]{atten-adc.pdf}
-	\caption{TO DO: PICTURE UPDATE WITH FIT AND VALUE! Left: Log ratio of ADC amplitudes from both PMTs on a bar as a function of time difference of the PMTs. (Right) Log ratio of ADC integral from both PMTs as a function of time difference.}
+	\caption{TO DO: RIGHT PICTURE UPDATE WITH FIT AND VALUE! Left: Log ratio of ADC amplitudes from both PMTs on a bar as a function of time difference of the PMTs. (Right) Log ratio of ADC integral from both PMTs as a function of time difference.}
 	\label{fig:atten}
 \end{figure*}
 
