@@ -297,7 +297,7 @@ respectively (white in Fig.~\ref{fig:design}). The short bars to the
 left of the beam hole are sector 3, while the ones on the right side
 are sector 4 (cyan in Fig.~\ref{fig:design}).
 Table~\ref{tab:geometry} summarizes the geometry parameters and PMTs
-for each sector and layer .
+for each sector and layer.
 
 
 %NOT PERFECT PHI SYMMETRY BUT NOT IMPORTANT FOR BAND PHYSICS
@@ -487,13 +487,12 @@ Electron transit time                        & 29 ns & 45 ns & 41 ns \\
 \subsubsection{Light Guides}
 
 The light guides design was constrained by the available space and the
-sizes of the scintillator bars and PMTs. CAD drawings of the light guides for the main detector and the veto bars are shown in Fig. \ref{fig:lightguides}. They are xx long. Each light guide has a 2-in wide tube connected to the PMTs to allow for a cover of an area in front of the photocathode with magnetic shields (see next section). The other end of the light guide matches the cross section of a bar. It is glued to the bar with UV curing glue xx and to the PMT with xx glue. All light guides were designed by UTFSM in Chile and manufactured by Florida State University.  
-{\color{red} LARRY: more details here? Mention reflection problem???}
+sizes of the scintillator bars and PMTs. CAD drawings of the light guides for the main detector and the veto bars are shown in Fig. \ref{fig:lightguides}. They are 9 \si{\centi\meter} long. Each light guide has a 5 \si{\centi\meter} long tube end with 2-in diameter connected to the PMTs to allow for a cover of an area in front of the photocathode with magnetic shields (see next section). The other end of the light guide matches the cross section of a bar. It is glued to the bar with a DYMAX UV curing glue \cite{uvglue} and to the PMT with a RTV615 soft glue \cite{softglue}. All light guides were designed by UTFSM in Chile and manufactured by Florida State University.  
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.23\textwidth]{bar_lg.png}
 		\includegraphics[width=0.18\textwidth]{veto_lg.png}
-	\caption{CAD drawing of the light guides for the main detector (left) and the veto bars (right). The top part is connected to the 2-in PMTs while the lower part is connected to the bars.}
+	\caption{CAD drawing of the light guides for the main detector (left) and the veto bars (right). The top parts are connected to the 2-in PMTs while the lower parts are connected to the bars.}
 	\label{fig:lightguides}
 \end{figure}
 
@@ -535,7 +534,7 @@ sufficient, but that the 1.8-\si{\milli\meter} $\mu$-metal shield maintained PMT
 performance up to 80 G.  The soft-iron pipes performed worse than the
 1.5-\si{\milli\meter} $\mu$-metal (not shown in Fig. \ref{fig:shielding_results}. The magnetic shields performed best when they
 extended 5 \si{\centi\meter} (one diameter) beyond the PMT photocathode.  In order to
-be conservative, we selected 2-mm thick $\mu$-metal shields.
+be conservative, we selected 2.6-mm thick $\mu$-metal shields.
 
 \begin{figure}[tb]
 	\centering
@@ -546,9 +545,11 @@ be conservative, we selected 2-mm thick $\mu$-metal shields.
 
 
 \subsubsection{PMT and bar quality test measurements}
-Before the final assembly of BAND (see Section \ref{sec:assembly}), all PMTs and bars have been tested on the bench for quality. These measurements were conducted at the same test setup as the bench measurements. However, instead of a source a LED pulser has been used. 
-Two setups: One for attenuation measurement, other one LED pulser through 2cm long scintillator disc in front of PMT.
-{\color{red} TO DO FInish text.}
+Before the final assembly of BAND (see Section \ref{sec:assembly}), all PMTs and bars have been tested on the bench for quality. These measurements were conducted with a LED pulser.
+For each bar the attenuation length was measured by moving the LED pulser along the bar. This has been done without a wrapping material around the bar in a light tight black-box. The bars with the worst attenuation length were selected as back-up bars.
+
+The test setup for each PMT had a 6.4 \si{\centi\meter} long scintillator disc attached between the LED and the PMT. We measured gains and time resolutions for each PMT. The PMTs were matched in pairs according to their gains and each pair was installed on a bar.
+
 
 \subsection{Lead shielding}
 To minimize background from backward going photons, we installed a
@@ -560,34 +561,28 @@ lead wall can be seen on the final assembly pictures shown in
 Fig. \ref{fig:band_downstream}.
 
 
-
-
 \subsection{Laser Calibration system}
 \label{sec:laserystem}
 We implemented a UV laser system to calibrate BAND and monitor its
 performance during data-taking. The design and performance of the
 system is fully described in Ref. \cite{band-laser}. 
 
-{\color{red} TODO: brief description of laser system.  laser, optical
-  fiber to splitter, fibers to patch anel ...}  
-The laser was coupled
-to the midpoint of each scintillator with an optical fiber.  A
-photo-diode provides reference time for the laser system. The output
-signal of the photo diode is inverted and shaped before it is sent to
+The main component of the system is a picosecond pulsed diode laser (Teem Photonics STV-01E-140, \cite{teem_laser}) with a wavelength of 355 \si{\nano\meter}. The laser can be triggered externally between $10-2000$ \si{\hertz}. The light is only transported within fibers. Further components of the system are a mode scrambler, a 90:10 splitter whose outputs are connected to a reference photodiode (10\% output) and a variable optic attenuator \cite{attenuator} (90\% output). The attenuator allows to vary the pulse intensity sent to the detector. It is connected to a custom SQS Vl\'aknov\'a Optika 1$\times$400 splitter which distributes the light to every bar of BAND. 
+
+Each bar has an optical fiber glued to its center with UV-cure glue (see
+Fig. \ref{fig:pic-fiberonbar}). We used an exposed fiber for the fiber-scintillant connection since it was a stable, reliable and easy option. The other end of the fiber is connected to the splitter through a patch panel attached to the BAND frame. 
+
+The photodiode provides reference time for the laser system. The output
+signal of the photodiode is inverted and shaped before it is sent to
 the BAND read-out system. The signal is then digitized by the same ADCs and
 TDCs which are used for the PMT signals.
 
-{\color{red} describe that the end of the fiber hangs loose and is not
-  coupled to the bar directly.}
-Each fiber is glued to the center of the bar with UV-cure glue (see
-Fig. \ref{fig:pic-fiberonbar}), but the tip of the fiber is not
-directly coupled to the bar.
 % Windows for easy access were kept inthe wrapping foils around the bar. The windows were stacked with
 % different alignments to reduce light leaks. After the installation of the fiber, the bar was intensively tested for light-leaks.
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.40\textwidth]{pic-fiberonbar.pdf}
-	\caption{Connection of a fiber to bar after UV-cure gluing. The fiber is positioned in the center of the bar and is covered by both layers of wrapping material, ESR \cite{3MESR} and Tedlar foil.}
+	\caption{Connection of a fiber to bar after UV-cure gluing. The fiber is positioned in the center of the bar and is covered by both layers of wrapping material, ESR \cite{3MESR} and Tedlar foil \cite{tedlarfoil}.}
 	\label{fig:pic-fiberonbar}
 \end{figure}
 
@@ -612,6 +607,13 @@ directly coupled to the bar.
 %\end{tabular}
 %\label{table:tdcadc-specs}
 %\end{table*}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.48\textwidth]{electronics-diag.pdf}
+	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
+	\label{fig:electronic-diag}
+\end{figure}
+
 In the experiment, the high voltages for each PMT are provided by a multi-channel CAEN SYS4527 mainframe with eleven A1535SN cards with 24 channel each \cite{caen-hvframe,caen-hvcard}.
 
 A schematic drawing of the read-out electronics and its components is
@@ -642,15 +644,10 @@ coincidence bar trigger for cosmics and laser measurements. The
 coincidence trigger is also fed to the central CLAS12 trigger system
 to allow monitoring of the detector by recording laser data during
 real data taking. This special trigger rate is usually about 10
-\si{\hertz}, compared to the $\approx$ 15-20 \si{\kilo\hertz} trigger
+\si{\hertz}, compared to the $\approx 15-20\,\si{\kilo\hertz}$ trigger
 rate from electron interactions in the target.
 
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.48\textwidth]{electronics-diag.pdf}
-	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
-	\label{fig:electronic-diag}
-\end{figure}
+
 
 
 %%% ----------------- Assembly subsection
@@ -668,11 +665,11 @@ separately. We equipped each scintillator with a pair of gain-matched
 PMTs.  Each bar undergo the following procedure:
 \begin{enumerate}
 \item Select a pair of gain-matched PMTs
-\item Glue the PMTs to the light guides with xx glue.
-\item Glue one light guide/PMT assembly to each end of the bar with xx
-  UV curing glue.
+\item Glue the PMTs to the light guides with RTV615 soft glue \cite{softglue}.
+\item Glue one light guide/PMT assembly to each end of the bar with DYMAX
+  UV curing glue \cite{uvglue}.
 \item Wrap the assembled scintillator with Enhanced Specular Reflector \cite{3MESR}.
-\item Wrap this with black xx thick Tedlar foil, leaving an openable
+\item Wrap this with black 50-$\mu$m thick Tedlar foil \cite{tedlarfoil}, leaving an openable
   window for attaching the laser-system optical fiber.
 \item Search for and fix light leaks by measuring the PMT dark currents with a pico-ammeter.
 \item Glue the optical fiber to the center of the bar and reseal the Tedlar foil window.
@@ -797,22 +794,22 @@ Compton edges of $0.963$ and $1.118$, $0.477$, and, $1.062$ and $0.341$, respect
 response to each source was measured in the center of the bar. Using the ADC response to all sources, in combination with the 
 attenuation length of the bar, the ADC response can be converted to \si{\mega\electronvolt}. These measurements were done after the detector was gain matched (see previous section)
 
-A typical response of a PMT to  $^{60}$Co is shown in Fig.~\ref{fig:compton_edge} along with a fit of the Compton edge by a parametrization described in [ADD REF]. The extracted Compton edges for various bars are quite similar which also shows the a good gain matching obtained with cosmics. Taking into account the results from cosmic ray and  source measurement, we obtain a ADC to MeV conversion function with a linear fit, see Fig. \ref{fig:mev_conversion}.
+A typical response of a PMT to  $^{60}$Co is shown in Fig.~\ref{fig:compton_edge} along with a fit of the Compton edge by a parametrization described in [ADD REF]. The extracted Compton edges for various bars are quite similar which also shows the a good gain matching obtained with cosmics. Taking into account the results from cosmic ray and  source measurement, we obtain a ADC to MeV conversion function
+% with a linear fit, see Fig. \ref{fig:mev_conversion}.
 
 
-\begin{figure}[tbh]
-	\centering
-			\includegraphics[width=0.48\textwidth]{mevadc.pdf}
-	\caption{TODO UPDATE PICTURE with fit: ADC to MeV conversion fit using data from source and cosmic ray measurements.}
-	\label{fig:mev_conversion}
-\end{figure}
+%\begin{figure}[tbh]
+%	\centering
+%			\includegraphics[width=0.48\textwidth]{mevadc.pdf}
+%	\caption{TODO UPDATE PICTURE with fit: ADC to MeV conversion fit using data from source and cosmic ray measurements.}
+%	\label{fig:mev_conversion}
+%\end{figure}
 
 %%% ----------------- Time-walk subsection
 \subsubsection{Time-walk calibration}
-Time-walk calibrations were performed with the laser system \cite{band-laser}. A motorized fiber optic attenuator is used to vary
+Time-walk calibrations were performed with the laser system \cite{band-laser}. The fiber optic attenuator \cite{attenuator} is used to vary
 the amount of light delivered to each bar. Waveforms and times are measured as the attenuator scans from $40$ \si{\decibel} to $0$ 
-\si{\decibel}. Time-walk curves and calibrations are taken per PMT. The laser pulse, immediately after fiber-coupling, is initially 
-split with $90\%$ going to the attenuator, and $10\%$ going to a photodiode used as a reference time for any calibrations 
+\si{\decibel}. Time-walk curves and calibrations are taken per PMT. The photodiode output is used as a reference time for any calibrations 
 performed with the laser system.
 
 Dependence of a typical PMT time to pulse height is seen in Fig.~\ref{fig:time_walk} (left). To correct for time-walk, we parameterize 
@@ -853,8 +850,8 @@ and the relative time offset is given by the center of the distribution (see Fig
 
 \begin{figure*}[tb]
 	\centering
-		\includegraphics[width=0.48\textwidth]{lr-offset.pdf}
-		\includegraphics[width=0.48\textwidth]{eff_vel.pdf}
+		\includegraphics[width=0.47\textwidth]{lr-offset.pdf}
+		\includegraphics[width=0.47\textwidth]{eff_vel.pdf}
 	\caption{
 	(Left) Typical $t_{L} - t_{R}$ time spectrum in a single bar after time-walk correction for every PMT (left). The red dotted line indicates the $LR$ offset value from 0. (Right) Obtained effective velocities for each bar. The differences in effective velocities between long bars (circles) and short bars (boxes) are due to geometrical effects from the different bar length.}
 	\label{fig:eff_vel}
@@ -909,16 +906,14 @@ $j$ is done as follows:
 \end{eqnarray}
 where $ t_{avg}^{ref}$ is the average time of the global reference bar chosen on the most downstream layer of BAND, and
 $t_{avg}^j$ is the average time of the reference bar chosen in layer $j$. Then only one global offset is needed to correct the
-offset of $t_{avg}^j$ if there are no residual offsets between bars. Fig~\ref{fig:bar_off} shows a typical relative timing distribution of the bar with respect to a reference bar 
-in the same layer, as a function of pulse amplitude. The mean of this distribution is $\mathcal{O}^{ij}$ for this bar, and the 
-parameter's independence of pulse amplitude ensures the time-walk is well controlled.
+offset of $t_{avg}^j$ if there are no residual offsets between bars.
 
-\begin{figure}[tbh!]
-	\centering
-		\includegraphics[width=0.48\textwidth]{bar_offset.png}
-	\caption{TO DO: PICTURE UPDATE Typcial time difference of bar mean time to a reference bar as a function of geometric mean of ADC pulse amplitude before corrections of relative bar offsets. The independence on amplitude shows a good time-walk calibration. The mean value of the y-axis gives the relativ time offset for this bar.}
-	\label{fig:bar_off}
-\end{figure}
+%\begin{figure}[tbh!]
+%	\centering
+%		\includegraphics[width=0.48\textwidth]{bar_offset.pdf}
+%	\caption{TO DO: text UPDATE Typcial time difference of bar mean time to a reference bar as a function of geometric mean of ADC pulse amplitude before corrections of relative bar offsets. The %independence on amplitude shows a good time-walk calibration. The mean value of the y-axis gives the relativ time offset for this bar.}
+%	\label{fig:bar_off}
+%\end{figure}
 
 \subsection{BAND performance} 
 %%% ----------------- Global offset subsection
@@ -927,7 +922,7 @@ parameter's independence of pulse amplitude ensures the time-walk is well contro
 {\color{red} TODO: Some text and picture update}
 A final global time offset is required to align the BAND with production data. Due to low rates in the angular coverage of the BAND, 
 high-statistics data files must be used. 
-In Fig.~\ref{fig:final_offset} (left) the time of flight spectrum is shown for each bar applying all calibrations described in the previous sections. The spectrum is zoomed to the area of the photon peak which is used to determine the final global time offset calibration for each bar. The two peaks are the two groups of long and short bars which have different length of fiber optic cable installed. Fig.~\ref{fig:final_offset} (right) displays the time difference between the expected photon arrival time and the measured time corrected for the global offsets for all bars. One can see that after the corrections all bars are well aligned in time.
+In Fig.~\ref{fig:final_offset} (left) the time of flight spectrum is shown for each bar applying all calibrations described in the previous sections. The spectrum is zoomed to the area of the photon peak which is used to determine the final global time offset calibration for each bar. Fig.~\ref{fig:final_offset} (right) displays the time difference between the expected photon arrival time and the measured time corrected for the global offsets for all bars. One can see that after the corrections all bars are well aligned in time.
 \begin{figure*}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{global_single_bar_all_runs.pdf}
@@ -982,7 +977,7 @@ TO DO: Efficiency results from GEANT simulation
 The details and performance of the Backward Neutron Detector is presented in this paper. The detector is currently installed in front of the CLAS12 spectrometer at Jefferson Lab to measure neutrons with momenta between $0.25$ and $0.6$ \si{\GeV/\clight}.  It consists of scintillator bars with PMT readout on both ends.
 After various calibrations a time of flight resolution of better than 300 \si{\pico\s} has been obtained for each scintillator bar consisted with design expectations from test measurements of components. A clear separation of backward going photons and neutrons reaching the detector can be seen in time of flight spectra for events where an electron is detected in CLAS12 of the reaction $e+d \rightarrow e'+X$, hence showing the excellent performance of the detector during the experiment.
 
-The expected neutron efficiency from simulation is $35$\% . In the future, an analysis of data from exclusive $ed \rightarrow e'pn$ events collected at Jefferson Lab will allow to verify the expected efficiency.
+The expected neutron efficiency from simulation is $35$\%. In the future, an analysis of data from exclusive $ed \rightarrow e'pn$ events collected at Jefferson Lab will allow to verify the expected efficiency.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
