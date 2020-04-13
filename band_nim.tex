@@ -117,7 +117,7 @@
  The Backward Angle Neutron Detector (BAND) of CLAS12 detects neutrons
   emitted at backward angles of $155$\si{\degree} to $175$\si{\degree}
   and momenta between $0.25$ and $0.6$ \si{\GeV/\clight}. It is
-  positioned 3 \si{\meter} upstream of the target and consists of $18$
+  positioned 3-\si{\meter} upstream of the target and consists of $18$
   rows and $5$ layers of $7.2$ \si{\centi\meter} by $7.2$
   \si{\centi\meter} scintillator bars with PMT readout on both ends to
   measure time and energy deposition in the scintillator
@@ -487,8 +487,15 @@ Electron transit time                        & 29 ns & 45 ns & 41 ns \\
 \subsubsection{Light Guides}
 
 The light guides design was constrained by the available space and the
-sizes of the scintillator bars and PMTs.  lots more detail about the
-light guides here.  Show pictures and drawings.  Credit FSU.  mention the reflection problem???
+sizes of the scintillator bars and PMTs. CAD drawings of the light guides for the main detector and the veto bars are shown in Fig. \ref{lightguides}. They are xx long. Each light guide has a 2-in wide tube connected to the PMTs to allow for a cover of an area in front of the photocathode with magnetic shields (see next section). The other end of the light guide matches the cross section of a bar. It is glued to the bar with UV curing glue xx and to the PMT with xx glue. All light guides were designed by UTFSM in Chile and manufactured by Florida State University.  
+{\color{red} LARRY: more details here? Mention reflection problem???}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.23\textwidth]{bar_lg.png}
+		\includegraphics[width=0.18\textwidth]{veto_lg.png}
+	\caption{CAD drawing of the light guides for the main detector (left) and the veto bars (right). The top part is connected to the 2-in PMTs while the lower part is connected to the bars.}
+	\label{fig:lightguides}
+\end{figure}
 
 \subsubsection{PMT Magnetic shielding}
 The fringe-field of the CLAS12 solenoid magnet
@@ -513,28 +520,27 @@ and the left and right PMT energy peak locations for $^{90}$Sr and
   $^{137}$Cs sources at two locations (at 0 and 5 \si{\centi\meter} from the scintillant) and  at nominal
   PMT operating voltage and no shielding.  We then measured the same quantities with different
   shielding configurations at different longitudinal and transverse
-  magnetic fields up to 80 G (limited by heat dissipation in the
+  magnetic fields up to 80 \si{\gauss} (limited by heat dissipation in the
   Helmholtz coils).
 
   We tested $\mu$-metal shielding with  thicknesses of 0.9, 1.5, 1.8,
   2.4 and 3 \si{\milli\meter}, as well as two soft-iron pipes. The magnetic field, amount of detector covered by the
   shielding, the thickness of the shielding, and the angle of the detector to the field were
   all varied.
-
-{\color{red} ADD PICTURE REF}.
-
-As expected, the longitudinal magnetic field degraded PMT performance
+  
+In Fig. \ref{fig:shielding_results}, the event rate as a function of magnetic field strength is shown for different  thick $\mu$-metal shields and a reference measurement without any shield. These results are from a $^{90}$Sr source, a longitudinal field setting and placing the shield to cover 5 \si{\centi\meter} beyond the photocathode. 
+The longitudinal magnetic field degraded the PMT performance
 the most.  We found that the 1.5-\si{\milli\meter} $\mu$-metal shield was not
 sufficient, but that the 1.8-\si{\milli\meter} $\mu$-metal shield maintained PMT
 performance up to 80 G.  The soft-iron pipes performed worse than the
-1.5-\si{\milli\meter} $\mu$-metal.  The magnetic shields performed best when they
+1.5-\si{\milli\meter} $\mu$-metal (not shown in Fig. \ref{fig:shielding_results}. The magnetic shields performed best when they
 extended 5 \si{\centi\meter} (one diameter) beyond the PMT photocathode.  In order to
 be conservative, we selected 2-mm thick $\mu$-metal shields.
 
 \begin{figure}[tb]
 	\centering
 			\includegraphics[width=0.47\textwidth]{shielding_results.pdf}
-	\caption{ADD TEXT.}
+	\caption{Magnet shielding test results with a $^{90}$Sr source, a longitudinal field and shields placed covering 5 \si{\centi\meter} beyond the PMT photocathode. Event rate with increasing field without any shielding are shown in green. The results with various $\mu$-metal shields are indicated by the other colors with their thickness written in the plot. }
 	\label{fig:shielding_results}
 \end{figure}
 
@@ -588,6 +594,8 @@ directly coupled to the bar.
 %%% ----------------- Electronics subsection
 \subsection{Electronics and DAQ}
 %TODO SOME UPDATES ON THE FADC SIGNALING, HV CONTROL, TABLE WITH TDC AND ADC PARAMETERS
+%The threshold for the discriminators similar for disc and FADC. The pulse shape from the flash-ADCs are recorded for every PMT crossing a threshold value allow to record the signal amplitude and integral. The integral window can be adjusted offline in the pulse fitting algorithm.
+%For the data shown here is was set to 80ns = 20 samples
 %\begin{table*}[htbp]
 %\caption{Key performance specifications of the CAEN V1190A TDCs and the JLab FADC250 flash ADCs.}
 %\centering
@@ -613,6 +621,8 @@ Jefferson Lab.  From the splitter one signal is sent to a 250
 other signal is sent to discriminators.  The discriminated time signal
 goes to a TDC (CAEN VX1190A \cite{caen-tdc}) with 100 ps resolution
 per channel.
+
+%The threshold for the d The pulse shape from the flash-ADCs are recorded for every PMT crossing a threshold value allow to record the signal amplitude and integral. The integral window can be adjusted 
 
 In total, the system consists of 16 flash-ADCs in one VXS crate, 16
 discriminators and two TDCs in a VME crate and 16 splitters.
@@ -643,6 +653,13 @@ rate from electron interactions in the target.
 
 %%% ----------------- Assembly subsection
 \subsection{Final Assembly}
+\begin{figure*}[tb]
+	\centering
+	\includegraphics[width=0.48\textwidth , height=0.40\textwidth]{pic-construction1.pdf}
+	\includegraphics[width=0.40\textwidth , height=0.40\textwidth]{pic-construction2.pdf}
+				\caption{BAND construction. From ESR \cite{3MESR} wrapped bars (left) to assembled detector (right). The intermediate steps show the fully wrapped bars with the optical fiber and the assembled bottom row of the detector.}
+		\label{fig:barassembly}
+\end{figure*}
 We assembled and intensively tested each scintillator bar
 separately. We equipped each scintillator with a pair of gain-matched
 PMTs.  Each bar undergo the following procedure:
@@ -668,13 +685,7 @@ optical fiber shown, a row of four bars installed in the BAND frame,
 and the fully assembled BAND seen from the upstream side with the
 patch panels for HV and  signal cables and optical fibers.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure*}[tb]
-	\centering
-	\includegraphics[width=0.48\textwidth , height=0.40\textwidth]{pic-construction1.pdf}
-	\includegraphics[width=0.40\textwidth , height=0.40\textwidth]{pic-construction2.pdf}
-				\caption{BAND construction. From ESR \cite{3MESR} wrapped bars (left) to assembled detector (right). The intermediate steps show the fully wrapped bars with the optical fiber and the assembled bottom row of the detector.}
-		\label{fig:barassembly}
-\end{figure*}
+
 
 After assembling the bars in the support frame, the lead wall was
 installed on the downstream side of BAND. BAND was then
@@ -802,14 +813,14 @@ split with $90\%$ going to the attenuator, and $10\%$ going to a photodiode used
 performed with the laser system.
 
 Dependence of a typical PMT time to pulse height is seen in Fig.~\ref{fig:time_walk} (left). To correct for time-walk, we parameterize 
-this dependence on pulse height, $A$, as:
+this dependence on pulse height of the ADC signal, $A$, as:
 \begin{eqnarray}
 	\begin{split}
-		t_*(A)	&= \alpha + \frac{\beta}{\sqrt{\textrm{A}}}.				
+		t_{\mathrm{PMT}}-t_{\mathrm{photodiode}}	&= \alpha + \frac{\beta}{\sqrt{\textrm{A}}}.				
 		\label{eqn:time_walk}
 	\end{split}
 \end{eqnarray}
-The residual after time-walk correction, $t-t_*$, is shown in Fig.~\ref{fig:time_walk} (right). At pulse heights close to threshold, the 
+The residual after time-walk correction, $t_{\mathrm{PMT}}-t_{\mathrm{photodiode}}$, is shown in Fig.~\ref{fig:time_walk} (right). At pulse heights close to threshold, the 
 parameterization is not flexible enough and under-estimates the strong dependence on pulse height. However, signals with pulse 
 heights this low are not of interest, as a software cut on minimum energy deposition is needed to improve signal-to-background 
 which removes these pulses (discussed in Section \ref{sec:neutronidentification}).
@@ -818,7 +829,7 @@ which removes these pulses (discussed in Section \ref{sec:neutronidentification}
 	\centering
 		\includegraphics[width=0.48\textwidth]{timewalkpre.pdf}
 		\includegraphics[width=0.48\textwidth]{timewalkpost.pdf}
-	\caption{TO DO: UPDATE TEXTTime-walk calibration: Typical time to pulse height spectrum for one PMT with respect to the time for the reference photodiode before time-walk correction (left) and after time-walk correction (right).}
+	\caption{Time-walk calibration: Typical time to pulse height spectrum for one PMT with respect to the time for the reference photodiode before time-walk correction (left) and after time-walk correction (right).}
 	\label{fig:time_walk}
 \end{figure*}
 
@@ -835,37 +846,40 @@ right PMT on a given bar is used to extract the effective velocity in a bar know
 	\end{split}
 \end{eqnarray}
 
-and the relative time offset is given by the center of the distribution (see Fig.~\ref{fig:eff_vel} left). The obtained effective velocities for each bar are shown in Fig.~\ref{fig:eff_vel} (right) distinguished between short bars (red) and long bars (blue). The observed difference is due to geometrical effects from the different bar length.
+and the relative time offset is given by the center of the distribution (see Fig.~\ref{fig:eff_vel} left). The obtained effective velocities for each bar are shown in Fig.~\ref{fig:eff_vel} (right) distinguished between short bars (boxes) and long bars (circles). The observed difference is due to geometrical effects from the different bar length.
 
 \begin{figure*}[tb]
 	\centering
-		\includegraphics[width=0.48\textwidth]{lr_eff_vel.png}
+		\includegraphics[width=0.48\textwidth]{lr-offset.pdf}
 		\includegraphics[width=0.48\textwidth]{eff_vel.pdf}
-	\caption{TO DO: PICTURE UPDATE Effective velocity: Typical $t_{L} - t_{R}$ time spectrum in a single bar after time-walk correction for every PMT (left). Obtained effective velocities for each bar (right). The differences in effective velocities between long bars (blue) and short bars (red) are probably due to geometrical effects from the different bar length.}
+	\caption{
+	(Left) Typical $t_{L} - t_{R}$ time spectrum in a single bar after time-walk correction for every PMT (left). The red dotted line indicates the $LR$ offset value from 0. (Right) Obtained effective velocities for each bar. The differences in effective velocities between long bars (circles) and short bars (boxes) are due to geometrical effects from the different bar length.}
 	\label{fig:eff_vel}
 \end{figure*}
 
 %%% ----------------- Attenuation length subsection
 \subsubsection{Attenuation length}
-The attenuation length of the scintillator material is extracted with cosmic ray data by using the 
-amplitude ($A$) and time measured by both PMTs in the bar:
+The light absorption length, attenuation length, of each bar is determined after the installation since its effective value depends on the properties of the bar wrapping.
+We extract the attenuation length with cosmic ray data by using the 
+ADC amplitude ($A$) and time measured by both PMTs in the bar:
 \begin{eqnarray}
 	\begin{split}
 		A_L(x) &= A_0 e^{-\frac{1}{\mu}\left(L/2-x\right) }				\\
 		A_R(x) &= A_0 e^{-\frac{1}{\mu}\left(L/2+x\right) }				\\
-		R(x) \equiv \ln{\frac{A_L(x)}{A_R(x)}} &= \frac{2x}{\mu},					
+		R(x) \equiv \ln{\frac{A_L(x)}{A_R(x)}} &= \frac{2x}{\mu} = \frac{-v(t_{L}-t_{R})}{\mu}.			
 		 \label{eqn:atten}
 	\end{split}
 \end{eqnarray}
-where $x=-\frac{v}{2}(t_L - t_R)$. The attenuation length $\mu$ is extracted from the slope of $R(x)$, see Fig.~\ref{fig:atten} (left) for a typical $R(x)$ plot of a bar.
-The slope of the central part is linearly fit to obtained the attenuation length, see Fig.~\ref{fig:atten} (right). 
-The plateau shape of the amplitude ratio closer to the edge of the bar is probably induced by reflections at the light guides.   
- {\color{red} TODO: A comparison of the attenuation lengths of all bars can be seen in Fig.~\ref{fig:atten_allbars} }.
- {\color{red} Shall we add more details?  Comparision how does it look with the ADC integral? }.
-\begin{figure*}[h!]
+A typical $R(x)$ as a function of $t_{L}-t_{R}$ is shown in Fig.~\ref{fig:atten} (left). 
+The slope of the central part is linearly fit to obtain the attenuation length with the determined effective velocity (see previous section).
+The plateau shape of the amplitude ratio closer to the edge of the bar is induced by reflections at the light guides. This has been verified by
+using the integral of the signal and not the amplitude for $R(x)$, see Fig.~\ref{fig:atten} (right). The distribution has a linear behaviour over the whole bar since most of the reflections are included in the large integration window of 80 \si{\nano\s}. However, the attenuation length from the integrated signals are unphysical given the bulk attenuation length and previous bench measurements. 
+
+\begin{figure*}[tb]
 	\centering
-		\includegraphics[width=0.96\textwidth]{atten.png}
-	\caption{TO DO: PICTURE UPDATE Left: Log ratio of amplitudes from both PMTs on a bar as a function of position along the bar (positive x is left side of the bar). Right: Linear fit of left plot in the center of the bar to determine the attenuation length.}
+		\includegraphics[width=0.48\textwidth]{atten-amp.pdf}
+		\includegraphics[width=0.48\textwidth]{atten-adc.pdf}
+	\caption{TO DO: PICTURE UPDATE WITH FIT AND VALUE! Left: Log ratio of ADC amplitudes from both PMTs on a bar as a function of time difference of the PMTs. (Right) Log ratio of ADC integral from both PMTs as a function of time difference.}
 	\label{fig:atten}
 \end{figure*}
 
@@ -907,6 +921,7 @@ parameter's independence of pulse amplitude ensures the time-walk is well contro
 %%% ----------------- Global offset subsection
 \subsubsection{Global offset}
 \label{sec:global_offset}
+{\color{red} TODO: Some text and picture update}
 A final global time offset is required to align the BAND with production data. Due to low rates in the angular coverage of the BAND, 
 high-statistics data files must be used. 
 In Fig.~\ref{fig:final_offset} (left) the time of flight spectrum is shown for each bar applying all calibrations described in the previous sections. The spectrum is zoomed to the area of the photon peak which is used to determine the final global time offset calibration for each bar. The two peaks are the two groups of long and short bars which have different length of fiber optic cable installed. Fig.~\ref{fig:final_offset} (right) displays the time difference between the expected photon arrival time and the measured time corrected for the global offsets for all bars. One can see that after the corrections all bars are well aligned in time.
@@ -979,121 +994,121 @@ The expected neutron efficiency from simulation is $35$\% . In the future, an an
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
- \clearpage
+% \clearpage
 
 
-
-
-\section{Appendix}
-\begin{table*}[ht]
-\begin{tabular}{  m{3em} | m{3em} | m{5em} | m{3em} | m{3em} | m{3em} | m{8em} }
-		\hline
-			Sector & Layer & Component & Length (\si{\centi\meter}) & PMTs  & $\sigma$ (\si{\pico\second}) & Nominal distance from target (\si{\centi\meter}) \\
-		\hline
-		\hline
-1	&1	&1	&160	&R7724	&XXX	&XXX\\ 
-1	&1	&2	&160	&R7724	&XXX	&XXX\\ 
-1	&1	&3	&160	&R7724	&XXX	&XXX\\ 
-2	&1	&1	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&2	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&3	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&4	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&5	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&6	&200	&R7724	&XXX	&XXX\\ 
-2	&1	&7	&200	&R7724	&XXX	&XXX\\ 
-3	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
-3	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
-4	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
-1	&2	&1	&160	&R7724	&XXX	&XXX\\ 
-1	&2	&2	&160	&R7724	&XXX	&XXX\\ 
-1	&2	&3	&160	&R7724	&XXX	&XXX\\ 
-2	&2	&1	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&2	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&3	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&4	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&5	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&6	&200	&R7724	&XXX	&XXX\\ 
-2	&2	&7	&200	&R7724	&XXX	&XXX\\ 
-3	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
-3	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
-4	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
-
-		\hline
-	\end{tabular}
-\end{table*}
-
-\begin{table*}[ht]
-\begin{tabular}{  m{3em} | m{3em} | m{5em} | m{3em} | m{3em} | m{3em} | m{8em} }
-		\hline
-			Sector & Layer & Component & Length (\si{\centi\meter}) & PMTs  & $\sigma$ (\si{\pico\second}) & Nominal distance from target (\si{\centi\meter}) \\
-		\hline
-		\hline
-
-1	&3	&1	&160	&R7724	&XXX	&XXX\\ 
-1	&3	&2	&160	&R7724	&XXX	&XXX\\ 
-1	&3	&3	&160	&R7724	&XXX	&XXX\\ 
-2	&3	&1	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&2	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&3	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&4	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&5	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&6	&200	&R7724	&XXX	&XXX\\ 
-2	&3	&7	&200	&R7724	&XXX	&XXX\\ 
-3	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
-3	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
-4	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
-1	&4	&1	&160	&R7724	&XXX	&XXX\\ 
-1	&4	&2	&160	&R7724	&XXX	&XXX\\ 
-1	&4	&3	&160	&R7724	&XXX	&XXX\\ 
-2	&4	&1	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&2	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&3	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&4	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&5	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&6	&200	&R7724	&XXX	&XXX\\ 
-2	&4	&7	&200	&R7724	&XXX	&XXX\\ 
-3	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
-3	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
-4	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
-		\hline
-	\end{tabular}
-\end{table*}
+%
+%
+%\section{Appendix}
+%\begin{table*}[ht]
+%\begin{tabular}{  m{3em} | m{3em} | m{5em} | m{3em} | m{3em} | m{3em} | m{8em} }
+%		\hline
+%			Sector & Layer & Component & Length (\si{\centi\meter}) & PMTs  & $\sigma$ (\si{\pico\second}) & Nominal distance from target (\si{\centi\meter}) \\
+%		\hline
+%		\hline
+%1	&1	&1	&160	&R7724	&XXX	&XXX\\ 
+%1	&1	&2	&160	&R7724	&XXX	&XXX\\ 
+%1	&1	&3	&160	&R7724	&XXX	&XXX\\ 
+%2	&1	&1	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&2	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&3	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&4	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&5	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&6	&200	&R7724	&XXX	&XXX\\ 
+%2	&1	&7	&200	&R7724	&XXX	&XXX\\ 
+%3	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
+%3	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&1	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&2	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&3	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&4	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&5	&50	&ET9214	&XXX	&XXX\\ 
+%4	&1	&6	&50	&ET9214	&XXX	&XXX\\ 
+%1	&2	&1	&160	&R7724	&XXX	&XXX\\ 
+%1	&2	&2	&160	&R7724	&XXX	&XXX\\ 
+%1	&2	&3	&160	&R7724	&XXX	&XXX\\ 
+%2	&2	&1	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&2	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&3	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&4	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&5	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&6	&200	&R7724	&XXX	&XXX\\ 
+%2	&2	&7	&200	&R7724	&XXX	&XXX\\ 
+%3	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
+%3	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&1	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&2	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&3	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&4	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&5	&50	&ET9214	&XXX	&XXX\\ 
+%4	&2	&6	&50	&ET9214	&XXX	&XXX\\ 
+%
+%		\hline
+%	\end{tabular}
+%\end{table*}
+%
+%\begin{table*}[ht]
+%\begin{tabular}{  m{3em} | m{3em} | m{5em} | m{3em} | m{3em} | m{3em} | m{8em} }
+%		\hline
+%			Sector & Layer & Component & Length (\si{\centi\meter}) & PMTs  & $\sigma$ (\si{\pico\second}) & Nominal distance from target (\si{\centi\meter}) \\
+%		\hline
+%		\hline
+%
+%1	&3	&1	&160	&R7724	&XXX	&XXX\\ 
+%1	&3	&2	&160	&R7724	&XXX	&XXX\\ 
+%1	&3	&3	&160	&R7724	&XXX	&XXX\\ 
+%2	&3	&1	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&2	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&3	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&4	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&5	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&6	&200	&R7724	&XXX	&XXX\\ 
+%2	&3	&7	&200	&R7724	&XXX	&XXX\\ 
+%3	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
+%3	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&1	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&2	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&3	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&4	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&5	&50	&ET9214	&XXX	&XXX\\ 
+%4	&3	&6	&50	&ET9214	&XXX	&XXX\\ 
+%1	&4	&1	&160	&R7724	&XXX	&XXX\\ 
+%1	&4	&2	&160	&R7724	&XXX	&XXX\\ 
+%1	&4	&3	&160	&R7724	&XXX	&XXX\\ 
+%2	&4	&1	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&2	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&3	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&4	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&5	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&6	&200	&R7724	&XXX	&XXX\\ 
+%2	&4	&7	&200	&R7724	&XXX	&XXX\\ 
+%3	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
+%3	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&1	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&2	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&3	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&4	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&5	&50	&ET9214	&XXX	&XXX\\ 
+%4	&4	&6	&50	&ET9214	&XXX	&XXX\\ 
+%		\hline
+%	\end{tabular}
+%\end{table*}
 
 
 
