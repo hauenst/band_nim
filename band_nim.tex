@@ -20,11 +20,12 @@
 \usepackage[alsoload=hep]{siunitx}
 \sisetup{ per-mode=symbol}
 \usepackage{hyperref}
-%\let\oldbibitem\bibitem
-%\def\bibitem{\vfill\oldbibitem}
+\let\oldbibitem\bibitem
+\def\bibitem{\vfill\oldbibitem}
 
 \usepackage{subcaption}
 %\captionsetup[subfigure]{labelformat = parens, labelsep = space, font = small}
+\usepackage{placeins}
 
 \graphicspath{{figures/}}
 
@@ -563,6 +564,12 @@ Fig. \ref{fig:band_downstream}.
 
 \subsection{Laser Calibration system}
 \label{sec:laserystem}
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=0.44\textwidth]{pic-fiberonbar.pdf}
+	\caption{Connection of a fiber to bar after UV-cure gluing. The fiber is positioned in the center of the bar and is covered by both layers of wrapping material, ESR \cite{3MESR} and Tedlar foil \cite{tedlarfoil}.}
+	\label{fig:pic-fiberonbar}
+\end{figure}
 We implemented a UV laser system to calibrate BAND and monitor its
 performance during data-taking. The design and performance of the
 system is fully described in Ref. \cite{band-laser}. 
@@ -579,12 +586,7 @@ TDCs which are used for the PMT signals.
 
 % Windows for easy access were kept inthe wrapping foils around the bar. The windows were stacked with
 % different alignments to reduce light leaks. After the installation of the fiber, the bar was intensively tested for light-leaks.
-\begin{figure}[tb]
-	\centering
-		\includegraphics[width=0.40\textwidth]{pic-fiberonbar.pdf}
-	\caption{Connection of a fiber to bar after UV-cure gluing. The fiber is positioned in the center of the bar and is covered by both layers of wrapping material, ESR \cite{3MESR} and Tedlar foil \cite{tedlarfoil}.}
-	\label{fig:pic-fiberonbar}
-\end{figure}
+
 
 
 
@@ -609,7 +611,7 @@ TDCs which are used for the PMT signals.
 %\end{table*}
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.48\textwidth]{electronics-diag.pdf}
+	\includegraphics[width=0.49\textwidth]{electronics-diag.pdf}
 	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
 	\label{fig:electronic-diag}
 \end{figure}
@@ -653,13 +655,15 @@ rate from electron interactions in the target.
 %%% ----------------- Assembly subsection
 \subsection{Final Assembly}
 \label{sec:assembly}
-\begin{figure*}[tb]
+
+\begin{figure*}[tbp]
 	\centering
 	\includegraphics[width=0.48\textwidth , height=0.40\textwidth]{pic-construction1.pdf}
 	\includegraphics[width=0.40\textwidth , height=0.40\textwidth]{pic-construction2.pdf}
 				\caption{BAND construction. From ESR \cite{3MESR} wrapped bars (left) to assembled detector (right). The intermediate steps show the fully wrapped bars with the optical fiber and the assembled bottom row of the detector.}
 		\label{fig:barassembly}
 \end{figure*}
+
 We assembled and intensively tested each scintillator bar
 separately. We equipped each scintillator with a pair of gain-matched
 PMTs.  Each bar undergo the following procedure:
@@ -692,9 +696,9 @@ installed on the downstream side of BAND. BAND was then
 craned into its position on top of the central vertex tracker support
 cart upstream of CLAS12. Fig. \ref{fig:band_downstream} shows a
 design drawing and a picture of upstream side of BAND. 
-\begin{figure*}[th]
+\begin{figure*}[tb]
 	\centering
-	\includegraphics[width=0.48\textwidth]{BAND_1-2.png} 
+	\includegraphics[width=0.48\textwidth]{BAND_1-3.png} 
 	\includegraphics[width=0.40\textwidth]{pic-bandinhall1.pdf}
 		\caption{(left) CAD drawing of the downstream side of BAND and its frame. The lead wall is shown in cyan, the scintillators
           are in magenta, and the support frame is in black. (right) Picture of the downstream side of BAND installed in Hall B. The reflective surface in the picture are the Aluminium covers of the lead blocks.}
@@ -879,7 +883,7 @@ using the integral of the signal and not the amplitude for $R(x)$, see Fig.~\ref
 	\centering
 		\includegraphics[width=0.48\textwidth]{atten-amp.pdf}
 		\includegraphics[width=0.48\textwidth]{atten-adc.pdf}
-	\caption{TO DO: RIGHT PICTURE UPDATE WITH FIT AND VALUE! Left: Log ratio of ADC amplitudes from both PMTs on a bar as a function of time difference of the PMTs. (Right) Log ratio of ADC integral from both PMTs as a function of time difference.}
+	\caption{(Left) Log ratio of ADC amplitudes from both PMTs on a bar as a function of time difference of the PMTs. (Right) Log ratio of ADC integral from both PMTs as a function of time difference.}
 	\label{fig:atten}
 \end{figure*}
 
@@ -920,32 +924,41 @@ offset of $t_{avg}^j$ if there are no residual offsets between bars.
 \subsubsection{Global offset}
 \label{sec:global_offset}
 {\color{red} TODO: Some text and picture update}
-A final global time offset is required to align the BAND with production data. Due to low rates in the angular coverage of the BAND, 
+A final global time offset is required to align BAND with beam-on data. Due to low rates in the angular coverage of the BAND, 
 high-statistics data files must be used. 
-In Fig.~\ref{fig:final_offset} (left) the time of flight spectrum is shown for each bar applying all calibrations described in the previous sections. The spectrum is zoomed to the area of the photon peak which is used to determine the final global time offset calibration for each bar. Fig.~\ref{fig:final_offset} (right) displays the time difference between the expected photon arrival time and the measured time corrected for the global offsets for all bars. One can see that after the corrections all bars are well aligned in time.
-\begin{figure*}[tb]
+
+In Fig.~\ref{fig:final_offset} the time-of-flight spectrum is shown subtracted with the expected photon arrival time for each bar with a 2 \si{\mega\electronvolt} energy deposition cut to reduce random coincidence background. The xx colored plot includes only time walk corrections but no offset corrections. One can see a broad distribution around the photon peak and the whole spectrum is far away from the expected zero value. This is expected since laser and beam-on data have different time delays from the trigger system of CLAS12. 
+%Applying the individual offset corrections from the previous section, improves the photon peak but there are still residual and global offsets present.
+
+Using the photon peak to correct for residual and global offsets for each bar results in the xx colored spectrum which displays a well aligend photon peak with a width of $\approx$ 300 \si{\pico\s}.
+
+\begin{figure}[tb]
 	\centering
-		\includegraphics[width=0.48\textwidth]{global_single_bar_all_runs.pdf}
 		\includegraphics[width=0.48\textwidth]{global_single_bar_result.pdf}
-	\caption{TO DO: PICTURE UPDATE Left: Time of flight spectrum over all each around the photon peak before the global offset correction. Time of flight spectrum over all bars relative to the expected photon ToF after  the global offset correction. All bars are aligned.}
+	\caption{TO DO: PICTURE UPDATE  Time-of-flight spectrum over all bars relative to the expected photon ToF after time-walk correction (xx), %after time-walk and individual offset correction () 
+	and after all corrections applied (). All bars are well aligned with an averaged width of the photon peak of 300 \si{\pico\s}. A 2 \si{\mega\electronvolt} energy deposition cut is applied to reduce random coincidence background in the plots.}
 	\label{fig:final_offset}
-\end{figure*}
+\end{figure}
 
 \subsubsection{Time of Flight resolution}
 \label{sec:tofresolution}
-
-{\color{red} TODO: Update Laser picture with layer 5. Update Photon picture to use TDC instead of FADC. Update some text.}
-The time-of-flight resolution of the detector are obtained by the laser calibration data and from the photon peak in data with beam. The laser data allows a scan of the time resolution over the whole energy deposition range (see Fig. \ref{fig:resolution-laser}) from 0.5 to 7 \si{\mega\electronvolt}. The resolutions are obtained from a Gaussian fit of the difference of the mean time of a bar to a reference bar as a function of ADC or energy deposit using the calibration from Section \ref{sec:energydeposit}). Therefore, one can compare resolutions for various energy deposition cuts. In Fig. \ref{fig:tof_resolution} (left), the ToF resolution for each bar is shown as a function of two deposition cuts, 1 \si{\mega\electronvolt} (blue) and 5 \si{\mega\electronvolt} (red). In 
-both cases the obtained resolutions are well below the required 300 \si{\pico\s}. For a realistic energy deposition cut for neutron selection (5 \si{\mega\electronvolt}, see also Section. \ref{sec:neutronidentification}) the resolutions are better than 150 \si{\pico\s}.
-
-Fig.~\ref{fig:tof_resolution} (right) shows the ToF resolutions from the photon peak for each bar. Here an energy deposition cut of 2 \si{\mega\electronvolt} is applied. We used a high-statistic run where electrons are detected in CLAS12. The resolutions are worse than the laser data due to additional uncertainties from the pathlength of the target photons through the bar. The width and height of a bar add each about 200 \si{\pico\s} uncertainty to the total ToF which is shown here. The laser data does not have these uncertainties due to the fix position of the fiber on the bar.
 \begin{figure*}[tb]
 	\centering
 			\includegraphics[width=0.48\textwidth]{laser-res-MeV.pdf}
 		\includegraphics[width=0.48\textwidth]{tof-resolutions-photons-2MeV.pdf}
-	\caption{ToF resolution for every bar. Laser data (left) is shown for two separate energy deposition cuts. The resolution of the photon peak obtained in beam-on data is shown on the right with an 2 \si{\mega\electronvolt} energy deposition cut. All bars are well below the required 300 \si{\pico\s}. }
+	\caption{ToF resolution for every bar. Laser data (left) is shown for two separate energy deposition cuts\protect\footnotemark. The resolution of the photon peak obtained in beam-on data is shown on the right with an 2 \si{\mega\electronvolt} energy deposition cut. All bars are well below the required 300 \si{\pico\s}. }
 	\label{fig:tof_resolution}
 \end{figure*}
+%just temporary to correct for the footnotemark in the figure description for the first circular
+\setcounter{footnote}{2}
+The time-of-flight resolution of the detector are obtained by the laser calibration data and from the photon peak in data with beam. The laser data allows a scan of the time resolution over the whole energy deposition range (see Fig. \ref{fig:resolution-laser}, \footnotemark \footnotetext{NOTE FOR FIRST CIRCULAR: This plot will be updated with the results for layer 5 in the next days}) from 0.5 to 7 \si{\mega\electronvolt}. The resolutions are obtained from a Gaussian fit of the difference of the mean time of a bar to a reference bar as a function of ADC or energy deposit using the calibration from Section \ref{sec:energydeposit}). Therefore, one can compare resolutions for various energy deposition cuts. In Fig. \ref{fig:tof_resolution} (left), the ToF resolution for each bar is shown as a function of two deposition cuts, 1 \si{\mega\electronvolt} (blue) and 5 \si{\mega\electronvolt} (red). In 
+both cases the obtained resolutions are well below the required 300 \si{\pico\s}. For a realistic energy deposition cut for neutron selection (5 \si{\mega\electronvolt}, see also Section. \ref{sec:neutronidentification}) the resolutions are better than 150 \si{\pico\s}.
+
+Fig.~\ref{fig:tof_resolution} (right) shows the ToF resolutions from the photon peak for each bar. Here an energy deposition cut of 2 \si{\mega\electronvolt} is applied. We used a high-statistic run where electrons are detected in CLAS12. The data was also used for the global offset corrections presented in Sec. \ref{sec:global_offset}. 
+The obtained resolutions are worse than the laser data due to additional uncertainties from the pathlength of the target photons through the bar. The width and height of a bar add each about 200 \si{\pico\s} uncertainty to the total ToF which is shown here. The laser data does not have these uncertainties due to the fix position of the fiber on the bar.
+%just temporary to couple the foo
+
+
 
 %%% ----------------- Neutral veto subsection
 %\subsubsection{Neutral veto algorithm}
