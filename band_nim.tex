@@ -20,8 +20,8 @@
 \usepackage[alsoload=hep]{siunitx}
 \sisetup{ per-mode=symbol}
 \usepackage{hyperref}
-\let\oldbibitem\bibitem
-\def\bibitem{\vfill\oldbibitem}
+%\let\oldbibitem\bibitem
+%\def\bibitem{\vfill\oldbibitem}
 
 \usepackage{subcaption}
 %\captionsetup[subfigure]{labelformat = parens, labelsep = space, font = small}
@@ -213,9 +213,6 @@ well as pictures from the final assembly of the detector.
 
 
 \subsection{Geometry}
-%% ALSO TABLES FOR GEMOETRY< PMTS ADN SCINTILLATOR IN THIS CHAPTER. PART OF IT IN GEOMETRY
-%%ALSO LIGHTGUIDES!!
-%%GEMOETRY CONSTRAINTS: LENGTH BY SIZE, CROSS SECTION BY COSTS
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.40\textwidth]{FULL_CONTEXT_STUDIE_3.png}
@@ -371,7 +368,7 @@ The two $\gamma$-rays were collimated by two lead bricks to ensure
 they each hit a specific location along each bar, allowing us to study individual
 PMT time resolution and measured energy as a function of hit location.
 
-\begin{table}[t!]
+\begin{table}[t]
 	\caption{Bench test configurations. Length refers to the length of the scintillator bar.  $\sigma$ is the time
           resolution for $2$ \si{\mega\electronvolt} central-equivalent energy deposit in the middle of the bar
           extrapolated from data.  The 9214KB PMT \cite{pmt9214} is manufactured by ET-Enterprises and the other PMTs are manufactured by Hamamatsu \cite{hamapmts}.}
@@ -934,7 +931,7 @@ Using the photon peak to correct for residual and global offsets for each bar re
 
 \begin{figure}[tb]
 	\centering
-		\includegraphics[width=0.48\textwidth]{global_single_bar_result.pdf}
+		\includegraphics[width=0.48\textwidth]{time-alignment.pdf}
 	\caption{TO DO: PICTURE UPDATE  Time-of-flight spectrum over all bars relative to the expected photon ToF after time-walk correction (xx), %after time-walk and individual offset correction () 
 	and after all corrections applied (). All bars are well aligned with an averaged width of the photon peak of 300 \si{\pico\s}. A 2 \si{\mega\electronvolt} energy deposition cut is applied to reduce random coincidence background in the plots.}
 	\label{fig:final_offset}
@@ -956,9 +953,6 @@ both cases the obtained resolutions are well below the required 300 \si{\pico\s}
 
 Fig.~\ref{fig:tof_resolution} (right) shows the ToF resolutions from the photon peak for each bar. Here an energy deposition cut of 2 \si{\mega\electronvolt} is applied. We used a high-statistic run where electrons are detected in CLAS12. The data was also used for the global offset corrections presented in Sec. \ref{sec:global_offset}. 
 The obtained resolutions are worse than the laser data due to additional uncertainties from the pathlength of the target photons through the bar. The width and height of a bar add each about 200 \si{\pico\s} uncertainty to the total ToF which is shown here. The laser data does not have these uncertainties due to the fix position of the fiber on the bar.
-%just temporary to couple the foo
-
-
 
 %%% ----------------- Neutral veto subsection
 %\subsubsection{Neutral veto algorithm}
@@ -970,14 +964,19 @@ The obtained resolutions are worse than the laser data due to additional uncerta
 The neutron identification for production data is done by cuts on time-of-flight. Fig.~\ref{fig:tof} shows such a spectrum of events from production data where an electron was measured in coincidence in CLAS12 in the reaction $ed \rightarrow e'nX$. In addition, a minimum energy deposition cut of 5 \si{\MeV/\clight} has been applied for BAND hits. One can clearly see two separated peaks for photons and neutrons over a flat background from accidentals. The neutron peak corresponds to momenta between $200$ and $600$ \si{\MeV/\clight}.
 The neutron selection in the physics analysis is based on $\beta$ or ToF per pathlength (inverse $\beta$).
 
-\begin{figure}[h!]
+\begin{figure}[tb]
 	\centering
-		\includegraphics[width=0.48\textwidth]{tof-labels.pdf}
-	\caption{Time-of-flight spectrum of BAND in coincidence with electrons measured in CLAS12 from production data. Clearly a photon and neutron peak is visible over a flat background from accidentals. The neutron peak corresponds to momenta  between $200$ and $600$ \si{\MeV/\clight}}
+		\includegraphics[width=0.48\textwidth]{tofm-performance.pdf}
+	\caption{UPDATE TEXT Time-of-flight spectrum of BAND in coincidence with electrons measured in CLAS12 from production data. Clearly a photon and neutron peak is visible over a flat background from accidentals. The neutron peak corresponds to momenta  between $200$ and $600$ \si{\MeV/\clight}}
 	\label{fig:tof}
 \end{figure}
 
-
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=0.48\textwidth]{signalbackgroundratio.pdf}
+	\caption{UPDATE TEXT }
+	\label{fig:signalbackground}
+\end{figure}
 %%% ----------------- Efficiency, resolution subsection
 \subsubsection{Neutron efficiency}
 TO DO: Efficiency results from GEANT simulation
