@@ -967,8 +967,31 @@ The neutron selection in the physics analysis is based on $\beta$ or ToF per pat
 
 %%% ----------------- Efficiency, resolution subsection
 \subsubsection{Neutron efficiency}
-TO DO: Efficiency results from GEANT simulation
 
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=0.48\textwidth]{eff_geant.pdf}
+	\caption{The efficiency of BAND for neutron detection as functions of energy threshold and neutron
+          momentum, as determined using a Geant4 simulation.}
+	\label{fig:eff}
+\end{figure}
+
+The efficiency of BAND for neutron detection was studied using a Geant4 simulation, the results of which
+are shown in Fig.~\ref{fig:eff}. As expected, the efficiency depends both on the energy threshold 
+as well as the neutron momentum. For thresholds below 10~MeVee, lower momentum neutrons have higher
+efficiency.
+
+The Geant4 study was performed using a preliminary model of the geometry and material between BAND
+and the CLAS-12 target and beam pipe. Neutrons of different fixed momenta were simulated according
+to a flat solid-angle distribution, and the efficiency was calculated to be the number of neutrons
+registering hits with energy deposition above threshold divided by the number of neutrons with 
+trajectories hitting BAND. This efficiency is therefore an average over different incident angles
+and hit positions in BAND, but does not include neutrons that failed to reach BAND due to multiple
+scattering in the intervening material. 
+
+The simulation indicates near or above the design goal of 35\%, at the nominal design threshold of 
+2~MeVee even for high-momentum neutrons. Running with higher thresholds to suppress background
+may be possible without significantly compromising BAND's neutron efficiency.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
