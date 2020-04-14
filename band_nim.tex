@@ -60,7 +60,7 @@
 \newcommand*{\NRC}{Nuclear Research Center Negev, Be'er Sheva 84190, Israel}
 \newcommand*{\FSU}{Florida State University, Tallahassee, Florida 32306, USA}
 \newcommand*{\UTFSM}{Universidad T\'{e}cnica Federico Santa Mar\'{i}a, Casilla 110-V Valpara\'{i}so, Chile}
-
+\newcommand*{\GWU }{George Washington University, Washington, D.C.  20052, USA}
 
 \begin{document}
 
@@ -72,14 +72,13 @@
 
 %% Group authors per affiliation:
 
-
 \author{E.P.~Segarra}
-\author{F.~Hauenstein\corref{mycorrespondingauthor}}
+\author{F.~Hauenstein\corref{mycorrespondingauthor}\fnref{odu}}
 \ead{hauenst@jlab.org}
 
-\author{A.~Schmidt}
-\author{A.~Beck}
-\author{S.~May-Tal Beck}
+\author{A.~Schmidt\fnref{gwu}}
+\author{A.~Beck\fnref{nrcn}}
+\author{S.~May-Tal Beck\fnref{nrcn}}
 \author{R.~Cruz-Torres}
 \author{A.~Denniston}
 \author{A.~Hrnjic}
@@ -106,10 +105,18 @@
 \address{\TAU}
 \author{I.~Korover}
 \address{\NRC}
+\author{J.~Barlow}
+\author{E.~Barriga}
 \author{P.~Eugenio}
+\author{A.~Ostrovidov}
 \address{\FSU}
 
 \cortext[mycorrespondingauthor]{Corresponding Author}
+
+
+\fntext[odu]{Also at: \ODU}
+\fntext[gwu]{Current address: \GWU}
+\fntext[nrcn]{Also at: \NRC}
 \fntext[orsay]{Current address: Institut de Physique Nucl\'{e}aire, IN2P3-CNRS, F-91406 Orsay, France}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \date{\today}
@@ -157,7 +164,7 @@ This is achieved by a combination of the Central Neutron Detector
 $120$\si{\degree} while BAND covers from $155$\si{\degree} to
 $175$\si{\degree}.
 
-This paper describes BAND. BAND was designed to measure neutrons with
+BAND was designed to measure neutrons with
 momenta of $0.25 - 0.6$ \si{\GeV/\clight} with a detection efficiency
 of $35$\% and momentum reconstruction resolution better than
 $1.5\%$. It is based on scintillator bars with PMT readout.  BAND was
@@ -175,7 +182,7 @@ upstream of CLAS12 in Hall B.
           \si{\meter} in scale along the beam axis. }
 		\label{fig:clas12band}
 \end{figure}
-
+This paper describes the design, operation and calibration of the BAND detector.
 Chapter 2 presents the required time resolution, efficiency and
 geometry, the resulting design and layout, the selection of detector
 components, and results from comparative measurements of different
@@ -183,7 +190,7 @@ PMTs and magnetic shields. Chapter 3 presents the performance of the
 detector after its installation in Hall B. It describes cosmic-ray and
 laser calibrations ~\cite{band-laser} as well as the measured
 time-of-flight (ToF) resolutions and neutron-photon separation from
-$10.6$-\si{\GeV} electron-deuteron data. Chapter 4 summarizing the
+$10.6$-\si{\GeV} electron-deuteron data. Chapter 4 summarizes the
 results.
 
 
@@ -484,13 +491,16 @@ Electron transit time                        & 29 ns & 45 ns & 41 ns \\
 
 \subsubsection{Light Guides \label{LightGuide}}
 
-The light guides design was constrained by the available space and the
-sizes of the scintillator bars and PMTs. CAD drawings of the light guides for the main detector and the veto bars are shown in Fig. \ref{fig:lightguides}. They are 9 \si{\centi\meter} long. Each light guide has a 5 \si{\centi\meter} long tube end with 2-in diameter connected to the PMTs to allow for a cover of an area in front of the photocathode with magnetic shields (see next section). The other end of the light guide matches the cross section of a bar. It is glued to the bar with a DYMAX UV curing glue \cite{uvglue} and to the PMT with a RTV615 soft glue \cite{softglue}. All light guides were designed by UTFSM in Chile and manufactured by Florida State University.  
+
+The light guides design was constrained by the available space and the sizes of the scintillator bars and PMTs.  The design utilizes a modified Winston
+cone to optimize light collection by concentrating light from a large area at the scintillator onto a smaller active area of the photomultiplier.  
+CAD drawings of the light guides for the main detector and the veto bars are shown in Fig.~\ref{fig:lightguides}.  They are overall 8.9~\si{\centi\meter} long.  Each light guide has a 4.9~\si{\centi\meter} long cylindrical section with 4.6~\si{\centi\meter} diameter connected to the active photocathode area of the 5.1~\si{\centi\meter} diameter PMTs.  The cylindrical length allows for the magnetic field shielding to extend more than 5.1~\si{\centi\meter} (i.e., more than a PMT diameter) beyond the photocathode (see next section). The other end of the light guide matches the cross section of the scintillator.  It is glued to the scintillator bar with a DYMAX UV curing glue \cite{uvglue} and attached to the PMT with MOMENTIVE RTV615 silicone rubber compound \cite{softglue}. The light guides were designed, optimized, and manufactured by Florida State University.
+
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.23\textwidth]{bar_lg.png}
 		\includegraphics[width=0.18\textwidth]{veto_lg.png}
-	\caption{CAD drawing of the light guides for the main detector (left) and the veto bars (right). The top parts are connected to the 2-in PMTs while the lower parts are connected to the bars.}
+	\caption{CAD drawing of the light guides for the main detector (left) and the veto bars (right). The top parts are connected to the PMTs while the lower parts are connected to the bars.}
 	\label{fig:lightguides}
 \end{figure}
 
@@ -520,24 +530,24 @@ and the left and right PMT energy peak locations for $^{90}$Sr and
   magnetic fields up to 80 \si{\gauss} (limited by heat dissipation in the
   Helmholtz coils).
 
-  We tested $\mu$-metal shielding with  thicknesses of 0.9, 1.5, 1.8,
+  We tested mu-metal shielding with  thicknesses of 0.9, 1.5, 1.8,
   2.4 and 3 \si{\milli\meter}, as well as two soft-iron pipes. The magnetic field, amount of detector covered by the
   shielding, the thickness of the shielding, and the angle of the detector to the field were
   all varied.
   
-In Fig. \ref{fig:shielding_results}, the event rate as a function of magnetic field strength is shown for different  thick $\mu$-metal shields and a reference measurement without any shield. These results are from a $^{90}$Sr source, a longitudinal field setting and placing the shield to cover 5 \si{\centi\meter} beyond the photocathode. 
+In Fig. \ref{fig:shielding_results}, the event rate as a function of magnetic field strength is shown for different thick mu-metal shields and a reference measurement without any shield. These results are from a $^{90}$Sr source, a longitudinal field setting and placing the shield to cover 5 \si{\centi\meter} beyond the photocathode. 
 The longitudinal magnetic field degraded the PMT performance
-the most.  We found that the 1.5-\si{\milli\meter} $\mu$-metal shield was not
-sufficient, but that the 1.8-\si{\milli\meter} $\mu$-metal shield maintained PMT
+the most.  We found that the 1.5-\si{\milli\meter} mu-metal shield was not
+sufficient, but that the 1.8-\si{\milli\meter} mu-metal shield maintained PMT
 performance up to 80 G.  The soft-iron pipes performed worse than the
 1.5-\si{\milli\meter} $\mu$-metal (not shown in Fig. \ref{fig:shielding_results}. The magnetic shields performed best when they
 extended 5 \si{\centi\meter} (one diameter) beyond the PMT photocathode.  In order to
-be conservative, we selected 2.6-mm thick $\mu$-metal shields.
+be conservative, we selected 2.6-mm thick mu-metal shields.
 
 \begin{figure}[tb]
 	\centering
 			\includegraphics[width=0.47\textwidth]{shielding_results.pdf}
-	\caption{Magnet shielding test results with a $^{90}$Sr source, a longitudinal field and shields placed covering 5 \si{\centi\meter} beyond the PMT photocathode. Event rate with increasing field without any shielding are shown in green. The results with various $\mu$-metal shields are indicated by the other colors with their thickness written in the plot. }
+	\caption{Magnet shielding test results with a $^{90}$Sr source, a longitudinal field and shields placed covering 5 \si{\centi\meter} beyond the PMT photocathode. Event rate with increasing field without any shielding are shown in green. The results with various mu-metal shields are indicated by the other colors with their thickness written in the plot. }
 	\label{fig:shielding_results}
 \end{figure}
 
@@ -637,7 +647,7 @@ The detector is read-out either by a trigger from the main CLAS12
 trigger system \cite{clas12-trigger} or by stand-alone BAND detector
 triggers used for tests and calibrations with cosmic rays, radioactive
 sources and the laser system. The stand-alone triggers are implemented
-by a programmble CAEN V1495 logic board \cite{caen-logicboard}. They
+by a programmable CAEN V1495 logic board \cite{caen-logicboard}. They
 consist of a single bar trigger for source measurements and a
 coincidence bar trigger for cosmics and laser measurements. The
 coincidence trigger is also fed to the central CLAS12 trigger system
@@ -666,7 +676,7 @@ separately. We equipped each scintillator with a pair of gain-matched
 PMTs.  Each bar undergo the following procedure:
 \begin{enumerate}
 \item Select a pair of gain-matched PMTs
-\item Glue the PMTs to the light guides with RTV615 soft glue \cite{softglue}.
+\item Glue the PMTs to the light guides with MOMENTIVE RTV615 silicone rubber compound \cite{softglue}.
 \item Glue one light guide/PMT assembly to each end of the bar with DYMAX
   UV curing glue \cite{uvglue}.
 \item Wrap the assembled scintillator with Enhanced Specular Reflector \cite{3MESR}.
@@ -674,7 +684,7 @@ PMTs.  Each bar undergo the following procedure:
   window for attaching the laser-system optical fiber.
 \item Search for and fix light leaks by measuring the PMT dark currents with a pico-ammeter.
 \item Glue the optical fiber to the center of the bar and reseal the Tedlar foil window.
-\item Install the $\mu$-metal shields on the PMTs 
+\item Install the mu-metal shields on the PMTs 
 \item Test for light leaks (again)
 \item Install each bar in the BAND support frame
 \item Connect the optical fibers and signal and HV cables to patch panels mounted on the upstream side of BAND
@@ -733,7 +743,7 @@ Each PMT gain curve was fit with a power law with parameters $\alpha$ and $\beta
 	ADC	= \alpha * \left(\frac{\mathrm{HV}}{1500}\right)^{\beta},				
 		\label{eqn:gain_curve}
 \end{eqnarray}
-where the division by 1500 was an arbitrary normalization to improve fit convergence. The value of the fit parameters for each PMT are
+where the division by 1500~\si{\volt} was an arbitrary normalization to improve fit convergence. The value of the fit parameters for each PMT are
 shown in Fig. \ref{fig:gain}. The Hamamatsu R7724 PMTs (red) are more uniform than either of the two ET PMTs, 9954KB (green) or
 9214KB (blue)\footnote{We obtained similar results when using the pulse amplitude of the ADC signal instead of the integral}. 
 %This uniformity was also observed in bench measurements with sources. 
@@ -1096,7 +1106,7 @@ minimizing the experimental uncertainties.
 %%% ----------------- Efficiency, resolution subsection
 \subsubsection{Neutron efficiency}
 
-\begin{figure}[h!]
+\begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{eff_geant.pdf}
 	\caption{The efficiency of BAND for neutron detection as functions of energy threshold and neutron
@@ -1148,8 +1158,13 @@ events collected at Jefferson Lab.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Acknowledgements}
-
+\section*{Acknowledgements}
+The BAND support frame was build by MIT Bates. We would like to thank Bill Briscoe from George Washington University for providing PMTs and voltage dividers for the veto bars.
+We would like to thank Jefferson Lab's Hall B technical crew for their efforts during BAND assembly, installation and commissioning, especially Denny Insley, Calvin Mealer and Bob Miller.
+We like to thank Sergey Boyarinov, Ben Raydo, Chris Cuevas and Armen Stepanyan for their support in setting up the read-out system.
+We also thank the Hall B staff for their support especially Stepan Stepanyan for setting up an assembly and testing area at Jefferson Lab and Eugene Pasyuk for organizing missing components.
+The development of calibration and analysis software benefited greatly from discussions and help by Daniel Carman, Cole Smith and Raffaella De Vita.
+This work was supported by...[grant numbers]
 
 
 \section*{References}
