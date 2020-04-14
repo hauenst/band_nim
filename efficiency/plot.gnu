@@ -1,4 +1,4 @@
-set term tikz standalone size 12,8 \
+set term tikz standalone size 10,7 \
 preamble '\usepackage{cmbright}\SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}'
 
 set output "eff_geant.tex"
