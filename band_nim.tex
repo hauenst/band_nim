@@ -620,7 +620,7 @@ shown in Fig. \ref{fig:electronic-diag}. The signal of each PMT is
 split to an ADC and TDC readout independently.  The signal splitters
 are custom made and have been used in previous experiments at
 Jefferson Lab.  From the splitter one signal is sent to a 250
-\si{\mega\hertz} sampling flash-ADCs \cite{fadc-manual} while the
+\si{\mega\hertz} sampling flash-ADCs \cite{fadc-manual} (FADC) while the
 other signal is sent to discriminators.  The discriminated time signal
 goes to a TDC (CAEN VX1190A \cite{caen-tdc}) with 100 ps resolution
 per channel.
@@ -920,20 +920,19 @@ offset of $t_{avg}^j$ if there are no residual offsets between bars.
 %%% ----------------- Global offset subsection
 \subsubsection{Global offset}
 \label{sec:global_offset}
-{\color{red} TODO: Some text and picture update}
 A final global time offset is required to align BAND with beam-on data. Due to low rates in the angular coverage of the BAND, 
 high-statistics data files must be used. 
 
-In Fig.~\ref{fig:final_offset} the time-of-flight spectrum is shown subtracted with the expected photon arrival time for each bar with a 2 \si{\mega\electronvolt} energy deposition cut to reduce random coincidence background. The xx colored plot includes only time walk corrections but no offset corrections. One can see a broad distribution around the photon peak and the whole spectrum is far away from the expected zero value. This is expected since laser and beam-on data have different time delays from the trigger system of CLAS12. 
+In Fig.~\ref{fig:final_offset} the time-of-flight spectrum is shown subtracted with the expected photon arrival time for each bar with a 2 \si{\mega\electronvolt} energy deposition cut to reduce random coincidence background. The red plot includes only time walk corrections but no offset corrections. One can see a broad distribution of the photon peak at $\approx$ 50 \si{\nano\s} far away from the expected zero value. This is expected since laser and beam-on data have different time delays from the trigger system of CLAS12. 
 %Applying the individual offset corrections from the previous section, improves the photon peak but there are still residual and global offsets present.
 
-Using the photon peak to correct for residual and global offsets for each bar results in the xx colored spectrum which displays a well aligend photon peak with a width of $\approx$ 300 \si{\pico\s}.
-
+Using the photon peak to correct for residual and global offsets for each bar results in the green spectrum which displays a well aligned photon peak with a width of $\approx$ 294 \si{\pico\s} below the design value.
+Furthermore, they regular spikes in the remaining spectrum are photons correlated with off-time electrons from other beam bunches. The electron bunches are separated by 4 \si{\nano\s} which is consisted with the spacing of the spikes.
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{time-alignment.pdf}
-	\caption{TO DO: PICTURE UPDATE  Time-of-flight spectrum over all bars relative to the expected photon ToF after time-walk correction (xx), %after time-walk and individual offset correction () 
-	and after all corrections applied (). All bars are well aligned with an averaged width of the photon peak of 300 \si{\pico\s}. A 2 \si{\mega\electronvolt} energy deposition cut is applied to reduce random coincidence background in the plots.}
+	\caption{Time-of-flight spectrum over all bars relative to the expected photon ToF after time-walk correction (red), %after time-walk and individual offset correction () 
+	and after all corrections applied (green). All bars are well aligned with an averaged width of the photon peak of 294 \si{\pico\s}. A 2 \si{\mega\electronvolt} energy deposition cut is applied to reduce random coincidence background in the plots.}
 	\label{fig:final_offset}
 \end{figure}
 
@@ -960,21 +959,20 @@ The obtained resolutions are worse than the laser data due to additional uncerta
 %%% ----------------- Photon-neutron subsection
 \subsubsection{Neutron identification}
 \label{sec:neutronidentification}
-{\color{red}  TODO: update this section to ToF/m selection instead of ToF}
-The neutron identification for production data is done by cuts on time-of-flight. Fig.~\ref{fig:tof} shows such a spectrum of events from production data where an electron was measured in coincidence in CLAS12 in the reaction $ed \rightarrow e'nX$. In addition, a minimum energy deposition cut of 5 \si{\MeV/\clight} has been applied for BAND hits. One can clearly see two separated peaks for photons and neutrons over a flat background from accidentals. The neutron peak corresponds to momenta between $200$ and $600$ \si{\MeV/\clight}.
-The neutron selection in the physics analysis is based on $\beta$ or ToF per pathlength (inverse $\beta$).
+The neutron identification for production data is done by cuts on time-of-flight per pathlength (ToF/m). Fig.~\ref{fig:tof} shows such a spectrum of events from production data where an electron was measured in coincidence in CLAS12 in the reaction $ed \rightarrow e'nX$. In addition, a minimum energy deposition cut of 5 \si{\MeV} has been applied for a BAND hit. One can clearly see two separated peaks for photons and neutrons over a flat background from accidentals. The dashed lines indicate the neutron of interest with momenta between $200$ and $600$ \si{\MeV/\clight}.
 
+The minimum energy deposition was optimized using the neutron signal-to-background ratio, see Fig.~\ref{fig:signalbackground}. The signal region is defined as neutrons between $200$ and $600$ \si{\MeV\clight}, and the accidental background was estimated by fitting the constant edge to the left of the photon peak (see Fig.~\ref{fig:tof}). With a minimum of 5 \si{\MeV} energy deposition, one already has a signal-to-background ratio of almost $3$. This could be optimized depending the desired physics channel.
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{tofm-performance.pdf}
-	\caption{UPDATE TEXT Time-of-flight spectrum of BAND in coincidence with electrons measured in CLAS12 from production data. Clearly a photon and neutron peak is visible over a flat background from accidentals. The neutron peak corresponds to momenta  between $200$ and $600$ \si{\MeV/\clight}}
+	\caption{Time-of-flight spectrum per meter of BAND hits in coincidence with electrons measured in CLAS12. Clearly a photon and neutron peak is visible over a flat background from accidentals. The dashed lines indicate the range of neutrons with momenta between $200$ and $600$ \si{\MeV/\clight}.}
 	\label{fig:tof}
 \end{figure}
 
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{signalbackgroundratio.pdf}
-	\caption{UPDATE TEXT }
+	\caption{Signal counts (blue) and accidental background counts (red) in the neutron signal region of $200$ and $600$ \si{\MeV/\clight}. The signal-to-background ratio (green) shown with a proposed minimum energy deposition cut of 5 \si{\MeV}.}
 	\label{fig:signalbackground}
 \end{figure}
 %%% ----------------- Efficiency, resolution subsection
