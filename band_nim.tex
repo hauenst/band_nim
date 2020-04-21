@@ -84,20 +84,20 @@
 \author{A.~Hrnjic}
 \author{T.~Kutz}
 \author{A.~Nambrath}
-\author{J.~Pybus }
+\author{J.R.~Pybus }
 \author{O.~Hen}
 \address{\MIT}
 
-\author{K.~Price\fnref{orsay}}
+\author{K.~Pryce\fnref{orsay}}
 \author{C.~Fogler}
 \author{T.~Hartlove}
 \author{L.B.~Weinstein}
 \address{\ODU}
 %ADD current address for Kitty (Orsay)
-\author{I.~Vega}
+\author{J.~Vega}
 \author{M.~Ungerer}
 \author{H.~Hakobyan}
-\author{W.~Brooks}
+\author{W.K.~Brooks}
 \address{\UTFSM}
 \author{E.~Piasetzky}
 \author{E.~Cohen}
@@ -123,21 +123,21 @@
 %\ead[]{}
 \begin{abstract}
  The Backward Angle Neutron Detector (BAND) of CLAS12 detects neutrons
-  emitted at backward angles of $155$\si{\degree} to $175$\si{\degree}
-  and momenta between $0.25$ and $0.6$ \si{\GeV/\clight}. It is
-  positioned 3-\si{\meter} upstream of the target and consists of $18$
-  rows and $5$ layers of $7.2$ \si{\centi\meter} by $7.2$
-  \si{\centi\meter} scintillator bars with PMT readout on both ends to
+  emitted at backward angles of $155$\si{\degree} to $175$\si{\degree},
+  with momenta between $200$ and $600$ \si{\MeV/\clight}. It is
+  positioned 3 \si{\meter} upstream of the target, consists of $18$
+  rows and $5$ layers of $7.2$ \si{\centi\meter} by $7.2$ \si{\centi\meter} 
+  scintillator bars, and read out on both ends by PMTs to
   measure time and energy deposition in the scintillator
-  layers. Between the target and BAND there is a 2-\si{\centi\meter}
-  thick lead wall followed by a 2-\si{\centi\meter} veto layer to
-  suppress gammas and reject charged particles. The momentum
+  layers. Between the target and BAND there is a 2 \si{\centi\meter}
+  thick lead wall followed by a 2 \si{\centi\meter} veto layer to
+  suppress gammas and reject charged particles. The neutron momentum
   reconstruction resolution is $\delta p/p < 1.5$\% in the design
   momentum range.
 \end{abstract}
 
 \begin{keyword}
-CLAS12; time of flight; plastic scintillator; fast neutrons
+CLAS12; time of flight; plastic scintillator; ultrafast neutrons
 \end{keyword}
 \end{frontmatter}
 
@@ -155,9 +155,8 @@ Spectrometer)~\cite{Burkert:2020akg} in Hall B of the Thomas Jefferson
 National Accelerator Facility (JLab) is a multi-purpose spectrometer
 used to detect charged and neutral particles emitted in high-energy
 electron scattering reactions.  Tagged deep inelastic scattering studies
-in electron-deuteron interactions require the detection of backward
-angle recoil
-neutrons with momenta above \SI{250}{\mega\eVperc}.
+ require the detection of backward-angle recoil
+neutrons with momenta above \SI{200}{\mega\eVperc}~\cite{band-proposal}.
 This is achieved by a combination of the Central Neutron Detector
 (CND)~\cite{Chatagnon:2020lwt} and the Backward Angle Neutron Detector
 (BAND). The CND covers angles from $40$\si{\degree} to
@@ -165,10 +164,10 @@ $120$\si{\degree} while BAND covers from $155$\si{\degree} to
 $175$\si{\degree}.
 
 BAND was designed to measure neutrons with
-momenta of $0.25 - 0.6$ \si{\GeV/\clight} with a detection efficiency
-of $35$\% and momentum reconstruction resolution better than
-$1.5\%$. It is based on scintillator bars with PMT readout.  BAND was
-installed in January 2019 and has taken data in coincidence with
+momenta of $200 - 600$ \si{\MeV/\clight}, with an average detection efficiency
+of $35$\%, and with a momentum reconstruction resolution better than
+$1.5\%$. The detector is based on scintillator bars with PMT readout on both bar ends. BAND was
+installed in January 2019 and has since taken data in coincidence with
 CLAS12. Fig.~\ref{fig:clas12band} shows a drawing of BAND located
 upstream of CLAS12 in Hall B.
 
@@ -182,15 +181,15 @@ upstream of CLAS12 in Hall B.
           \si{\meter} in scale along the beam axis. }
 		\label{fig:clas12band}
 \end{figure}
-This paper describes the design, operation and calibration of the BAND detector.
-Chapter 2 presents the required time resolution, efficiency and
+This paper describes the design, operation and calibration of the BAND.
+Section 2 presents the required time resolution, efficiency and
 geometry, the resulting design and layout, the selection of detector
 components, and results from comparative measurements of different
-PMTs and magnetic shields. Chapter 3 presents the performance of the
+PMTs and magnetic shields. Section 3 presents the performance of the
 detector after its installation in Hall B. It describes cosmic-ray and
 laser calibrations ~\cite{band-laser} as well as the measured
 time-of-flight (ToF) resolutions and neutron-photon separation from
-$10.6$-\si{\GeV} electron-deuteron data. Chapter 4 summarizes the
+$10.6$ \si{\GeV} electron-deuteron data. Section 4 summarizes the
 results.
 
 
@@ -200,23 +199,27 @@ results.
 \section{Design of the backward angle neutron detector}
 The major considerations for the BAND design were the constraints on
 geometry and areal coverage in Hall B, the time-of-flight resolution
-required and, neutral particle identification.  To achieve the physics
-of interest with neutrons in BAND~\cite{band-proposal}, ToF
+required, and neutral particle identification.  To achieve the physics
+of interest in BAND~\cite{band-proposal}, neutron ToF
 resolutions below $300$ \si{\pico\second} at an energy deposition
-threshold of $\sim 3$ MeVee (MeV electron equivalent) are required. Neutral-particles are
-identified by using a thin $1$-\si{\centi\meter} veto layer for
+threshold of $\sim 2$ MeVee (MeV-electron-equivalent) are required. 
+This threshold is later optimized using neutron signal-counts-above-background,
+measured ToF resolutions and neutron efficiencies as a function of minimum energy deposition.
+Neutral particles are
+identified by using a thin $2$ \si{\centi\meter} veto layer for
 charged-particle identification between the target and the first
-active layer of BAND. Photons are suppressed by a 20-\si{\milli\meter}
-thick Lead wall placed downstream of the veto layer. Neutron-photon
+active layer of BAND. Photons are suppressed by a 2 \si{\centi\meter}
+thick lead wall placed downstream of the veto layer. Neutron-photon
 discrimination is achieved via ToF relative to the electron scattering
-time measured by CLAS12. Off-time random neutron and photon
-contamination is reduced by optimizing the energy-deposition cuts.
+time measured by CLAS12. Out-of-time random neutron and photon
+contamination is reduced by optimizing the minimum energy deposition of particles in the bars.
 
-The next subsections describe the details of the individual BAND components,
-including results from bench measurements. In addition,
-this section also includes information on the lead shielding, laser
-calibration system, readout electronics and the high voltage system as
-well as pictures from the final assembly of the detector.
+The next subsections describe the details of the individual BAND components.
+Also discussed are results from bench measurements, which informed the selection of
+BAND components, such as PMTs and mu-metal shielding. In addition,
+that section also includes information on the lead shielding, laser
+calibration system, readout electronics, the high voltage system, and
+ photographs from the final assembly of the detector.
 
 
 \subsection{Geometry}
@@ -225,34 +228,34 @@ well as pictures from the final assembly of the detector.
 		\includegraphics[width=0.40\textwidth]{FULL_CONTEXT_STUDIE_3.png}
 		\vspace{0.5cm}
 	    \caption{BAND and its close surroundings: the
-                  cyrotarget and beam line components (cyan),  BAND
+                  cryotarget and beam line components (cyan),  BAND
                   (red), the central detector region of CLAS12
-                  (blue), the space fram (black), and the central detector support cart (gray). The beam is coming from the left side. The
-                  target is located at the center of the CLAS12 central detector}
+                  (blue), the space frame (black), and the central detector support cart (grey). The beam is coming from the left side. The
+                  target is located at the center of the CLAS12 central detector.}
 		\label{fig:bandtarget}
 		
 \end{figure}
 
 The geometry of the BAND was constrained by the requirement to detect
-backward angle neutrons and by the physical constraints in the hall (see 
-Fig. \ref{fig:bandtarget}). BAND had to be positioned between the
+backward angle neutrons and by the space constraints in the hall (see 
+Fig.~\ref{fig:bandtarget}). BAND was limited to be positioned between the
 target support and the central detector region of CLAS12 to reduce
 scattering of neutrons on material in their flight path. Furthermore,
 BAND had to be placed on the support cart for the central tracking
 detectors of CLAS12 and lowered
-onto the cart from an existing opening in the floor above it (black in Fig. \ref{fig:bandtarget}).
+onto the cart from an existing opening in the floor above it (black in Fig.~\ref{fig:bandtarget}).
 
-These requirement constrained BAND to fit within a
-box 3-\si{\meter} wide, 1.5-\si{\meter} high, and 1-\si{\meter}
+These requirements required BAND to fit within a
+box 3 \si{\meter} wide, 1.5 \si{\meter} high, and 1 \si{\meter}
 deep, with a hole in the middle for the beam pipe.
 
 To maximize the active detector volume within these constraints, we
-chose to use rectangular scintillator bars layered perpendicular to
+chose to use rectangular scintillator bars stacked (in $x$-$y$), perpendicular to
 the beam direction ($z$), see Fig.~\ref{fig:design}.  The cross
 section of each scintillator bar determines our position granularity
 in $y,z$ (vertical and longitudinal directions relative to the beam
-pipe), which is comparable to our time-resolution-dependent position
-resolution along the bar. Given our time-resolution specification of
+pipe), and should be comparable to our time-resolution-dependent position
+resolution along the bar (in $x$). Given our time-resolution specification of
 $300$ \si{\pico\second} (discussed below), $7.2$
 \si{\centi\meter} by $7.2$ \si{\centi\meter} scintillator bars were
 chosen to optimize fiducial volume, granularity, and cost.
@@ -264,45 +267,44 @@ chosen to optimize fiducial volume, granularity, and cost.
 	%	\includegraphics[width=0.48\textwidth]{VETO_DETECTOR_COLORED_2.png}
 			\includegraphics[width=0.48\textwidth]{band-schematic.pdf}
             \caption{BAND design of bars in the main
-                   detector and the veto layer. The 164-\si{\centi\meter} long bars are shown in
-                          red, the 202-\si{\centi\meter} bars in white
-                          and the short, 51-\si{\centi\meter} bars in cyan. The position of
+                   detector and the veto layer. The 164 \si{\centi\meter} long bars are shown in
+                          red, the 202 \si{\centi\meter} bars in white
+                          and the short, 51 \si{\centi\meter} bars in cyan. The position of
                           the PMTs for each bar is also shown. The beam direction corresponds to the $z$-axis.   }
 		\label{fig:design}
 \end{figure}
 
-The active detector area consists of 116 scintillator bars, arranged
-in 5 layers with 18 vertically stacked bars. The arrangement of the
-bars is shown in Fig. \ref{fig:design}. The bottom three rows each have only
-four layers due to obstructions from the cart below BAND.
+The active detector area (excluding the veto layer) consists of 116 scintillator bars, arranged
+in 5 $z$-layers with 18 vertically stacked rows of bars. The arrangement of the
+bars is shown in Fig.~\ref{fig:design}. The bottom three rows each have only
+four layers due to obstructions from the cart below BAND (see grey cart in Fig.~\ref{fig:bandtarget}).
 
-Three different bar lengths are used: 15 164-\si{\centi\meter} bars, 43 202-\si{\centi\meter} bars, and 58 
-51-\si{\centi\meter}  bars. The shorter bars were used in the vicinity of
-the beam pipe. All bars have light guides attached to both sides which
-are readout by either Hamamatsu R7724 \cite{pmtR7724} or Electron
-Tubes (ET) 9214KB \cite{pmt9214} 2-inch PMTs.
+Three different bar lengths are used: 15 bars of length 164 \si{\centi\meter}, 43 bars of length 202 \si{\centi\meter}, and 58 bars of length 
+51 \si{\centi\meter}. The shorter bars were used in the vicinity of
+the beam pipe. All bars have light guides attached to both sides, and the bars
+are read out by 51 \si{\milli\meter} PMTs. The PMTs are either Hamamatsu R7724~\cite{pmtR7724} or Electron Tubes (ET) 9214KB~\cite{pmt9214} (see Table~\ref{tab:geometry}).
 
 The veto layer, which is installed on the downstream face of BAND
 (i.e., between BAND and the target),
 consists of 24 scintillator bars with a cross section of $2$
 \si{\centi\meter} by $7.2$ \si{\centi\meter}. The veto bars have the
-same lengths as the corresponding BAND bars such that the whole
+same lengths as the corresponding BAND bars, such that the whole
 downstream surface is covered by the veto, see
-Fig. \ref{fig:design}. Each veto bar is only read-out on one side by a
-single ET 9954KB \cite{pmt9954} 2-in PMT.
+Fig.~\ref{fig:design}. Each veto bar is only read out on one side by a
+single ET 9954KB~\cite{pmt9954} 51 \si{\milli\meter} PMT.
 
 Each bar has an assigned sector and layer number. The layer number
-corresponds to the position along the beam line starting
+corresponds to the position along the beam line (in $z$) starting
 from upstream (1) to downstream (5) for the active area and (6) for
-the veto bars. The sector numbering follows from top to bottom. The
-middle-long bars in the top three rows make up sector 1 (red in
-Fig.~\ref{fig:design}). Sectors 2 and 5 consists of the 202-cm long bars above
-(seven rows total) and below (two rows total) the short bars,
-respectively (white in Fig.~\ref{fig:design}). The short bars to the
-left of the beam hole are sector 3, while the ones on the right side
-are sector 4 (cyan in Fig.~\ref{fig:design}).
-Table~\ref{tab:geometry} summarizes the geometry parameters and PMTs
-for each sector and layer.
+the veto bars. The sector numbering follows from top to bottom. Sector 1 
+consists of three rows of 164 \si{\centi\meter} bars (red bars in Fig.~\ref{fig:design}). 
+Sector 2 has seven rows of 202 \si{\centi\meter} bars, below Sector 1. Sector 5 also 
+consists of the 202 \si{\centi\meter} bars, two rows on the bottom of the detector. 
+The white bars in Fig.~\ref{fig:design} show the locations of Sectors 2 and 
+5 in each layer. The short 51 \si{\centi\meter} bars to the left of the beam hole (negative $x$) are in Sector 3, while the ones on the right side (positive $x$) 
+are in Sector 4 (both are shown in cyan in Fig.~\ref{fig:design}). 
+Table~\ref{tab:geometry} summarizes the geometry parameters 
+and PMTs for each sector and layer.
 
 
 %NOT PERFECT PHI SYMMETRY BUT NOT IMPORTANT FOR BAND PHYSICS
@@ -311,21 +313,21 @@ for each sector and layer.
 \centering
 \begin{tabular} {l  l  m{4em}} \hline
  &  Dimensions ($w\times h$) & PMT \\ \hline\hline
-\multicolumn{3}{l} {Sector 1,  $L = 164~\si{\centi\meter}$} \\ \hline
+\multicolumn{3}{l} {Sector 1,  $L = 164 \si{\centi\meter}$} \\ \hline
 Layer $1 - 5$  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
-\multicolumn{3}{l} {Sector 2, $L = 202~\si{\centi\meter}$} \\ \hline
+\multicolumn{3}{l} {Sector 2, $L = 202 \si{\centi\meter}$} \\ \hline
 Layer $1 - 5$  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
-\multicolumn{3}{l} {Sector 3 / 4, $L = 51~\si{\centi\meter}$} \\ \hline
+\multicolumn{3}{l} {Sector 3 / 4, $L = 51 \si{\centi\meter}$} \\ \hline
 Layer $1 - 4$  & \multirow{2}{*}{7.2$\times$7.2 \si{\centi\meter\squared}} & 9214KB \\
 Layer 5 & & R7724 \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
-\multicolumn{3}{l} {Sector 5, $L = 202~\si{\centi\meter}$ } \\ \hline
-Layer $1 - 4$\tablefootnote{Layer 5 is missing due to obstructions from below}  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
+\multicolumn{3}{l} {Sector 5, $L = 202 \si{\centi\meter}$ } \\ \hline
+Layer $1 - 4$\tablefootnote{Layer 5 is missing due to obstructions from the central detector support cart below BAND}  & 7.2$\times$7.2 \si{\centi\meter\squared} & R7724  \\
 Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 \hline
 \end{tabular}
@@ -337,16 +339,17 @@ Layer 6  & 2$\times$7.2 \si{\centi\meter\squared} & 9954KB  \\
 The timing resolution of the scintillator bars is affected by many
 factors, and each component was optimized considering both cost and
  design constraints.
-We selected Bicron BC-408 \cite{scint-mat-ref} scintillant for its
+We selected Bicron BC-408~\cite{scint-mat-ref} scintillant for its
 light output, time
 response and attenuation length. The bulk attenuation length of 380
-\si{\centi\meter} is much longer than the bars, ensuring sufficient
+\si{\centi\meter} is much longer than the selected length of the BAND bars, ensuring sufficient
 photon statistics at both ends. To enhance reflectivity, we wrapped
 each bar with 3M Enhanced Specular Reflector foils~\cite{3MESR}. 
-We bench-tested different PMT and magnetic shielding options.
-% Tests were performed varying the scintillant, reflective wrapping, photo-multipler tube (PMT), and optical-coupling-method of the scintillators to light-guides to PMTs to select the optimal combination
+In order to select the optimal PMTs and thickness of magnetic-shields, we 
+bench-tested a variety of options described in the following text.
 
-\begin{figure}[th!]
+
+\begin{figure}[tb]
 	\centering
 	%	\includegraphics[width=0.48\textwidth]{phys_setup.png} \\
 		\includegraphics[width=0.48\textwidth]{setup-diagram.pdf} \\
@@ -357,20 +360,20 @@ We bench-tested different PMT and magnetic shielding options.
 \end{figure}
 
 \subsubsection{Bench Measurements}
+
 Bench measurements were used to guide the PMT and magnetic shielding
 selection.  A diagram of our test setup and electronics is shown in
-Fig. \ref{fig:test_stand_setup}, featuring a coincidence setup between
+Fig.~\ref{fig:test_stand_setup}, featuring a coincidence setup between
 a ``test'' scintillator bar and a ``reference'' scintillator bar.  Each
 bar has two PMTs coupled to its ends; the test bar has the PMTs whose
 time resolution we wish to study.  Both bars are wrapped in an optical
 reflector, and placed in a dark-box.  The reference bar was kept fixed
-during all measurements.  We tested five different 2-in PMTs (see
-\cite{hamapmts} and \cite{pmt9214}), assembled on 200 to 250
+during all measurements. Five different 51 \si{\milli\meter} PMTs were tested (see Table~\ref{tab:tests},~\cite{hamapmts}, and~\cite{pmt9214}), assembled on 200 to 250
 \si{\centi\meter} long bars.
 
-The signal for our measurement is produced by a $^{60}$Co source which
-is placed between the two bars.  The $^{60}$Co source produced two
-$\gamma$ rays with energies of 1.17 and 1.3 \si{\mega\electronvolt}.
+The signal for our measurement is given by a $^{60}$Co source which
+is placed between the two bars.  The $^{60}$Co source yields two
+$\gamma$ rays with energies of 1.17 and 1.33 \si{\mega\electronvolt}.
 The two $\gamma$-rays were collimated by two lead bricks to ensure
 they each hit a specific location along each bar, allowing us to study individual
 PMT time resolution and measured energy as a function of hit location.
@@ -378,42 +381,23 @@ PMT time resolution and measured energy as a function of hit location.
 \begin{table}[t]
 	\caption{Bench test configurations. Length refers to the length of the scintillator bar.  $\sigma$ is the time
           resolution for $2$ \si{\mega\electronvolt} central-equivalent energy deposit in the middle of the bar
-          extrapolated from data.  The 9214KB PMT \cite{pmt9214} is manufactured by ET-Enterprises and the other PMTs are manufactured by Hamamatsu \cite{hamapmts}.}
+          extrapolated from data.  The 9214KB PMT~\cite{pmt9214} is manufactured by ET-Enterprises and the other PMTs are manufactured by Hamamatsu~\cite{hamapmts}.}
     \centering
 	\begin{tabular}{ m{5em}   m{3em}   m{3em} }
 		\hline
 			PMT & Length (cm) & $\sigma$ (\si{\pico\second})\\
 		\hline\hline
 %			R7724 & ESR &   200 & 150	\\
-			R7724 &  200 &  240		\\
-			R7724-100 & 250 & 212 		\\
-			R13089 & 250 & 213			\\			
-			R13435 & 200 & 308 			\\		
-			9214KB & 200 & 257			\\
+			R7724 &  200 &  $\sim240	$	\\
+			R7724-100 & 250 & $\sim210$ 		\\
+			R13089 & 250 & $\sim210	$		\\			
+			R13435 & 200 & $\sim310$			\\		
+			9214KB & 200 & $\sim260$			\\
 %			ET-9214KB &  ESR & 50 & 150				\\
 		\hline
 	\end{tabular}
 	\label{tab:tests}
 \end{table}
-% FOR NIM ADD 3M Enhanced Specular Reflector \cite{3MESR}) RESULTS
-
-We combined measurements with different $^{60}$Co
-source locations by using the measured attenuation in the bar to convert
-the energy measured by the PMT to the ``center-equivalent energy
-deposit'', the energy that would have been deposited at the center of
-the bar to give the same measured energy.  For example, by placing the
-source close to one PMT we can achieve a center-equivalent energy
-deposit significantly greater than the 1 \si{\mega\electronvolt} $^{60}$Co Compton edge.
-% To combine measurements with different $^{60}$Co source locations, we
-% used the center-equivalent energy deposit, determined by taking into
-% account the attenuation length, and normalized the PMT response to the
-% $^{60}$Co placed at the center of the bar.
-Fig.~\ref{fig:test_stand_posdep} shows the PMT time resolution as a
-function of  center-equivalent energy deposited for different source placements. Since
-the individual data sets are consistent within error bars, we combined
-the measurements to cover a center-equivalent energy deposition range
-up to 1.8 \si{\mega\electronvolt}.
-
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{pos-dep.pdf}
@@ -425,16 +409,30 @@ up to 1.8 \si{\mega\electronvolt}.
 	\label{fig:test_stand_posdep}
 \end{figure}
 
-Fig. \ref{fig:test_stand_results} shows the measured single-PMT time
+Measurements with different $^{60}$Co
+source locations were combined by using the measured attenuation in the bar to convert
+the energy measured by the PMT to the ``center-equivalent energy
+deposit,'' the energy that would have been deposited at the center of
+the bar to give the same measured energy.  For example, by placing the
+source close to one PMT one can achieve a center-equivalent energy
+deposit significantly greater than the 1 \si{\mega\electronvolt} $^{60}$Co Compton edge.
+
+Fig.~\ref{fig:test_stand_posdep} shows the PMT time resolution as a
+function of center-equivalent energy deposited for different source placements. Each individual data set explores the response of the PMT over the entire Compton distribution for a single source placement. Since the individual data sets are consistent within error bars,
+the measurements were combined to cover a center-equivalent energy deposition range
+up to 1.8 \si{\mega\electronvolt}.
+
+
+
+Fig.~\ref{fig:test_stand_results} shows the measured single-PMT time
 resolution for the different test configurations.  The lines indicate fits
 to data extrapolated beyond 1.8 \si{\mega\electronvolt}.  
 All PMTs except the R13435 met the timing-resolution design specifcation of 300 \si{\pico\s} at 2
 \si{\mega\electronvolt} energy deposition (see 
-Table~\ref{tab:tests}).  To reduce costs, we chose a combination of
-Hamamatsu R7724 \cite{pmtR7724} and Electron Tube 9214KB
-\cite{pmt9214} PMTs for BAND. For the veto layer, we used 
-available Electron Tube 9954KB PMTs. See Table \ref{tab:pmts} for
-details of the PMTs.
+Table~\ref{tab:tests}).  To reduce costs, a combination of
+Hamamatsu R7724~\cite{pmtR7724} and Electron Tube 9214KB~\cite{pmt9214} PMTs for BAND were selected. For the veto layer,  
+available Electron Tube 9954KB PMTs were used. See Table~\ref{tab:pmts} for
+details of the selected PMTs.
 
 \begin{figure}[tb]
 	\centering
@@ -448,54 +446,43 @@ details of the PMTs.
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{resolution-laser-scan.pdf}
-		\caption{Time resolution as a function of center energy deposit for one bar with R7724 PMTs using the
+		\caption{Time resolution as a function of center-deposited energy for one bar with R7724 PMTs using the
                   BAND laser system after installation. The energy deposition is the geometric mean of both PMTs at the
-                  end of the bar. The deposition is in the center of the bar due to the installation of the fiber there. }
+                  end of the bar, and is corrected for attenuation effects. The deposition is in the center of the bar due to the installation of the fiber there.}
          \label{fig:resolution-laser}
 \end{figure}
 
-After BAND was assembled, we measured the time resolution as a function
-of energy deposit in the center of the bar using the laser calibration
-system (see Sec. \ref{sec:laserystem} and \cite{band-laser}).
-Fig. \ref{fig:resolution-laser} shows the results for a representative
-long BAND bar with R7724 PMTs.  The resolution is better than 250
-\si{\pico\s} from 1 to 7 \si{\mega\electronvolt} central energy
-deposition, indicating the good performance of the bars and PMTs. The
-laser results are not fully comparable with the source results since
-the energy deposition refers here to the geometric mean of both PMTs
-and the time resolution refers to the combined two-PMTs of the bar and
-not to a single PMT.
+After BAND was assembled and installed, the time resolution of each bar was measured using the laser calibration system (see Sec.~\ref{sec:laserystem} and~\cite{band-laser}). The time resolution as a function of the energy deposit in the center of the bar
+is shown in Fig.~\ref{fig:resolution-laser} for a representative 202 \si{\centi\meter} bar 
+with R7724 PMTs. The resolution is much better than 300
+\si{\pico\s} from 1 to 8 \si{\mega\electronvolt} center-deposited energy, 
+indicating the good performance of the bars and PMTs. One should note that 
+Fig.~\ref{fig:resolution-laser} is the bar ToF resolution, while~\ref{fig:test_stand_results} is the PMT resolution. In Fig.~\ref{fig:resolution-laser}, the energy deposition is measured from both PMTs (reconstructed as the 
+geometric mean and corrected for attenuation). 
 
-%\subsubsection{PMTs, Voltage Dividers and Light Guides}
 
 \begin{table*}[tbh]
 \caption{Properties of the PMTs used in BAND. }
 \centering
 \begin{tabular} { l  l  l l } \hline
- &  R7724 \cite{pmtR7724} & 9214KB \cite{pmt9214}& 9954KB \cite{pmt9954} \\ \hline\hline
+ &  R7724~\cite{pmtR7724} & 9214KB~\cite{pmt9214}& 9954KB~\cite{pmt9954} \\ \hline\hline
 Company                                  & Hamamatsu       & ET           & ET \\
-Diameter                                           & 2~in                         & 2~in                        & 2~in \\ 
+Diameter                                           & 51 \si{\milli\meter}                         & 51 \si{\milli\meter}                        & 51 \si{\milli\meter} \\ 
 Dynode stages                                  & 10                           & 12                              & 12 \\
-Spectral response                            & 300 $\to$ 650~nm & 290 $\to$ 630~nm & 290 $\to$ 680~nm \\ 
-Max. wavelength emission               & 420~nm & 350~nm & 380~nm \\ 
-Quantum eff. @ $\lambda_{max}$   & 26\% & 30\% & 28\% \\ 
+Spectral response                            & 300 $-$ 650 \si{\nano\meter} & 290 $-$ 630 \si{\nano\meter}  & 290 $-$ 680 \si{\nano\meter}  \\ 
+Max. wavelength emission               & 420 \si{\nano\meter}  & 350 \si{\nano\meter}  & 380 \si{\nano\meter}  \\ 
+Quantum eff. maximum   & 26\% & 30\% & 28\% \\ 
 Gain                                                    & 3.3$\times$10$^6$ & 3.0$\times$10$^7$ & 1.8$\times$10$^7$ \\ 
-Max. anode current rating               & 200~$\mu$A & 100~$\mu$A & 100~$\mu$A \\ 
-Anode dark current                         & 6~nA  & 4~nA & 8~nA \\ 
-Anode pulse rise time                      & 2.1~ns & 2.0 ns & 2.0 ns \\ 
-Electron transit time                        & 29 ns & 45 ns & 41 ns \\
+Max. anode current rating               & 200 \si{\micro\ampere} & 100 \si{\micro\ampere} & 100 \si{\micro\ampere} \\ 
+Anode dark current                         & 6 \si{\nano\ampere} & 4 \si{\nano\ampere} & 8 \si{\nano\ampere} \\ 
+Anode pulse rise time                      & 2.1 \si{\nano\second} & 2.0 \si{\nano\second} & 2.0 \si{\nano\second} \\ 
+Electron transit time                        & 29 \si{\nano\second} & 45 \si{\nano\second} & 41 \si{\nano\second} \\
 \hline
 \end{tabular}
 \label{tab:pmts}
 \end{table*}
 
 \subsubsection{Light Guides \label{LightGuide}}
-
-
-The light guides design was constrained by the available space and the sizes of the scintillator bars and PMTs.  The design utilizes a modified Winston
-cone to optimize light collection by concentrating light from a large area at the scintillator onto a smaller active area of the photomultiplier.  
-CAD drawings of the light guides for the main detector and the veto bars are shown in Fig.~\ref{fig:lightguides}.  They are overall 8.9~\si{\centi\meter} long.  Each light guide has a 4.9~\si{\centi\meter} long cylindrical section with 4.6~\si{\centi\meter} diameter connected to the active photocathode area of the 5.1~\si{\centi\meter} diameter PMTs.  The cylindrical length allows for the magnetic field shielding to extend more than 5.1~\si{\centi\meter} (i.e., more than a PMT diameter) beyond the photocathode (see next section). The other end of the light guide matches the cross section of the scintillator.  It is glued to the scintillator bar with a DYMAX UV curing glue \cite{uvglue} and attached to the PMT with MOMENTIVE RTV615 silicone rubber compound \cite{softglue}. The light guides were designed, optimized, and manufactured by Florida State University.
-
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.23\textwidth]{bar_lg.png}
@@ -504,97 +491,102 @@ CAD drawings of the light guides for the main detector and the veto bars are sho
 	\label{fig:lightguides}
 \end{figure}
 
+
+The light guide design was constrained by the available space, the sizes of the scintillator bars and PMTs, and the length of the mu-metal shielding. The design utilizes a modified Winston cone to optimize light collection by concentrating light from a large area at the scintillator onto a smaller active area of the photomultiplier.  
+CAD drawings of the light guides for the main detector and the veto bars are shown in Fig.~\ref{fig:lightguides}. In total, they are 8.9 \si{\centi\meter} long. Each light guide has a 4.9 \si{\centi\meter} long cylindrical section with a 4.6 \si{\centi\meter} diameter, which is connected to the active photocathode area of the 51 \si{\milli\meter} diameter PMTs.  The cylindrical length allows for the magnetic field shielding to extend more than 51 \si{\milli\meter} (i.e., more than a PMT diameter) beyond the photocathode (see next section). The other end of the light guide matches the cross section of the scintillator. The light guide is glued to the scintillator bar with a DYMAX UV curing glue~\cite{uvglue} and attached to the PMT with MOMENTIVE RTV615 silicone rubber compound~\cite{softglue}. The light guides were designed, optimized, and manufactured by Florida State University.
+
+
 \subsubsection{PMT Magnetic shielding}
-The fringe-field of the CLAS12 solenoid magnet
-\cite{Fair:2020yfx} was between 20 and 120 \si{\gauss} at the location of
-BAND so that all PMTs required magnetic shielding. The transverse
+
+
+The fringe field of the CLAS12 solenoid magnet
+\cite{Fair:2020yfx} is between 20 and 120 \si{\gauss} at the location of
+BAND, requiring all PMTs to have magnetic shielding. The transverse
 field (perpendicular to the axis of the PMT) in the PMT region ranged from 10 to
   110 \si{\gauss} and the longitudinal field ranged from 10 to 50 \si{\gauss}.
 
   A dedicated test stand was used to examine different thicknesses of
-  passive magnetic shielding.  We constructed two 56-turn Helmholtz
-  coils with a radius of 0.5 \si{\meter}, separated by 1 \si{\meter}. A
-  prototype detector consisting of a 2 \si{\centi\meter} thick, 5
+  passive magnetic shielding. Two 56-turn Helmholtz
+  coils, with a radius of 0.5 \si{\meter}, separated by 1 \si{\meter}, were 
+  constructed. A prototype detector was also used, consisting of a 2 \si{\centi\meter} thick, 5
   \si{\centi\meter} diameter scintillator disc, coupled to two
-  7-\si{\centi\meter} long, 5-\si{\centi\meter} diameter cylindrical
+  7 \si{\centi\meter} long, 5 \si{\centi\meter} diameter cylindrical
   acrylic light guides and two PMTs. The detector was
-  light-proofed with Tedlar and stabilized on a simple plastic stand
+  light-proofed with Tedlar\textregistered{} and stabilized on a simple plastic stand
   at the center of the Helmholtz coils.
 
-  As a baseline, we measured the zero-magnetic-field 
-event rates, time difference between the left and right PMT signals,
-and the left and right PMT energy peak locations for $^{90}$Sr and
-  $^{137}$Cs sources at two locations (at 0 and 5 \si{\centi\meter} from the scintillant) and  at nominal
-  PMT operating voltage and no shielding.  We then measured the same quantities with different
-  shielding configurations at different longitudinal and transverse
-  magnetic fields up to 80 \si{\gauss} (limited by heat dissipation in the
-  Helmholtz coils).
-
-  We tested mu-metal shielding with  thicknesses of 0.9, 1.5, 1.8,
-  2.4 and 3 \si{\milli\meter}, as well as two soft-iron pipes. The magnetic field, amount of detector covered by the
-  shielding, the thickness of the shielding, and the angle of the detector to the field were
-  all varied.
-  
-In Fig. \ref{fig:shielding_results}, the event rate as a function of magnetic field strength is shown for different thick mu-metal shields and a reference measurement without any shield. These results are from a $^{90}$Sr source, a longitudinal field setting and placing the shield to cover 5 \si{\centi\meter} beyond the photocathode. 
-The longitudinal magnetic field degraded the PMT performance
-the most.  We found that the 1.5-\si{\milli\meter} mu-metal shield was not
-sufficient, but that the 1.8-\si{\milli\meter} mu-metal shield maintained PMT
-performance up to 80 G.  The soft-iron pipes performed worse than the
-1.5-\si{\milli\meter} $\mu$-metal (not shown in Fig. \ref{fig:shielding_results}. The magnetic shields performed best when they
-extended 5 \si{\centi\meter} (one diameter) beyond the PMT photocathode.  In order to
-be conservative, we selected 2.6-mm thick mu-metal shields.
-
+  As a baseline, responses to $^{90}$Sr and $^{137}$Cs sources were measured with zero magnetic field and no shielding. The sources were placed either 0 or 5 \si{\centi\meter} away from the scintillant. PMT event rates, time differences between the left and right PMT signals, and peak energies were measured at nominal operating voltages.
 \begin{figure}[tb]
 	\centering
 			\includegraphics[width=0.47\textwidth]{shielding_results.pdf}
-	\caption{Magnet shielding test results with a $^{90}$Sr source, a longitudinal field and shields placed covering 5 \si{\centi\meter} beyond the PMT photocathode. Event rate with increasing field without any shielding are shown in green. The results with various mu-metal shields are indicated by the other colors with their thickness written in the plot. }
+	\caption{Magnet shielding test results with a $^{90}$Sr source, a longitudinal field. The shields were placed to cover 5 \si{\centi\meter} beyond the PMT photocathode. Event rates with increasing field and no shielding are shown in green. Results with 0.9, 1.5, 1.8, and 2.4 \si{\milli\meter} mu-metal thickness are shown in red, blue, purple, and gold, respectively.}
 	\label{fig:shielding_results}
-\end{figure}
+\end{figure}  
+  
+  The same quantities were subsequently measured with different
+  shielding configurations at different longitudinal and transverse
+  magnetic fields, up to 80 \si{\gauss} (limited by heat dissipation in the
+  Helmholtz coils).
+
+ Mu-metal shielding of thicknesses of 0.9, 1.5, 1.8,
+  2.4 and 3 \si{\milli\meter} were tested, as well as two soft-iron pipes. The magnetic field, amount of detector covered by the
+  shielding, the thickness of the shielding, and the angle of the detector to the field were
+  all varied.
+  
+In Fig.~\ref{fig:shielding_results}, the event rate from a $^{90}$Sr source as a function of magnetic field strength is shown for different thickness of mu-metal shields and a reference measurement without any shield. The shield was positioned to cover 5 \si{\centi\meter} beyond the photocathode. 
+The longitudinal magnetic field degraded the PMT performance
+the most.  While the 1.5 \si{\milli\meter} mu-metal shield was not
+sufficient, the 1.8 \si{\milli\meter} mu-metal shield maintained PMT
+performance up to 80 \si{\gauss}.  The soft-iron pipes performed worse than the
+1.5 \si{\milli\meter} mu-metal (not shown in Fig.~\ref{fig:shielding_results}). The magnetic shields performed best when they
+extended 5 \si{\centi\meter} (one diameter) beyond the PMT photocathode.  In order to
+be conservative, 2.6-mm thick mu-metal shields were selected.
+
+
 
 
 \subsubsection{PMT and bar quality test measurements}
-Before the final assembly of BAND (see Section \ref{sec:assembly}), all PMTs and bars have been tested on the bench for quality. These measurements were conducted with a LED pulser.
-For each bar the attenuation length was measured by moving the LED pulser along the bar. This has been done without a wrapping material around the bar in a light tight black-box. The bars with the worst attenuation length were selected as back-up bars.
+Before the final assembly of BAND (see Section~\ref{sec:assembly}), all PMTs and bars have been tested for quality assurance. These measurements were conducted with a picosecond pulsed UV-LED.
 
-The test setup for each PMT had a 6.4 \si{\centi\meter} long scintillator disc attached between the LED and the PMT. We measured gains and time resolutions for each PMT. The PMTs were matched in pairs according to their gains and each pair was installed on a bar.
+The test setup for each PMT had a 6.4 \si{\centi\meter} long scintillator disc attached between the LED and the PMT inside of a light-tight dark box. Gains and time resolutions for each PMT were measured. The PMTs were then matched in pairs to be then glued to a bar. Pairs were determined by minimizing gain different and time resolution difference between the PMTs of a pair.
 
+For each bar the attenuation length was measured by moving the LED pulser along the bar. This was done without a wrapping material around the bar and with no light guides attached, in a light tight black-box. The bars with the worst attenuation length were selected as back-up bars.
 
 \subsection{Lead shielding}
-To minimize background from backward going photons, we installed a
-lead wall on the downstream face of BAND (between the CLAS12 target
-and BAND). This lead wall consists of individual 20-\si{\milli\meter}
+To minimize background from backward-going photons, a
+lead wall was installed on the downstream face of BAND (between the CLAS12 target
+and BAND). This lead wall consists of individual 2 \si{\centi\meter}
 thick blocks stacked in front of the veto layer. Each block is covered
-on both sides with an Aluminium layer to simplify handling. The
-lead wall can be seen on the final assembly pictures shown in
-Fig. \ref{fig:band_downstream}.
+on both sides with an aluminium layer to safely handle. The
+lead wall can be seen in the final assembly photographs shown in
+Fig.~\ref{fig:band_downstream}.
 
 
 \subsection{Laser Calibration system}
 \label{sec:laserystem}
 \begin{figure}[tb]
 	\centering
-		\includegraphics[width=0.44\textwidth]{pic-fiberonbar.pdf}
-	\caption{Connection of a fiber to bar after UV-cure gluing. The fiber is positioned in the center of the bar and is covered by both layers of wrapping material, ESR \cite{3MESR} and Tedlar foil \cite{tedlarfoil}.}
+		\includegraphics[width=0.43\textwidth]{pic-fiberonbar.pdf}
+	\caption{Connection of a fiber to bar after UV-cure gluing. The fiber is positioned in the center of the bar and is covered by both layers of wrapping material, ESR~\cite{3MESR} and Tedlar\textregistered{} foil~\cite{tedlarfoil}.}
 	\label{fig:pic-fiberonbar}
-\end{figure}
-We implemented a UV laser system to calibrate BAND and monitor its
-performance during data-taking. The design and performance of the
-system is fully described in Ref. \cite{band-laser}. 
+\end{figure} 
+A UV laser system to calibrate BAND and monitor its
+performance was implemented during data-taking. 
+The design and performance of the system is fully 
+described in Ref.~\cite{band-laser}. 
 
-The main component of the system is a picosecond pulsed diode laser (Teem Photonics STV-01E-140, \cite{teem_laser}) with a wavelength of 355 \si{\nano\meter}. The laser can be triggered externally between $10-2000$ \si{\hertz}. The light is only transported within fibers. Further components of the system are a mode scrambler, a 90:10 splitter whose outputs are connected to a reference photodiode (10\% output) and a variable optic attenuator \cite{attenuator} (90\% output). The attenuator allows to vary the pulse intensity sent to the detector. It is connected to a custom SQS Vl\'aknov\'a Optika 1$\times$400 splitter which distributes the light to every bar of BAND. 
+The main component of the system is a picosecond pulsed diode laser 
+(Teem Photonics STV-01E-140,~\cite{teem_laser}) with a wavelength 
+of 355 \si{\nano\meter}. The laser can be triggered externally between 
+$10-4000$ \si{\hertz}. The light is only transported within fibers. Further components of the system are a mode scrambler, a 90:10 splitter whose outputs are connected to a reference photodiode (10\% output) and a variable optic attenuator~\cite{attenuator} (90\% output). The attenuator allows to vary the pulse intensity sent to the detector. It is connected to a custom SQS Vl\'aknov\'a Optika 1$\times$400 splitter which distributes the light to every bar of BAND. 
 
-Each bar has an optical fiber glued to its center with UV-cure glue (see
-Fig. \ref{fig:pic-fiberonbar}). We used an exposed fiber for the fiber-scintillant connection since it was a stable, reliable and easy option. The other end of the fiber is connected to the splitter through a patch panel attached to the BAND frame. 
+Each bar has an optical fiber glued to its center with UV-curable glue (see
+Fig.~\ref{fig:pic-fiberonbar}). We used an exposed fiber for the fiber-scintillant connection since it was a stable, reliable and easy option. The other end of the fiber is connected to the splitter through a patch panel attached to the BAND frame. 
 
 The photodiode provides reference time for the laser system. The output
 signal of the photodiode is inverted and shaped before it is sent to
-the BAND read-out system. The signal is then digitized by the same ADCs and
+the BAND read-out system. The photodiode signal is then digitized by the same ADCs and
 TDCs which are used for the PMT signals.
-
-% Windows for easy access were kept inthe wrapping foils around the bar. The windows were stacked with
-% different alignments to reduce light leaks. After the installation of the fiber, the bar was intensively tested for light-leaks.
-
-
 
 
 %%% ----------------- Electronics subsection
@@ -616,104 +608,98 @@ TDCs which are used for the PMT signals.
 %\end{tabular}
 %\label{table:tdcadc-specs}
 %\end{table*}
+
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.49\textwidth]{electronics-diag.pdf}
+	\includegraphics[width=0.48\textwidth]{electronics-diag.pdf}
 	\caption{Electronic schematic of the BAND read-out. Every PMT signal is split and ADC and TDC information are obtained. Additional outputs of the discriminators are used to create single bar and cosmic-laser triggers from BAND.}
 	\label{fig:electronic-diag}
 \end{figure}
 
-In the experiment, the high voltages for each PMT are provided by a multi-channel CAEN SYS4527 mainframe with eleven A1535SN cards with 24 channel each \cite{caen-hvframe,caen-hvcard}.
+The high voltages for each PMT are provided by a multi-channel CAEN SYS4527 mainframe with eleven A1535SN cards with 24 channel each~\cite{caen-hvframe,caen-hvcard}.
 
 A schematic drawing of the read-out electronics and its components is
-shown in Fig. \ref{fig:electronic-diag}. The signal of each PMT is
-split to an ADC and TDC readout independently.  The signal splitters
+shown in Fig.~\ref{fig:electronic-diag}. The signal of each PMT is
+split to an ADC and TDC, read out independently.  The signal splitters
 are custom made and have been used in previous experiments at
 Jefferson Lab.  From the splitter one signal is sent to a 250
-\si{\mega\hertz} sampling flash-ADCs \cite{fadc-manual} (FADC) while the
+\si{\mega\hertz} sampling flash-ADCs~\cite{fadc-manual} (FADC) while the
 other signal is sent to discriminators.  The discriminated time signal
-goes to a TDC (CAEN VX1190A \cite{caen-tdc}) with 100 ps resolution
+goes to a TDC (CAEN VX1190A~\cite{caen-tdc}) with 100 ps resolution
 per channel.
-
-%The threshold for the d The pulse shape from the flash-ADCs are recorded for every PMT crossing a threshold value allow to record the signal amplitude and integral. The integral window can be adjusted 
 
 In total, the system consists of 16 flash-ADCs in one VXS crate, 16
 discriminators and two TDCs in a VME crate and 16 splitters.
 A trigger signal distribution card for the flash-ADCs and
 trigger interface boards are installed in the crates. All components
-are part of the standard CLAS12 electronics \cite{clas12-daq, clas12-trigger}.
+are part of the standard CLAS12 electronics~\cite{clas12-daq, clas12-trigger}.
 
-The detector is read-out either by a trigger from the main CLAS12
-trigger system \cite{clas12-trigger} or by stand-alone BAND detector
-triggers used for tests and calibrations with cosmic rays, radioactive
-sources and the laser system. The stand-alone triggers are implemented
-by a programmable CAEN V1495 logic board \cite{caen-logicboard}. They
-consist of a single bar trigger for source measurements and a
+The detector is read out either by a trigger from the main CLAS12
+trigger system~\cite{clas12-trigger} or by stand-alone BAND 
+triggers. The stand-alone triggers are used for tests and calibrations 
+with cosmic rays, radioactive sources and the laser system. 
+They are implemented by a programmable CAEN V1495 logic board~\cite{caen-logicboard}. Such triggers include
+a single bar trigger for source measurements and a
 coincidence bar trigger for cosmics and laser measurements. The
 coincidence trigger is also fed to the central CLAS12 trigger system
 to allow monitoring of the detector by recording laser data during
-real data taking. This special trigger rate is usually about 10
-\si{\hertz}, compared to the $\approx 15-20\,\si{\kilo\hertz}$ trigger
+experimental data taking. This laser-monitoring trigger rate is usually about 10
+\si{\hertz}, compared to the $\sim 15-20\,\si{\kilo\hertz}$ trigger
 rate from electron interactions in the target.
-
 
 
 
 %%% ----------------- Assembly subsection
 \subsection{Final Assembly}
 \label{sec:assembly}
-
 \begin{figure*}[tbp]
 	\centering
 	\includegraphics[width=0.48\textwidth , height=0.40\textwidth]{pic-construction1.pdf}
 	\includegraphics[width=0.40\textwidth , height=0.40\textwidth]{pic-construction2.pdf}
-				\caption{BAND construction. From ESR \cite{3MESR} wrapped bars (left) to assembled detector (right). The intermediate steps show the fully wrapped bars with the optical fiber and the assembled bottom row of the detector.}
+				\caption{BAND construction. From ESR~\cite{3MESR} wrapped bars (left) to assembled detector (right). The intermediate steps show the fully wrapped bars with the optical fiber and the assembled bottom row of the detector.}
 		\label{fig:barassembly}
 \end{figure*}
 
-We assembled and intensively tested each scintillator bar
-separately. We equipped each scintillator with a pair of gain-matched
-PMTs.  Each bar undergo the following procedure:
+Each scintillator bar was assembled and individually tested, following this procedure:
 \begin{enumerate}
-\item Select a pair of gain-matched PMTs
-\item Glue the PMTs to the light guides with MOMENTIVE RTV615 silicone rubber compound \cite{softglue}.
+\item Select a pair of matched PMTs
+\item Wrap the assembled scintillator with Enhanced Specular Reflector~\cite{3MESR}, leaving a window-flap for the laser-system optical fiber (see Fig.~\ref{fig:pic-fiberonbar}).
+\item Glue the PMTs to the light guides with MOMENTIVE RTV615 silicone rubber compound~\cite{softglue}.
 \item Glue one light guide/PMT assembly to each end of the bar with DYMAX
-  UV curing glue \cite{uvglue}.
-\item Wrap the assembled scintillator with Enhanced Specular Reflector \cite{3MESR}.
-\item Wrap this with black 50-$\mu$m thick Tedlar foil \cite{tedlarfoil}, leaving an openable
-  window for attaching the laser-system optical fiber.
-\item Search for and fix light leaks by measuring the PMT dark currents with a pico-ammeter.
-\item Glue the optical fiber to the center of the bar and reseal the Tedlar foil window.
+  UV curing glue~\cite{uvglue}.
+\item Wrap with black 50 $\mu$m thick Tedlar\textregistered{} foil~\cite{tedlarfoil}, leaving a
+  window-flap for attaching the laser-system optical fiber.
+\item Glue the optical fiber to the center of the bar and reseal the Tedlar\textregistered{} foil window.
 \item Install the mu-metal shields on the PMTs 
-\item Test for light leaks (again)
+\item Search for and fix light leaks by measuring the PMT dark currents with a pico-ampermeter.
 \item Install each bar in the BAND support frame
 \item Connect the optical fibers and signal and HV cables to patch panels mounted on the upstream side of BAND
 \item Final test for light leaks
 \end{enumerate}
-Fig. \ref{fig:barassembly} shows some of the steps in the assembly process,
+Fig.~\ref{fig:barassembly} shows some of the steps in the assembly process,
 including one bar wrapped with ESR foil, a fully wrapped bar with the
 optical fiber shown, a row of four bars installed in the BAND frame,
 and the fully assembled BAND seen from the upstream side with the
-patch panels for HV and  signal cables and optical fibers.
+patch panels for HV, signal cables, and optical fibers.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 After assembling the bars in the support frame, the lead wall was
 installed on the downstream side of BAND. BAND was then
 craned into its position on top of the central vertex tracker support
-cart upstream of CLAS12. Fig. \ref{fig:band_downstream} shows a
-design drawing and a picture of upstream side of BAND. 
+cart upstream of CLAS12. Fig.~\ref{fig:band_downstream} shows a
+design drawing and a photograph of the upstream side of BAND. 
 \begin{figure*}[tb]
 	\centering
 	\includegraphics[width=0.48\textwidth]{BAND_1-3.png} 
 	\includegraphics[width=0.40\textwidth]{pic-bandinhall1.pdf}
 		\caption{(left) CAD drawing of the downstream side of BAND and its frame. The lead wall is shown in cyan, the scintillators
-          are in magenta, and the support frame is in black. (right) Picture of the downstream side of BAND installed in Hall B. The reflective surface in the picture are the Aluminium covers of the lead blocks.}
+          are in magenta, and the support frame is in black. (right) Photograph of the downstream side of BAND installed in Hall B. The reflective surface in the photograph are the aluminium covers of the lead blocks.}
 		\label{fig:band_downstream}
 \end{figure*}
 
-Fig. \ref{fig:bandinhall} shows the upstream side of BAND in Hall B with about 3/4 of the cables installed. All cables are connected to
-electronics which is installed outside of the picture on the left side.
+Fig.~\ref{fig:bandinhall} shows the upstream side of BAND in Hall B with about 3/4 of the cables installed. All cables are connected to
+electronics which is installed outside of the photograph on the left side.
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.48\textwidth]{pic-bandinhall2.pdf}
@@ -724,30 +710,30 @@ electronics which is installed outside of the picture on the left side.
 
 \section{Performance}
 %%% ----------------- Gain matching subsection
-In this chapter, we first describe the performance of the individual scintillator bars and their calibrations. We next describe the performance
-of the BAND detector as a whole, with a focus on neutron identification and efficiency.
+In this section, we first describe the performance of the individual scintillator bars and their calibrations. We next describe the performance
+of the BAND as a whole, with a focus on neutron identification and efficiency.
 
 \subsection{Individual bar performance}
 \subsubsection{Gain matching}
-In order to have similar response to a given energy deposit across all PMTs of BAND, each PMT's HV was optimized using cosmic rays. Cosmic
+In order to have a similar response to a given energy deposit across all PMTs of BAND, each PMT's HV was optimized using cosmic rays. Cosmic
 ray spectra were measured with a range of HV and then combined to produce a gain curve for each PMT. These data were
 collected with a cosmic trigger which required a cosmic ray passing through a single vertical layer of BAND to select nearly-vertical
 cosmic rays. This corresponds to a relatively high energy deposition of 14.2 \si{\mega\eV}. For each HV setting we fit the ADC spectrum
 with a Landau distribution and an exponential background to obtain the cosmic peak position. A representative ADC spectrum is shown in
-Fig. \ref{fig:adc-spectrum}.  The obtained gain curve for this PMT is shown in \ref{fig:gain-curve}. The dashed lines indicate the final HV
-setting to position the cosmic peak at ADC channel 15,000, which was choosen to have sufficient range for neutrons which deposit less
-energy than the cosmic rays and to avoid signal overflows in the sampling FADCs dominating above ADCs of 20,000.
+Fig.~\ref{fig:adc-spectrum}.  The obtained gain curve for this PMT is shown in~\ref{fig:gain-curve}. The dashed lines indicate the final HV
+setting to position the cosmic peak at ADC channel 15,000, This desired peak
+ position of cosmic rays was chosen to avoid signal overflows in the sampling FADCs for neutron-induced signals, which deposit less energy as compared to cosmic rays. These overflows dominate above ADCs of 20,000. 
 
 Each PMT gain curve was fit with a power law with parameters $\alpha$ and $\beta$
 \begin{eqnarray}
-	ADC	= \alpha * \left(\frac{\mathrm{HV}}{1500}\right)^{\beta},				
+	ADC	= \alpha \cdot \left(\frac{\mathrm{HV}}{1500}\right)^{\beta},				
 		\label{eqn:gain_curve}
 \end{eqnarray}
-where the division by 1500~\si{\volt} was an arbitrary normalization to improve fit convergence. The value of the fit parameters for each PMT are
-shown in Fig. \ref{fig:gain}. The Hamamatsu R7724 PMTs (red) are more uniform than either of the two ET PMTs, 9954KB (green) or
+where the division by 1500 \si{\volt} was an arbitrary normalization to improve fit convergence. The value of the fit parameters for each PMT are
+shown in Fig.~\ref{fig:gain}. The Hamamatsu R7724 PMTs (red) are more uniform than either of the two ET PMTs, 9954KB (green) or
 9214KB (blue)\footnote{We obtained similar results when using the pulse amplitude of the ADC signal instead of the integral}. 
 %This uniformity was also observed in bench measurements with sources. 
-However, the cosmic ray ADC peaks are well aligned after adjusting the HV based on the obtained gain curves (see Fig. \ref{fig:hv_settings}).
+However, the cosmic ray ADC peaks are well aligned after adjusting the HV based on the obtained gain curves (see Fig.~\ref{fig:hv_settings}).
 
 \begin{figure}[th]
 	\centering
@@ -791,50 +777,31 @@ However, the cosmic ray ADC peaks are well aligned after adjusting the HV based 
 	\label{fig:compton_edge}
 \end{figure}
 
-%The ADC response of each PMT is converted to \si{\mega\electronvolt} energy deposition by measuring the response to 
-%radioactive sources with different photon energies and thus different Compton edges. We used $^{60}$Co
-%(0.963 and 1.118 \si{\mega\electronvolt}), $^{22}$Na (0.477 \si{\mega\electronvolt}), and $^{137}$Cs
-%(1.062 and 0.341 \si{\mega\electronvolt}) sources.  For each bar we used the location of the ADC peak for each
-%of the Compton edges measured in the center of the bar to determine ADC channel to energy conversion.  A typical fit to the Compton edge
-%is shown in Fig.~\ref{fig:compton_edge}.  The extracted Compton edges for various bars are quite similar which also shows the a good gain
-%matching obtained with cosmics. The  ADC channel to MeV conversion function with a linear fit is shown in Fig. \ref{fig:mev_conversion}.
 
 The ADC response of each PMT is converted to \si{\mega\electronvolt}
 energy deposition by measuring the response to multiple radioactive
-sources and to cosmic rays. The sources $^{60}$Co, $^{22}$Na, $^{137}$Cs were chosen due
+sources and to cosmic rays. The sources $^{60}$Co, $^{22}$Na, and $^{137}$Cs were chosen due
 to the gamma rays that have Compton edges of $0.963$ and $1.118$,
 $0.477$, and, $1.062$ and $0.341$, respectively (in
 \si{\mega\electronvolt}). The response to each source was measured in
 the center of the bar. Using the ADC response to all sources, in
 combination with the attenuation length of the bar, the ADC response
 can be converted to \si{\mega\electronvolt}. These measurements were
-done for selected bars (ones that were accessible following
+done for a subset of the BAND bars (ones that were accessible following
 installation) after the bars were gain matched (see previous section).
 
 A typical response of a PMT to $^{60}$Co is shown in
 Fig.~\ref{fig:compton_edge} along with a fit of the Compton edge by a
-parametrization described in [ADD REF]. The extracted Compton edges
+parametrization described in~\cite{comptonedge}. The extracted Compton edges
 for various bars are quite similar which gives us confidence in
 applying these measurements to all bars. 
-%Taking into account the results from cosmic ray and source
-%measurement, we obtain a ADC to MeV conversion function
-% with a linear fit, see Fig. \ref{fig:mev_conversion}.
-
-
-%\begin{figure}[tbh]
-%	\centering
-%			\includegraphics[width=0.48\textwidth]{mevadc.pdf}
-%	\caption{TODO UPDATE PICTURE with fit: ADC to MeV conversion fit using data from source and cosmic ray measurements.}
-%	\label{fig:mev_conversion}
-%\end{figure}
 
 %%% ----------------- Time-walk subsection
 \subsubsection{Time-walk calibration}
-Time-walk calibrations were performed for each PMT with the laser system
-\cite{band-laser} by using the fiber optic attenuator \cite{attenuator} to vary
+Time-walk calibrations were performed for each PMT with the laser system~\cite{band-laser} by using the fiber optic attenuator~\cite{attenuator} to vary
 the amount of light delivered to each bar. Waveforms and times were measured as the attenuator scans from $40$ \si{\decibel} to $0$ 
 \si{\decibel}. The photodiode output is used as a reference time for any calibrations 
-performed with the laser system.
+performed with the laser system, and is external to the variable attenuator.
 
 Dependence of a typical PMT time on pulse height is seen in
 Fig.~\ref{fig:time_walk} (left). To correct for time-walk, we
@@ -849,10 +816,10 @@ as:
 The residual difference, after the time-walk correction,
 $t_{\mathrm{PMT}}-t_{\mathrm{photodiode}}$, is shown in
 Fig.~\ref{fig:time_walk} (right). At pulse heights close to threshold,
-the parameterization is not flexible enough and under-estimates the
+the parameterization is not flexible enough and underestimates the
 strong dependence on pulse height. However, signals with pulse heights
 this low are not of interest, as we found they are dominated by background,
-rather than by neutrons  (see Section \ref{sec:neutronidentification}).
+rather than by neutrons (see Section~\ref{sec:neutronidentification}). Any residual corrections that are needed at higher pulse heights are corrected for iteratively, using the same equation as above. 
 
 \begin{figure*}[tbh]
 	\centering
@@ -866,10 +833,10 @@ rather than by neutrons  (see Section \ref{sec:neutronidentification}).
 %%% ----------------- Effective velocity subsection
 \subsubsection{Effective velocity}
 The relative time delays between PMTs on the same bar and the
-speed-of-light in that bar are extracted using cosmic ray data for the
-time-walk corrected PMTs. We extracted the effective light speed in
-a given bar from the width of the
-relative timing distribution between its left and right PMTs and its length:
+speed-of-light in that bar are extracted using cosmic ray data. 
+The effective light speed in
+a given bar is extracted from the width of the
+relative timing distribution between its left and right PMTs and the bar's physical length:
 \begin{eqnarray}
 	\begin{split}
 		t_L - t_R 	= -\frac{2x}{v}							\\
@@ -878,7 +845,7 @@ relative timing distribution between its left and right PMTs and its length:
 	\end{split}
 \end{eqnarray}
 The relative left-right PMT time offset is given by the center of the
-distribution (see Fig.~\ref{fig:eff_vel} left). The obtained effective
+distribution (see Fig.~\ref{fig:eff_vel} left).  This procedure is done after the PMT timing information has been time-walk corrected. The obtained effective
 velocities for each bar are shown in Fig.~\ref{fig:eff_vel} (right)
 distinguished between short bars (boxes) and long bars (circles). The
 observed difference is due to geometrical effects from the different
@@ -941,7 +908,7 @@ measured in the bench tests due to the multiple reflections.
 \subsubsection{Individual Bar offsets}
 After all bars are individually calibrated, relative time delays between bars can still remain, and require correction to combine 
 statistics from all bars. The alignment of all bars can be done quickly using the laser calibration system, as the laser pulse arrival 
-time to each bar should be within timing resolution. Any residual offset 
+time to each bar should be within the timing resolution. Any residual offset 
 between bars can be corrected later by using the photon arrival time
 at each bar with respect to electrons detected in the CLAS12 forward
 detector. 
@@ -967,12 +934,6 @@ where $ t_{avg}^{ref}$ is the average time of the global reference bar chosen on
 $t_{avg}^j$ is the average time of the reference bar chosen in layer $j$. Then only one global offset is needed to correct the
 offset of $t_{avg}^j$ if there are no residual offsets between bars.
 
-%\begin{figure}[tbh!]
-%	\centering
-%		\includegraphics[width=0.48\textwidth]{bar_offset.pdf}
-%	\caption{TO DO: text UPDATE Typcial time difference of bar mean time to a reference bar as a function of geometric mean of ADC pulse amplitude before corrections of relative bar offsets. The %independence on amplitude shows a good time-walk calibration. The mean value of the y-axis gives the relativ time offset for this bar.}
-%	\label{fig:bar_off}
-%\end{figure}
 
 \subsection{BAND performance} 
 %%% ----------------- Global offset subsection
@@ -994,9 +955,9 @@ After applying the individual offset corrections from the previous
 section, we determined a timing offset for each bar from the location
 of its photon timing peak.  Applying these offsets results in the
 corrected spectrum, which displays a well-aligned photon peak with a
-width of $\sigma=294$ \si{\pico\s}, below the design value.
+width of $\sigma=294$ \si{\pico\s}, consistent with the design value.
 The periodic 4 \si{\nano\s}-spikes in the remaining spectrum are due to photons
-correlated with off-time electrons from other beam bunches.
+correlated with out-of-time electrons from other beam bunches.
  
 \begin{figure}[tb]
 	\centering
@@ -1011,7 +972,7 @@ correlated with off-time electrons from other beam bunches.
                   \si{\mega\electronvolt} energy deposition cut is
                   applied to reduce the random background.  The
                   periodic 4 \si{\nano\s}-spikes in the remaining
-                  spectrum are due to photons correlated with off-time
+                  spectrum are due to photons correlated with out-of-time
                   electrons from other beam bunches.}
 	\label{fig:final_offset}
 \end{figure}
@@ -1026,44 +987,40 @@ correlated with off-time electrons from other beam bunches.
           with the laser calibration system for two separate energy
           deposition cuts\protect\footnotemark. (right) as measured
           from the electron-photon time difference spectrum with a
-          2-\si{\mega\electronvolt} energy deposition cut. All bars
-          are at or below the required 300-\si{\pico\s} resolution. }
+          2 \si{\mega\electronvolt} energy deposition cut. All bars
+          are at or below the required 300 \si{\pico\s} resolution. }
 	\label{fig:tof_resolution}
 \end{figure*}
-%just temporary to correct for the footnotemark in the figure description for the first circular
+
 \setcounter{footnote}{2} 
 The time resolution of each bar was measured
 independently using laser calibration data and using the electron-BAND
 time difference spectrum. The laser data allows us to measure the time
-resolution over the whole energy deposition range from 0.5 to 7~\si{\mega\electronvolt}  (see
-Fig. \ref{fig:resolution-laser}.
-%\footnotemark \footnotetext{NOTE FOR
-%  FIRST CIRCULAR: This plot will be updated with the results for layer
-%  5 in the next days}
-The resolutions are obtained from a Gaussian fit of the difference of
-the average time of a bar to a reference bar as a function of energy
-deposited, see Fig. \ref{fig:tof_resolution}. The resolutions for the
-1- and 5-\si{\mega\electronvolt} cuts are well below the 300-\si{\pico\s} design goal. For the 5-\si{\mega\electronvolt} cut, which
+resolution over the whole energy deposition range from 0.5 to 7 \si{\mega\electronvolt}  (see
+Fig.~\ref{fig:resolution-laser}).
+
+The laser-based resolutions are obtained from a Gaussian fit of the difference of
+the average time of a bar to the reference photodiode as a function of energy
+deposited, see Fig.~\ref{fig:tof_resolution}. The resolutions for the
+1- and 5- \si{\mega\electronvolt} cuts are well below the 300 \si{\pico\s} design goal. For the 5 \si{\mega\electronvolt} cut, which
 is a realistic neutron-selection energy deposition cut (see Section
-\ref{sec:neutronidentification}) the resolutions are better than 150~\si{\pico\s}.
+\ref{sec:neutronidentification}) the resolutions are better than 150 \si{\pico\s}.
 
 Fig.~\ref{fig:tof_resolution} (right) shows the time resolutions from
-the measured electron-photon arrival time difference with an energy deposition cut of 2~\si{\mega\electronvolt}. We used a high-statistics data run where
+the measured electron-photon arrival time difference with an energy deposition cut of 2 \si{\mega\electronvolt}. We used a high-statistics data run where
 electrons are detected in CLAS12. The data was also used for the
-global offset corrections presented in Sec. \ref{sec:global_offset}.
+global offset corrections presented in Sec~\ref{sec:global_offset}.
 These measured resolutions include
 additional uncertainties from the pathlength of the target photons
-to the bar ($\sigma\approx 70$~\si{\pico\s}) and from the time resolution of the electron beam bunch ($\sigma \approx 25$~\si{\pico\s}). The
+to the bar ($\sigma\approx 70$ \si{\pico\s}) and from the time resolution of the electron beam bunch ($\sigma \approx 25$ \si{\pico\s}). The
 laser data does not have these uncertainties.
 
-%%% ----------------- Neutral veto subsection
-%\subsubsection{Neutral veto algorithm}
 
 %%% ----------------- Photon-neutron subsection
 \subsubsection{Neutron identification}
 \label{sec:neutronidentification}
 We identified neutrons from the electron-deuteron, $d(e,e')X$,
-production data by cuting on the
+production data by cutting on the
 time-of-flight per pathlength (ToF/m), where ToF is the time difference
 between the time that the electron
 interacted in the target and the particle arrival time measured by
@@ -1071,7 +1028,7 @@ BAND (see Fig.~\ref{fig:tof} for data with a minimum energy deposition
 cut of 5 \si{\MeV}). There are well-separated peaks for
 photons and for neutrons on top of a flat background from accidental coincidences. 
 
-The minimum energy deposition was optimized using the neutron
+The minimum energy deposition for neutron-signals is optimized using the neutron
 signal-to-background ratio, see Fig.~\ref{fig:signalbackground}. The
 signal region includes times for neutrons with $200\le p_n \le600$
 \si{\MeV/\clight}. The accidental background was estimated by
@@ -1080,7 +1037,7 @@ Fig.~\ref{fig:tof}). The signal is defined as the integral of the
 spectrum over the signal region minus the scaled background.  
 As the minimum energy deposition cut increases, the signal decreases,
 but the signal to background ratio increases.  
-With a 5-\si{\MeV} energy deposition,
+With a 5 \si{\MeV} energy deposition,
 the signal-to-background ratio is almost three. The optimal cut will
 be somewhere between two and seven \si{\MeV} and will be determined by
 minimizing the experimental uncertainties.
@@ -1125,11 +1082,11 @@ to a flat solid-angle distribution, and the efficiency was calculated to be the 
 registering hits with energy deposition above threshold divided by the number of neutrons with 
 trajectories hitting BAND. This efficiency is therefore an average over different incident angles
 and hit positions in BAND.  This efficiency will be reduced by the effects of
-neutrons multiple
+neutron multiple
 scattering in the material between BAND and the CLAS-12 target. 
 
 The simulation indicates that BAND can achieve an efficiency at or
-above the design goal of 35\% using a the nominal design threshold of 
+above the design goal of 35\% using the nominal design threshold of 
 2~MeVee, even for higher-momentum neutrons. Running with higher thresholds to suppress background
 may be possible without significantly compromising BAND's neutron
 detection efficiency.
@@ -1140,15 +1097,15 @@ detection efficiency.
 \section{Summary}
 The Backward Angle Neutron Detector (BAND) of CLAS12 detects neutrons
   emitted at backward angles of $155$\si{\degree} to $175$\si{\degree}
-  and momenta between $0.25$ and $0.6$ \si{\GeV/\clight}. It is
-  positioned 3-\si{\meter} upstream of the target and consists of $18$
+  and momenta between $200$ and $600$ \si{\MeV/\clight}. It is
+  positioned 3 \si{\meter} upstream of the target and consists of $18$
   rows and $5$ layers of $7.2$ \si{\centi\meter} by $7.2$
   \si{\centi\meter} scintillator bars with PMT readout on both ends to
   measure time and energy deposition in the scintillator
-  layers. Between the target and BAND there is a 2-\si{\centi\meter}
-  thick lead wall followed by a 2-\si{\centi\meter} veto layer to
+  layers. Between the target and BAND there is a 2 \si{\centi\meter}
+  thick lead wall followed by a 2 \si{\centi\meter} veto layer to
   suppress gammas and reject charged particles. The measured time
-  resolution of 300 ps gives a  momentum
+  resolution of 300 ps gives a momentum
   reconstruction resolution of $\delta p/p < 1.5$\%.
  
 
@@ -1159,15 +1116,15 @@ events collected at Jefferson Lab.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{Acknowledgements}
-The BAND support frame was build by MIT Bates. We would like to thank Bill Briscoe from George Washington University for providing PMTs and voltage dividers for the veto bars.
-We would like to thank Jefferson Lab's Hall B technical crew for their efforts during BAND assembly, installation and commissioning, especially Denny Insley, Calvin Mealer and Bob Miller.
-We like to thank Sergey Boyarinov, Ben Raydo, Chris Cuevas and Armen Stepanyan for their support in setting up the read-out system.
-We also thank the Hall B staff for their support especially Stepan Stepanyan for setting up an assembly and testing area at Jefferson Lab and Eugene Pasyuk for organizing missing components.
-The development of calibration and analysis software benefited greatly from discussions and help by Daniel Carman, Cole Smith and Raffaella De Vita.
-This work was supported by...[grant numbers]
+We would like to thank Jefferson Lab's Hall B technical crew for the immense efforts during the BAND assembly, installation, and commissioning, especially Denny Insley, Calvin Mealer and Bob Miller. Thanks to Sergey Boyarinov, Ben Raydo, Chris Cuevas and Armen Stepanyan for providing crucial support in setting up the readout system.
+
+Bill Briscoe from George Washington University generously provided PMTs and voltage dividers for the veto bars. The BAND support frame was build by MIT Bates. 
+
+We also would like to thank Hall B staff for their unwavering support, especially Stepan Stepanyan for setting up an assembly and testing area at Jefferson Lab and Eugene Pasyuk for organizing components. The development of the calibration, reconstruction, and analysis software benefited greatly from discussions, advice, and assistance by Daniel Carman, Raffaella De Vita, and Cole Smith. Finally, thanks to Run Group B of Hall B in Jefferson Lab, and our run-group coordinator, Silvia Niccolai, for their support during data-taking.
+
+This work was supported by the U.S. Department of Energy, Office of Science, Office of Nuclear Physics under Award Numbers DE-FG02-94ER40818, DE-SC0020240, DE-FG02-96ER-40960, DE-FG02-93ER40771, and DE- AC05-06OR23177 under which Jefferson Science Associates operates the Thomas Jefferson National Accelerator Facility, the Israeli Science Foundation (Israel) under Grants Nos. 136/12 and 1334/16, the Pazy foundation, the Clore Foundation, and the Chilean FONDECYT grant N 1201964.
 
 
-\section*{References}
 % Create the reference section using BibTeX:
 \bibliography{band_nim_bib}
 
