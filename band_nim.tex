@@ -1,7 +1,8 @@
-\documentclass[3p,twocolumn]{elsarticle}
+\documentclass[review,number,sort&compress]{elsarticle}
+%\documentclass[3p,number,sort&compress,twocolumn]{elsarticle}
 %\documentclass[3p,times,twocolumn]{elsarticle}
 
-%\usepackage{lineno}
+\usepackage{lineno}
 
  \usepackage[flushleft]{threeparttable}
  \usepackage{tablefootnote}
@@ -23,7 +24,7 @@
 %\let\oldbibitem\bibitem
 %\def\bibitem{\vfill\oldbibitem}
 
-\usepackage{subcaption}
+%\usepackage{subcaption}
 %\captionsetup[subfigure]{labelformat = parens, labelsep = space, font = small}
 \usepackage{placeins}
 
@@ -64,7 +65,7 @@
 
 \begin{document}
 
-
+\linenumbers
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frontmatter}
 
@@ -215,8 +216,8 @@ time measured by CLAS12. Out-of-time random neutron and photon
 contamination is reduced by optimizing the minimum energy deposition of particles in the bars.
 
 The following subsections describe the BAND geometry, the individual components,
-including the bench mesasurements that informed their selection, the photon
-shielding, the laser calibrationn system, the electronics and data acquisition, 
+including the bench measurements that informed their selection, the photon
+shielding, the laser calibration system, the electronics and data acquisition, 
 and the final assembly of the detector.
 
 \subsection{Geometry}
@@ -416,7 +417,7 @@ up to 1.8 \si{\mega\electronvolt}.
 Fig.~\ref{fig:test_stand_results} shows the measured single-PMT time
 resolution for the different test configurations.  The lines indicate fits
 to data extrapolated beyond 1.8 \si{\mega\electronvolt}.  
-All PMTs except the R13435 met the timing-resolution design specifcation of 300 \si{\pico\s} at 2
+All PMTs except the R13435 met the timing-resolution design specification of 300 \si{\pico\s} at 2
 \si{\mega\electronvolt} energy deposition (see 
 Table~\ref{tab:tests}).  To reduce costs, a combination of
 Hamamatsu R7724~\cite{pmtR7724} and Electron Tube 9214KB~\cite{pmt9214} PMTs for BAND were selected. For the veto layer,  
@@ -649,8 +650,8 @@ rate from electron interactions in the target.
 
 Each scintillator bar was assembled and individually tested, following this procedure:
 \begin{enumerate}
-\item Select a pair of matched PMTs
-\item Wrap the assembled scintillator with Enhanced Specular Reflector~\cite{3MESR}, leaving a window-flap for the laser-system optical fiber (see Fig.~\ref{fig:pic-fiberonbar}).
+\item Select a pair of matched PMTs.
+\item Wrap the assembled scintillator with ESR foil~\cite{3MESR}, leaving a window-flap for the laser-system optical fiber (see Fig.~\ref{fig:pic-fiberonbar}).
 \item Glue the PMTs to the light guides with MOMENTIVE RTV615 silicone rubber compound~\cite{softglue}.
 \item Glue one light guide/PMT assembly to each end of the bar with DYMAX
   UV curing glue~\cite{uvglue}.
@@ -658,11 +659,11 @@ Each scintillator bar was assembled and individually tested, following this proc
 was used to wrap the short bars. The long bars were wrapped with Thorlabs black Aluminium foil~\cite{thorlabsfoil}}, leaving a
   window-flap for attaching the laser-system optical fiber.
 \item Glue the optical fiber to the center of the bar and reseal the foil window.
-\item Install the mu-metal shields on the PMTs 
-\item Search for and fix light leaks by measuring the PMT dark currents with a pico-ampermeter.
-\item Install each bar in the BAND support frame
-\item Connect the optical fibers and signal and HV cables to patch panels mounted on the upstream side of BAND
-\item Final test for light leaks
+\item Install the mu-metal shields on the PMTs.
+\item Search for and fix light leaks by measuring the PMT dark currents with a pico-ammeter.
+\item Install each bar in the BAND support frame.
+\item Connect the optical fibers and signal and HV cables to patch panels mounted on the upstream side of BAND.
+\item Final test for light leaks.
 \end{enumerate}
 Fig.~\ref{fig:barassembly} shows some of the steps in the assembly process,
 including one bar wrapped with ESR foil, a fully wrapped bar with the
@@ -677,7 +678,7 @@ installed on the downstream side of BAND. BAND was then
 craned into its position on top of the central vertex tracker support
 cart upstream of CLAS12. Fig.~\ref{fig:band_downstream} shows a
 design drawing and a photograph of the upstream side of BAND. 
-\begin{figure*}[tbh]
+\begin{figure*}[tb]
 	\centering
 	\includegraphics[width=0.48\textwidth]{BAND_1-3.jpg} 
 	\includegraphics[width=0.40\textwidth]{pic-bandinhall1.pdf}
@@ -688,7 +689,7 @@ design drawing and a photograph of the upstream side of BAND.
 
 Fig.~\ref{fig:bandinhall} shows the upstream side of BAND in Hall B with about 3/4 of the cables installed. All cables are connected to
 electronics which is installed outside of the photograph on the left side.
-\begin{figure}[tbh]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.48\textwidth]{pic-bandinhall2.pdf}
 				\caption{BAND in Hall B. Upstream side with first set of cables installed.}
@@ -708,9 +709,9 @@ ray spectra were measured with a range of HV and then combined to produce a gain
 collected with a cosmic trigger which required a cosmic ray passing through a single vertical layer of BAND to select nearly-vertical
 cosmic rays. This corresponds to a relatively high energy deposition of 14.2 \si{\mega\eV}. For each HV setting we fit the ADC spectrum
 with a Landau distribution and an exponential background to obtain the cosmic peak position. A representative ADC spectrum is shown in
-Fig.~\ref{fig:adc-spectrum}.  The obtained gain curve for this PMT is shown in~\ref{fig:gain-curve}. The dashed lines indicate the final HV
-setting to position the cosmic peak at ADC channel 15,000, This desired peak
- position of cosmic rays was chosen to avoid signal overflows in the sampling FADCs for neutron-induced signals, which deposit less energy as compared to cosmic rays. These overflows dominate above ADCs of 20,000. 
+Fig.~\ref{fig:gain-curve} (top).  The obtained gain curve for this PMT is shown in the bottom panel of Fig.~\ref{fig:gain-curve}. The dashed lines indicate the final HV
+setting to position the cosmic peak at ADC channel 15000. This desired peak
+ position of cosmic rays was chosen to avoid signal overflows in the sampling FADCs for neutron-induced signals, which deposit less energy as compared to cosmic rays. These overflows dominate above ADCs of 20000. 
 
 Each PMT gain curve was fit with a power law with parameters $\alpha$ and $\beta$
 \begin{eqnarray}
@@ -718,42 +719,44 @@ Each PMT gain curve was fit with a power law with parameters $\alpha$ and $\beta
 		\label{eqn:gain_curve}
 \end{eqnarray}
 where the division by 1500 \si{\volt} was an arbitrary normalization to improve fit convergence. The value of the fit parameters for each PMT are
-shown in Fig.~\ref{fig:gain}. The Hamamatsu R7724 PMTs (red) are more uniform than either of the two ET PMTs, 9954KB (green) or
+shown in Fig.~\ref{fig:gain} (top). The Hamamatsu R7724 PMTs (red) are more uniform than either of the two ET PMTs, 9954KB (green) or
 9214KB (blue)\footnote{We obtained similar results when using the pulse amplitude of the ADC signal instead of the integral}. 
 %This uniformity was also observed in bench measurements with sources. 
-However, the cosmic ray ADC peaks are well aligned after adjusting the HV based on the obtained gain curves (see Fig.~\ref{fig:hv_settings}).
+However, the cosmic ray ADC peaks are well aligned after adjusting the HV based on the obtained gain curves (see bottom panel in Fig.~\ref{fig:hv_settings}).
 
-\begin{figure}[tbh!]
-%	\centering
+%\begin{figure}[tbh!]
+\begin{figure}[tb]
+	\centering
 %		\begin{minipage}{0.48\textwidth}
-			\includegraphics[width=0.48\textwidth]{fig15a-adcfit.pdf}\\
-					\subcaption{}
-                  			\label{fig:adc-spectrum}
+			\includegraphics[width=0.46\textwidth]{fig15a-adcfit.pdf}
+			%		\subcaption{}
+          %        			\label{fig:adc-spectrum}
 %		\end{minipage}
 %		\begin{minipage}{0.47\textwidth}
-			\includegraphics[width=0.48\textwidth]{fig15b-gaincurve.pdf}
-			\subcaption{}
-		\label{fig:gain-curve}
+			\includegraphics[width=0.46\textwidth]{fig15b-gaincurve.pdf}
+	%		\subcaption{}
+		
 %		\end{minipage}
-		\caption{Gain curve measurement. (a) Typical ADC spectrum for a representative PMT with cosmic rays
-                  and the fit with a Landau distribution and an exponential background. (b) Gain curve for the same
+		\caption{Gain curve measurement. (Top) Typical ADC spectrum for a representative PMT with cosmic rays
+                  and the fit with a Landau distribution and an exponential background. (Bottom) Gain curve for the same
                   PMT. The dotted lines indicate the final HV setting to set the cosmic peak to ADC channel 15000. }
-
+\label{fig:gain-curve}
 \end{figure}
-
-\begin{figure}[tbh!]
+%\begin{figure}[tbh!]
+\begin{figure}[tb]
 	\centering
 %		\begin{minipage}{0.46\textwidth}
 			\includegraphics[width=0.46\textwidth]{fig16a-gainspread.pdf}
-			\subcaption{}
-			\label{fig:gain}
+	%		\subcaption{}
+	%		\label{fig:gain}
 %		\end{minipage}
 %		\begin{minipage}{0.46\textwidth}
 			\includegraphics[width=0.46\textwidth]{fig16b-adcresponse.pdf}
-			\subcaption{}
-		\label{fig:hv_settings}
+		%	\subcaption{}
+		
 %		\end{minipage}
-		\caption{ (a) Gain parameters for each PMT. One sees a greater spread in the Electron Tube PMTs (green and blue) than in the Hamamatsu PMTs (red). (b) $\mathrm{ADC}_{\mathrm{cosmic peak}}$ position for each bar (vetos not shown) after gain matching. All bars are well aligned.}
+		\caption{ (Top) Gain parameters for each PMT. One sees a greater spread in the Electron Tube PMTs (green and blue) than in the Hamamatsu PMTs (red). (Bottom) $\mathrm{ADC}_{\mathrm{cosmic peak}}$ position for each bar (vetos not shown) after gain matching. All bars are well aligned.}
+		\label{fig:hv_settings}
 \end{figure}
 
 %%% ----------------- Energy deposit subsection
@@ -810,7 +813,7 @@ strong dependence on pulse height. However, signals with pulse heights
 this low are not of interest, as we found they are dominated by background,
 rather than by neutrons (see Section~\ref{sec:neutronidentification}). Any residual corrections that are needed at higher pulse heights are corrected for iteratively, using the same equation as above. 
 
-\begin{figure*}[tbh!]
+\begin{figure*}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{fig18a-timewalkpre.pdf}
 		\includegraphics[width=0.48\textwidth]{fig18b-timewalkpost.pdf}
@@ -840,7 +843,7 @@ distinguished between short bars (boxes) and long bars (circles). The
 observed difference is due to geometrical effects from the different
 bar lengths.
 
-\begin{figure*}[tbh!]
+\begin{figure*}[tb]
 	\centering
 		\includegraphics[width=0.47\textwidth]{fig19a-offset.pdf}
 		\includegraphics[width=0.47\textwidth]{fig19b-effvel.pdf}
@@ -881,11 +884,11 @@ Flash ADC spectrum.  We also see this using the integral of the signal (over
 its amplitude (its peak) for $R(x)$, see Fig.~\ref{fig:atten} (right). The
 distribution is linear over the whole bar since most of
 the reflections are included in the large integration window of 80
-\si{\nano\s}. However, the attenuation length from the integrated
+\si{\nano\s}. However, the attenuation lengths from the integrated
 signals are very different from the bulk attenuation lengths and those
 measured in the bench tests due to the multiple reflections.
 
-\begin{figure*}[tbh!]
+\begin{figure*}[tb]
 	\centering
 		\includegraphics[width=0.48\textwidth]{fig20a-atten-amp.pdf}
 		\includegraphics[width=0.48\textwidth]{fig20b-atten-adc.pdf}
@@ -970,9 +973,9 @@ correlated with out-of-time electrons from other beam bunches.
 	\centering
 			\includegraphics[width=0.48\textwidth]{fig22a-laserres.pdf}
 		\includegraphics[width=0.48\textwidth]{fig22b-photonres.pdf}
-	\caption{Time resolution for every bar. (left) as measured
+	\caption{Time resolution for every bar. (Left) as measured
           with the laser calibration system for two separate energy
-          deposition cuts. (right) as measured
+          deposition cuts. (Right) as measured
           from the electron-photon time difference spectrum with a
           2-\si{\mega\electronvolt} energy deposition cut. All bars
           are at or below the required 300 \si{\pico\s} resolution. }
